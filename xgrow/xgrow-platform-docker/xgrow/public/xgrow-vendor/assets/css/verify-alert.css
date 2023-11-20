@@ -1,0 +1,19 @@
+.alert-warning {
+    border: none;
+    border-radius: 3px;
+    color: #ffb200;
+    border-left: 4px solid #ffb200;
+    background-color: #3d3736;
+}
+
+.alert-warning > i::before {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.alert-warning > span > a {
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffd572;
+}

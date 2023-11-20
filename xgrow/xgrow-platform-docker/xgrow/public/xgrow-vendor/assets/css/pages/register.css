@@ -1,0 +1,216 @@
+@import url('../ds-form.css');
+
+html, body {
+    width: 100% !important;
+    height: 100% !important;
+    font-family: Open Sans;
+    margin: 0;
+}
+
+/* Register Container */
+html {
+    background-color: #252625;
+}
+
+body {
+    background: rgba(0, 0, 0, 0.7) url('/xgrow-vendor/assets/img/background-login-x2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+#register {
+    min-height: 100% !important;
+    min-width: 100% !important;
+}
+
+.xgrow-img-logo {
+    width: 200px;
+    z-index: 1;
+    margin: 20px 0;
+}
+.xgrow-img-logo img {
+    width: 100%;
+}
+
+/* Register Card Container */
+.xgrow-card-transparent {
+    padding: 20px;
+    width: 70%;
+    background: rgba(34, 36, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    z-index: 1;
+    color: #FFF;
+}
+
+.xgrow-card-transparent .header {
+    margin: 30px 0;
+}
+
+.xgrow-card-transparent .header .title {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 160%;
+}
+
+.xgrow-card-transparent .header .subtitle {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+xgrow-card-transparent-body {
+    min-height: 500px;
+}
+
+#passwordInfo>h5 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#passwordInfo>p {
+    font-size: 15px;
+}
+
+.border-top {
+    border-top: 1px solid #393D49 !important;
+}
+
+.border-v {
+    border-left: #393D49 solid 2px;
+    height: 250px;
+    padding: 20px;
+}
+
+/* Xgrow custom button */
+/* Success Button */
+.xgrow-button-custom {
+    width: fit-content;
+    padding: 0 24px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--green1);
+    border: 0;
+    color: var(--white);
+    font: var(--text-medium-bold);
+    transition: background-color 0.2s;
+}
+
+/* Secundary Button */
+.xgrow-button-custom-secundary {
+    width: fit-content;
+    padding: 0 24px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #222429;
+    border: 0;
+    color: var(--white);
+    font: var(--text-medium-bold);
+    transition: background-color 0.2s;
+}
+
+.xgrow-button-custom-secundary:hover {
+    background-color: #24272e;
+    transition: all .6s;
+}
+
+/* Terms modal */
+#termsPanel {
+    background-color: #222429;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#terms {
+    background-color: #393D49;
+    border-radius: 8px;
+    height: 260px;
+    line-height: 24px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+#terms>p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+#terms>h4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+
+.xgrow-check {
+    align-items: center;
+    display: flex;
+    gap: .5rem;
+}
+
+.xgrow-check input {
+    cursor: pointer;
+}
+
+.xgrow-check label {
+    color: #FFFFFF !important;
+    font-size: 14px;
+    font-weight: normal !important;
+    position: initial;
+    cursor: pointer;
+}
+
+/* Last step */
+
+.user-avatar {
+    background: #222429;
+    border-radius: 8px;
+    padding: 20px 40px;
+    color: var(--green4);
+    font-weight: bold;
+}
+
+
+/* FOR MOBILE */
+@media (max-width: 768px) {
+    #register {
+        justify-content: flex-start !important;
+    }
+
+    .xgrow-card-transparent {
+        width: 90%;
+        margin-bottom: 20px !important;
+    }
+
+    .xgrow-tabs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .border-v {
+        border-left: 0;
+    }
+
+    #registerEnd {
+        text-align: center;
+    }
+
+    .footer {
+        text-align: center !important;
+    }
+}
+
+
+@media (max-width: 375px) {
+    #acceptTerms {
+        width: 28px !important;
+    }
+}

@@ -1,0 +1,49 @@
+#learningAreaApp {
+    margin: 0 -1.5rem !important;
+    display: grid;
+    grid-template-columns: 230px minmax(50%, 100%);
+    grid-template-rows: 1fr;
+    gap: 16px 0;
+    grid-template-areas:
+    "Menu Container";
+    min-height: calc(100vh - 64px);
+    position: relative;
+}
+
+#learningAreaMenu {
+    width: 230px;
+    display: block;
+    background: #252932;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.3);
+    min-height: 100%;
+    grid-area: Menu;
+}
+
+#learningAreaContent {
+    padding: 0 24px;
+    grid-area: Container;
+}
+
+#learningAreaMobileMenu {
+    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    #learningAreaApp {
+        grid-template-columns: minmax(50%, 100%);
+        grid-template-areas:
+        "Container";
+    }
+
+    #learningAreaMenu {
+        display: none;
+    }
+
+    #learningAreaMobileMenu {
+        display: block;
+    }
+
+    #learningAreaContent {
+        padding: 0 12px 0 60px;
+    }
+}

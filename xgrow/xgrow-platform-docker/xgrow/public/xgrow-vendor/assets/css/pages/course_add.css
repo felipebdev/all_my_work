@@ -1,0 +1,29 @@
+.xgrow-button-secondary i {
+    place-self: center;
+}
+.xgrow-card-header a {
+    color: var(--green2);
+}
+
+.add-module {
+    display: none;
+}
+
+.xgrow-course-frequency {
+
+    border: 0;
+
+    border-bottom: 1px solid var(--border-color);
+    background: var(--input-bg);
+    font: var(--text-large-regular);
+    color: var(--contrast-green3);
+}
+
+.xgrow-course-frequency option {
+    height: 500px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    background-color: var(--input-bg);
+    color: var(--font-color-inverted);
+    padding: 12px !important;
+    cursor: pointer !important;
+}

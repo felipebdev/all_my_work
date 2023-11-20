@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Design System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="input-ds.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+        body {
+            padding: 20px;
+            background-color: #000;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .card {
+            background-color: #2a2f39;
+            min-height: 300px;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .row{
+            display: flex;
+            gap: 15px;
+            flex-direction: row;
+            width: 100%;
+        }
+        h1{
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Input [type="text"]</h1>
+
+   <div class="row">
+       <div class="xgrow-ds-form-group">
+           <input type="text" class="xgrow-ds-input" name="text" id="text1" placeholder="Este é um placeholder de teste">
+           <label for="text1" class="xgrow-ds-label">Normal</label>
+       </div>
+
+       <div class="xgrow-ds-form-group">
+           <input type="text" class="xgrow-ds-input with-icon" name="text" id="text2"
+                  placeholder="Este é um placeholder de teste com icon">
+           <label for="text2" class="xgrow-ds-label">Normal + Icon</label>
+           <i class="fas fa-eye"></i>
+       </div>
+   </div>
+
+    <div class="row">
+        <div class="xgrow-ds-form-group">
+            <input type="text" class="xgrow-ds-input" name="text" id="text3"
+                   placeholder="Este é um input desativado de teste"
+                   disabled>
+            <label for="text3" class="xgrow-ds-label">Disabled + Icon</label>
+        </div>
+
+        <div class="xgrow-ds-form-group">
+            <input type="text" class="xgrow-ds-input with-icon" name="text" id="text4"
+                   placeholder="Este é um placeholder de teste com icon" disabled>
+            <label for="text4" class="xgrow-ds-label">Disabled</label>
+            <i class="fas fa-eye"></i>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

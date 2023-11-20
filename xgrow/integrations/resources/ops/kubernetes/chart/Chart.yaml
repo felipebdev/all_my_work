@@ -1,0 +1,4 @@
+apiVersion: v2
+description: Xgrow integrations applications
+name: integrations
+version: "1.0.0"

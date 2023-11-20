@@ -1,0 +1,228 @@
+.fandone-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+/*
+.fandone-bar div{
+  border: solid 1px #00f;
+}
+*/
+
+.fandone-footer{
+  display: flex;
+  justify-content: flex-start;
+  
+}
+
+.fandone-footer div{
+  width: 30%;
+}
+
+.fandone-bar-left {
+  padding: 3px;
+}
+
+.page-item{
+  font-weight: bold;
+  color: #999
+}
+
+.page-item.active .page-link {
+    background-color: lightgrey !important;
+    border: 1px solid black;
+}
+.page-link {
+    color: #999 !important;
+}
+
+.page-link {
+    background-color: #FFF !important;
+}
+
+.fandone-bar-right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dataTables_filter input{
+    background-repeat: no-repeat !important;
+    padding-left: 24px;
+    background: url('../images/search.png');
+    background-color: #eee;
+    width: 250px!important;
+}
+
+
+.dataTables_filter select{
+  background-color: #eee;
+    width: 150px!important;
+    margin-top: 4px
+}
+
+.fandone-bar-img {
+  height: 32px;
+}
+
+.create-button a{
+  width: 120px; 
+  padding: 4px;
+  margin-top: 3px;
+  background-color: #00BBDA !important;
+}
+
+.dt-buttons {
+  padding-top: 2px;
+  margin-left: 10px;
+  width: 140px;
+  display: flex;
+  justify-content: space-around; 
+}
+
+.fandone-table {
+  margin-top: 15px;
+    width: 100%;
+    text-align: left;
+    overflow:hidden;
+    border-collapse:separate;
+    border: solid #EBF0F6 1px;
+    -webkit-border-top-left-radius: 7px;
+       -moz-border-top-left-radius: 7px;
+            border-top-left-radius: 7px;
+    -webkit-border-top-right-radius: 7px;
+       -moz-border-top-right-radius: 7px;
+            border-top-right-radius: 7px;
+}
+
+.fandone-table thead {
+  background: #EBF0F6;
+  border-bottom: 1px solid #EBF0F6;
+}
+
+.fandone-table td {
+  border-top: 1px solid #EBF0F6!important;
+}
+
+.fandone-table th {
+  color: #888888;
+}
+
+.fandone-create {
+  background-color: #062d58;
+  padding: 8px 13px;
+  font-size: 14px;
+  border-radius: .25rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.fandone-create:hover {
+  color: #fff;
+}
+
+.fandone-edit i {
+  color: #888888;
+}
+
+.fandone-delete {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.fandone-delete i {
+  color: #888888;
+}
+
+.fandone-bc-item{
+    background-color: white;
+    height: 25px;
+}
+
+.fandone-bc-item a{
+   padding-left: 10px;
+   padding-right: 2px;
+}
+
+.fandone-bc li{
+   background-color: white;
+}
+
+.fandone-bc li:last-child{
+   padding-left: 10px;
+   padding-right: 15px;
+   color: #bbb;
+}
+
+.arrow{
+    margin-top: -2px;
+    background-color: white;
+    box-shadow: 3px 4px 4px #eee;
+    width: 18px;
+    height: 18px;
+    float: right;
+    /* Translate the box up by width / 2 then rotate */
+    -webkit-transform: translateY(05px) rotate(-45deg);
+}
+
+.fandone-cardbody-header{
+  color: #999;
+  padding-bottom: 10px
+}
+
+.fandone-column{
+  text-align: right!important;
+}
+
+.fandone-cardbody-header span{
+  color: #666;
+  font-weight: bold
+}
+
+/* dataTables CSS modification & positioning */
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  right: 0 !important;
+  content: "" !important;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  right: 0 !important;
+  content: "" !important;
+}
+
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before{
+  right: 0 !important;
+  content: "\21E9" !important;
+}
+
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after{
+  right: 0 !important;
+  content: "\21E7" !important;
+}
+
+
+.ckbx-style-8 input[type="checkbox"]:checked + label:before {
+  background: #0091C6!important;
+}
+
+.ckbx-style-8 label:before {
+  background: #C2C2C2!important;
+}
+
+.border-dotted{
+ border-style: dashed!important;
+ border-width: 2px!important;
+}
+
+.btn-danger-custom{
+  background: #dc3545!important;
+  border-color: #dc3545!important;
+}
+

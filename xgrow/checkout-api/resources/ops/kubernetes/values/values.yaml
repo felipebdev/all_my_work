@@ -1,0 +1,66 @@
+fullnameOverride: checkout
+
+imagePullSecrets:
+  - gcr-registry
+
+workers:
+  pixel:
+    command: "php artisan queue:work pixel --queue=pixel-queue --sleep=3 --tries=3"
+  balance-transactions:
+    command: "php artisan queue:work --queue=xgrow-jobs:balance-transactions --sleep=3 --tries=3"
+  ruler:
+    command: "php artisan queue:listen redis --queue=xgrow-jobs:ruler,xgrow-jobs:recurrences,xgrow-jobs:chargeback --tries=1"
+      #Régua de cobranças (retentativas) de sem lmiite e assinatura
+      #Cobrança regular de sem limite e assinaturas
+      #Chargeback
+  integrations:
+    command: "php artisan queue:listen redis --queue=xgrow-jobs:integrations-checkout --sleep=3 --tries=3"
+  bank-account-revert:
+    command: "php artisan queue:listen redis --queue=xgrow-jobs:finances:bank_account:revert --tries=3"
+
+cronjobs:
+  default:
+    schedule: "* * * * *"
+    command: "php artisan schedule:run"
+  abandoned-cart: # everyMinute
+    schedule: "* * * * *"
+    command: "php artisan xgrow:abandoned-cart-action"
+  expo-push-notifications: # everyMinute
+    schedule: "* * * * *"
+    command: "php artisan xgrow:expo:push-notifications"
+  recurrence-expiration: # hourly
+    schedule: "0 * * * *"
+    command: "php artisan xgrow:expire-payments-and-cancel"
+  boleto-pix-pending-refund: # at 3:00 (UTC-3)
+      schedule: "0 6 * * *"
+      command: "php artisan xgrow:verify-pending-refund-boleto"
+  boleto-pix-expiration: # at 7:30 (UTC-3)
+    schedule: "30 10 * * *"
+    command: "php artisan xgrow:run-five-days-expired-payments"
+  subscription-ruler: # at 9:00 (UTC-3)
+    schedule: "00 12 * * *"
+    command: "php artisan xgrow:charge-rules:subscription"
+  nolimit-ruler: # at 9:15 (UTC-3)
+    schedule: "15 12 * * *"
+    command: "php artisan xgrow:charge-rules:nolimit"
+  boleto-pix-upcoming: # at 9:30 (UTC-3)
+    schedule: "30 12 * * *"
+    command: "php artisan xgrow:notify-up-coming-boleto-pix"
+  boleto-pix-expired: # at 9:45 (UTC-3)
+    schedule: "45 12 * * *"
+    command: "php artisan xgrow:notify-expired-boleto-pix"
+  subscription:  # at 10:00 (UTC-3)
+    schedule: "0 13 * * *"
+    command: "php artisan xgrow:regular-charge:subscription"
+  nolimit:  # at 10:15 (UTC-3)
+    schedule: "15 13 * * *"
+    command: "php artisan xgrow:regular-charge:nolimit"
+  legacy-subscription: # at 10:30 (UTC-3)
+    schedule: "30 13 * * *"
+    command: "php artisan xgrow:regular-charge:legacy-subscription"
+  recurrence-upcoming: # at 14:00 (UTC-3)
+    schedule: "0 17 * * *"
+    command: "php artisan xgrow:upcoming:recurrence"
+  chargeback-pagarme: # at 23:00 (UTC-3)
+    schedule: "0 2 * * *"
+    command: "php artisan xgrow:pagarme-chargeback-update"

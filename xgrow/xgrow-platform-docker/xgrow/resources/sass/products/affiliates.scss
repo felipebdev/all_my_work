@@ -1,0 +1,131 @@
+.affiliates {
+  &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+  }
+
+  &__group {
+    margin-bottom: 30px;
+
+    &--p {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__button {
+    max-width: 200px!important;
+    width: 100%!important;
+    height: 48px;
+    border-radius: 8px;
+
+    &--cancel {
+      background: none;
+      border: 1px solid #FFF;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  &__manual {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__double-field {
+    display: flex;
+    gap: 20px;
+  }
+  &__copy-link {
+    position: absolute;
+    top: 13px;
+    z-index: 1;
+    height: 40px;
+    right: 10px;
+    border: 0px;
+    max-width: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 15px;
+  }
+
+  #first_click, #last_click {
+    margin-right: 0.5rem;
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  &__settings {
+
+  }
+
+  &__assignment {
+    display: flex;
+    gap: 1.5rem!important;
+  }
+
+  &__settings--disabled {
+    color: #595B63!important;
+
+    .affiliates__copy-link {
+      background: none!important;
+      color: #595B63 !important;
+    }
+
+    .affiliates__button {
+      background-color: #393D49 !important;
+      border: 0px!important;
+      color: #595B63 !important;
+    }
+  }
+
+  /**Mobile**/
+  @media screen and (max-width: 768px) {
+    &__button {
+      max-width: 100%!important;
+    }
+
+    &__title {
+      margin-bottom: 0.5rem;
+    }
+    &__enable {
+      padding-left: 1rem!important;
+    }
+    &__copy-link {
+      max-width: 35px;
+
+      span {
+        display:none
+      }
+    }
+    &__header {
+      flex-direction: column;
+    }
+
+    &__double-field {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__manual {
+      flex-direction: column;
+    }
+
+    &__cta {
+      flex-direction: column-reverse;
+    }
+
+    &__assignment {
+      flex-direction: column;
+    }
+  }
+}

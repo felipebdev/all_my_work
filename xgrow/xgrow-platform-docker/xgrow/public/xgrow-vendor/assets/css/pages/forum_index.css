@@ -1,0 +1,137 @@
+.img-forum {
+  max-width: 50%;
+}
+
+.img-forum img {
+  width: 100%;
+  height: auto;
+}
+
+.icon-forum {
+  height: 67px;
+}
+
+.icon-forum img {
+  height: 67px;
+  width: 67px;
+}
+
+.section-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9b9b9b;
+  background-color: var(--black-card-color);
+  border-radius: 8px;
+  height: 136px;
+  width: 256px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.section-photo > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+}
+
+.section-photo:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.card-course {
+  border-radius: 8px;
+  /* max-width: 330px; */
+}
+
+.card-section {
+  box-shadow: none;
+  background: #2a2e39;
+  border: none;
+}
+
+.section-label {
+  padding: 0;
+  font-weight: 700;
+  color: var(--font-color-inverted);
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.section-label-sub {
+  background-color: var(--black-card-color);
+  padding: 5px;
+  border-radius: 4px;
+  font: var(--text-medium-bold);
+  color: var(--red);
+}
+
+.section-label-sub.active {
+  color: var(--contrast-green);
+}
+
+.section-btn-group {
+  margin-left: 8px;
+}
+
+.section-btn-group .row a {
+  text-decoration: none;
+}
+
+.xgrow-button.btn-sm-section {
+  background-color: var(--black-card-color);
+  border-radius: 5px;
+  color: var(--font-color-inverted);
+  width: 40px;
+  height: 40px;
+  margin: 3px 0;
+}
+
+.xgrow-button.btn-sm-section:hover {
+  background-color: var(--contrast-gray);
+}
+
+.xgrow-button-secondary i {
+  place-self: center;
+}
+
+/* .topic-cell{
+  max-width: 750px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+} */
+
+.header-card-responsive {
+  border-radius: 8px;
+}
+
+.responsive-view {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .wide-view {
+    display: none;
+  }
+
+  .responsive-view {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-topics {
+    background-color: transparent;
+  }
+}

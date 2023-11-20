@@ -1,0 +1,100 @@
+div#driver-highlighted-element-stage {
+    background-color: #1A1A1A !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-tip.top {
+    border-color: transparent transparent #1A1A1A;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-tip.left {
+    border-color: transparent #1A1A1A transparent transparent;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-tip.right {
+    border-color: transparent transparent transparent #1A1A1A;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-tip.bottom {
+    border-color: #1A1A1A transparent transparent;
+}
+
+div#driver-popover-item.xgrow-popover {
+    max-width: 500px !important;
+    background-color: #1A1A1A !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-title {
+    font-size: 1rem;
+    width: calc(100% - 114.88px);
+    color: #fff !important;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-title > i {
+    color: #93BC1E !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-description {
+    color: #fff !important;
+    margin: 20px 0;
+    font-size: 0.875rem !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-description img {
+    height: 0.875rem;
+    width: auto;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-description p {
+    margin: 10px 0;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-description i.green {
+    color: #93BC1E !important;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-description i.yellow {
+    color: #dfbd45 !important;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-description i.red {
+    color: #E06D6D !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-footer .driver-close-btn {
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    color: #E06D6D;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1.089rem;
+    text-shadow: none !important;
+}
+div#driver-popover-item.xgrow-popover .driver-popover-footer .driver-close-btn i {
+    margin-bottom: -5px;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-footer button.driver-disabled {
+    display: none !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-footer .driver-prev-btn,
+div#driver-popover-item.xgrow-popover .driver-popover-footer .driver-next-btn {
+    font-size: 0.8rem;
+    line-height: 1.089rem;
+    font-weight: bold;
+    color: #fff !important;
+    border: none !important;
+    text-shadow: none !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-footer .driver-next-btn {
+    background-color: #93BC1E !important;
+}
+
+div#driver-popover-item.xgrow-popover .driver-popover-footer .driver-prev-btn {
+    background-color: #2A2E39 !important;
+}
+
+@media only screen and (max-width: 991px) {
+    div#driver-popover-item.xgrow-popover .driver-popover-title {
+        width: 100%;
+        margin-top: 25px;
+    }
+}

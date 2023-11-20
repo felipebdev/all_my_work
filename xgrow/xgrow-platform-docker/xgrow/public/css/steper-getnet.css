@@ -1,0 +1,203 @@
+.default-skin {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 10vh;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.pay-beta-main {
+    width: 80%;
+}
+
+.pay-beta-sidebar {
+    position: relative;
+    width: 40%;
+    margin-left: 30px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    height: 100%;
+}
+
+.steps {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.steps .step-item {
+    list-style: none;
+    display: inline-block;
+    width: 50%;
+}
+
+.steps .step-item .step-item-link.complete {
+    cursor: pointer;
+    color: #50b232;
+    border-bottom-color: #7cd063;
+}
+.steps .step-item .step-item-link {
+    font-size: 13px;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    line-height: 16px;
+    cursor: default;
+    color: #ccc;
+    background-color: #ededed;
+    position: relative;
+}
+
+.steps .step-item .step-item-link.active {
+    color: #639bd0;
+    cursor: default;
+    font-size: 16px;
+    background: #fff;
+    background: -webkit-gradient(linear,left top,right top,color-stop(0,#fff),to(#f5f5f5));
+    background: -o-linear-gradient(left,#fff 0,#f5f5f5);
+    background: linear-gradient(90deg,#fff,#f5f5f5);
+}
+
+.rounded {
+    border-radius: 50%;
+}
+
+.steps .step-item .step-item-link.complete .step-number {
+    border-color: #7cd063;
+    background-color: #7cd063;
+}
+.steps .step-item .step-item-link .step-number {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    -o-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    margin-right: 6px;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+}
+
+.payment-methods-icons[data-v-7c3f1d3b] {
+    padding: 5px 15px;
+    text-align: center;
+    background-color: #f1f1f1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.product-data-old .secure-purchase-badge[data-v-2665559e] {
+    top: 40px;
+    background-color: #7cd063;
+    padding: 10px 12px 10px 16px;
+    left: -10px;
+}
+
+.secure-purchase-badge.without-product[data-v-4371cce6] {
+    color: #7ba9d6;
+}
+.secure-purchase-badge[data-v-4371cce6] {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    font-size: 12px;
+    top: 15px;
+    left: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.secure-purchase-badge {
+    color: #fff!important;
+}
+.product-data-old .secure-purchase-badge[data-v-2665559e]:before {
+    position: absolute;
+    content: " ";
+    left: 0;
+    bottom: -10px;
+    display: block;
+    border-bottom: 10px;
+    border-left: 10px solid rgba(0,0,0,0);
+    border-right: 0 solid rgba(0,0,0,0);
+    border-top: 10px solid #56a03f;
+}
+
+.product-data-old .product-description[data-v-2665559e] {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 1em 0 10px;
+}
+
+.product-data-old .product-image[data-v-2665559e] {
+    float: left;
+    margin-right: 10px;
+}
+
+.offer-discount-button {
+    background-color: #f1f1f1;
+    padding: 20px 10px 10px;
+}
+
+.product-data-old .product-price[data-v-2665559e] {
+    color: #555;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.product-info-wrapper[data-v-2665559e] {
+    clear: both;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.secure-purchase-badge.without-product[data-v-4371cce6] {
+    color: #7ba9d6;
+}
+.secure-purchase-badge.without-product[data-v-4371cce6] {
+    color: #7ba9d6;
+}
+.secure-purchase-badge[data-v-4371cce6] {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    font-size: 12px;
+    top: 15px;
+    left: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.secure-purchase-badge {
+    color: #fff!important;
+}
+
+.div-log {
+    width:150px;
+    height:30px;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: 50% 50%;
+}

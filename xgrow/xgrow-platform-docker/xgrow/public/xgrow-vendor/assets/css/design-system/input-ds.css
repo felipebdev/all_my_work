@@ -1,0 +1,85 @@
+/* ================ FORM GROUP =============== */
+.xgrow-ds-form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.xgrow-ds-form-group > svg {
+    color: var(--ds2-secondary-60);
+    position: absolute;
+    margin: 22px 0;
+    right: 12px;
+}
+
+/* ================ INPUT GENERAL =============== */
+.xgrow-ds-input {
+    height: 65px;
+    background: var(--ds2-primary-90);
+    border: none;
+    outline: 0;
+    font-size: 16px;
+    padding: 20px 0 0 12px;
+    color: var(--ds2-secondary-60);
+    border-bottom: 1px solid var(--ds2-secondary-60);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+    transition: border-bottom 0.4s ease-in-out;
+}
+
+.xgrow-ds-input::placeholder {
+    color: var(--ds2-secondary-70);
+    position: absolute;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+    padding-top: 14px;
+}
+
+.xgrow-ds-input:focus {
+    border-color: var(--ds2-action-dark);
+    color: var(--ds2-action-dark);
+}
+
+.xgrow-ds-input:disabled {
+    cursor: not-allowed !important;
+    background-color: var(--ds2-secondary-100) !important;
+    color: var(--ds2-secondary-90) !important;
+}
+
+.xgrow-ds-input:not(:placeholder-shown) {
+    border-color: var(--ds2-action-dark);
+}
+
+/* ================ INPUT LABEL =============== */
+.xgrow-ds-label {
+    color: var(--ds2-white);
+    position: absolute;
+    margin: 6px 0 0 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.xgrow-ds-input:not(:placeholder-shown) ~ label {
+    color: var(--ds2-action-dark);
+}
+
+/* ================ INPUT WITH ICON =============== */
+.xgrow-ds-input.with-icon {
+    padding: 20px 42px 0 12px;
+}
+
+.xgrow-ds-input:not(:placeholder-shown) ~ svg {
+    color: var(--ds2-action-dark);
+}
+
+.xgrow-ds-input:disabled ~ label,
+.xgrow-ds-input:disabled ~ svg,
+.xgrow-ds-input:disabled::placeholder {
+    color: var(--ds2-secondary-90);
+}

@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+message="$(cat $1)"
+requiredPattern="^\(feat|fix|refactor|merge|test|chore\): .+"
+if ! echo "$message" | grep -iqE "$requiredPattern";
+then
+  echo "-"
+  echo "-"
+  echo "-"
+  echo "🚨 Wrong commit message! 😕"
+  echo "The commit message must have this format:"
+  echo "Allowed: feat|fix|refactor|merge|test|chore"
+  echo "Example: (feat): some endpoint"
+  echo "-"
+  echo "Your commit message was:"
+  echo $message
+  echo "-"
+  echo "For more information, check script in .husky/commit-msg"
+  echo "-"
+  exit 1
+fi

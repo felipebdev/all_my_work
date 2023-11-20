@@ -1,0 +1,22 @@
+service: login-poc
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    debug: true
+    stages:
+     - local
+     - dev
+    endpointFile: localstack_endpoints.json
+    
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+
+functions:
+  hello:
+    handler: handler.hello

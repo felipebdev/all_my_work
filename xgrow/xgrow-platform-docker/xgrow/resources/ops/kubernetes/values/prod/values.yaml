@@ -1,0 +1,55 @@
+## Image settings
+image:
+  name: us-east1-docker.pkg.dev/xstaging-348615/platform/xgrow
+  tag: latest
+
+sidecar:
+  enabled: true
+  image:
+    name: us-east1-docker.pkg.dev/xstaging-348615/platform/xgrow_nginx
+    tag: latest
+    pullPolicy: Always  
+
+imagePullSecrets:
+  - gcr-registry
+
+## Ingress
+ingress:
+  
+  # Lista de hosts
+  hosts:
+    - host: login.xgrow.com
+      path: /
+      port: 80
+
+## Quantidade de Replicas
+replicas: 2
+
+## Resources
+resources:
+  limits:
+    cpu: 800m
+    memory: 1800Mi
+  requests:
+    cpu: 250m
+    memory: 246Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80  
+
+workers:
+  work:
+    command: "php artisan queue:work --sleep=3 --tries=3 --timeout=180"
+  emails:
+    command: "php artisan queue:work --queue=xgrow-emails --sleep=3 --tries=3"
+  integrations:
+    command: "php artisan queue:listen redis --queue=xgrow-jobs:integrations: --sleep=3 --tries=3"
+
+cronjobs:
+  laravel:
+    schedule: "* * * * *"    
+    command: "php artisan schedule:run"

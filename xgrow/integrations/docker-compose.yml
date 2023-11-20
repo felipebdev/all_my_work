@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  integrations:
+    build: .
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - MONGO_SRV=${MONGO_SRV}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+    networks:
+      - integrations-network
+
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+    volumes:
+      - redis:/data
+    networks:
+      - integrations-network
+
+  mongo:
+    image: mongo
+    ports:
+      - "${MONGO_PORT}:${MONGO_PORT}"
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - integrations-network
+
+networks:
+  integrations-network:
+    driver: bridge
+
+volumes:
+  mongodb:
+  redis:

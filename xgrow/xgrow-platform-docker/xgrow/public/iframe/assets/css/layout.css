@@ -1,0 +1,196 @@
+.card{
+  
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:    1px 1px 4px rgba(0, 0, 0, 0.1);
+   box-shadow:         1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-section{
+  padding:10px 10px 0 10px;
+  border-radius: 0;
+}
+
+.article-content{
+  padding: 10px;
+}
+
+
+
+
+.sidenav {
+height: 100%;
+width: 90px;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+
+transition: 0.5s;
+overflow-x: hidden;
+
+white-space: nowrap;
+-webkit-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:     4px 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidenav a {
+padding: 8px 8px 8px 10px;
+text-decoration: none;
+font-size: 18px;
+
+display: block;
+}
+
+#content{
+  padding-left: 0;
+}
+
+
+main .sidenav {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+.material-icons,
+.icon-text {
+vertical-align: middle;
+}
+
+.material-icons {
+padding-bottom: 3px;
+margin-right: 10px;
+}
+
+#main {
+padding: 16px;
+margin-left: 90px;
+transition: margin-left 0.5s;
+}
+
+#toggle-icon{
+transition: margin-left 0.5s;
+margin-left: 200px;
+}
+
+
+
+
+a{
+text-decoration: none;
+}
+a:hover{
+text-decoration: none;
+}
+
+.profile-pic{
+border-radius: 100%;
+
+}
+.profile-pic-link{
+height: 60px;
+width: 80px;
+}
+
+.profile-pic-container{
+height: 60px;
+margin-bottom: 10px ;
+margin-right: 10px;
+}
+
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+
+
+#main > .container {
+padding: 60px 15px 0;
+}
+
+
+
+
+
+
+.footer > .container {
+padding-right: 15px;
+padding-left: 110px;
+}
+
+code {
+font-size: 80%;
+}
+
+.button {
+border: none;
+padding: 5px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 16px;
+width: 150px;
+}
+
+#divBusca{
+
+border:none;
+border-radius:15px;
+margin-right: 5%;
+height: 50%;
+width: 40%;
+}
+
+
+
+#txtBusca{
+float:left;
+background-color:transparent;
+padding-left:5px;
+
+font-size:18px;
+border:none;
+height:32px;
+
+
+}
+
+/* section style */
+
+
+.card-img-top{
+  border-radius: 0;
+}
+
+.card-img-top{
+  height: 200px;
+
+  object-fit: cover;
+}
+
+#list_modules{
+  margin-bottom: 10px;
+
+
+} 
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,26 @@
+fullnameOverride: platform
+
+## Image settings
+image:
+  name: registry.digitalocean.com/xgrow-registry/xgrow
+  tag: develop-latest
+
+
+imagePullSecrets:
+  - digitaloceanregistrykey
+ 
+## Ingress
+ingress:
+
+  ## Annotations
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.org/client-max-body-size: "25m"
+    service.beta.kubernetes.io/do-loadbalancer-name: "xgrow-dev"
+    service.beta.kubernetes.io/do-loadbalancer-size-slug: "lb-small"

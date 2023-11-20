@@ -1,0 +1,54 @@
+.nav-link {
+    cursor: pointer;
+}
+
+.xgrow-ds-badge {
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: .85rem;
+    width: 94px;
+    border-radius: 4px;
+}
+
+.xgrow-ds-badge-success {
+    background-color: rgba(123, 186, 74, 0.1);
+    color: #7CBB4B;
+}
+
+.xgrow-ds-badge-danger {
+    background-color: rgba(187, 75, 75, 0.1);
+    color: #bb4b4b;
+}
+
+.xgrow-ds-badge-warning {
+    background-color: rgba(187, 146, 75, 0.1);
+    color: #bb924b;
+}
+.alert-warning {
+    border: none;
+    border-radius: 3px;
+    color: #ffb200;
+    border-left: 4px solid #ffb200;
+    background-color: #3D3736;
+}
+
+.alert-warning > i::before, .alert-warning > div > i::before {
+    background: rgba(0, 0, 0, .1);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.alert-warning > span > a {
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffd572;
+}
+
+.alert-warning > div > button {
+    border: none;
+    background: transparent;
+    color: #ffb200;
+    font-size: 19px;
+    margin-left: 10px;
+}

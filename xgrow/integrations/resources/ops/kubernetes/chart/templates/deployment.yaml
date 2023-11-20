@@ -1,0 +1,115 @@
+## App Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "integration.fullname" . }}
+  labels:
+    {{ include "integration.defaultLabels" . }}
+    {{ include "integration.extraLabels" . }}
+
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "integration.name" . }}
+      release: {{ .Release.Name }}
+
+   {{- if .Values.deployment.strategy }}
+  strategy:
+{{ toYaml .Values.deployment.strategy | indent 4 }}
+  {{- end }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ include "integration.name" . }}
+        chart: {{ include "integration.chart" . }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        {{- if .Values.deployment.podLabels }}
+{{ toYaml .Values.deployment.podLabels | indent 8 }}
+        {{- end }}
+    spec:
+      {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      {{- end }}
+
+      affinity:
+      {{- if .Values.affinity }}
+{{ toYaml .Values.affinity | indent 8 }}
+      {{- end }}
+
+      # Initialize: set a command to be executed in the Values.initCommand
+      {{- if .Values.initCommand }}
+      initContainers:
+      - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: init
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: {{ .Values.initCommand | toJson }}
+        envFrom:
+          - configMapRef:
+              name: {{ template "integration.fullname" $ }}-config-env
+          - secretRef:
+              name: integrations-secrets
+
+      {{- end }}
+
+      containers:
+
+      # App Container
+      - image:  {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: {{ include "integration.fullname" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+        # Command
+        {{- if .Values.command }}
+        command: {{ .Values.command | toJson }}
+        {{- end }}
+
+        # Args
+        {{- if .Values.args }}
+        args: {{ toYaml .Values.args | toJson }}
+        {{- end }}
+
+        # Env from configmap and secrets
+        envFrom:
+          - configMapRef:
+              name: {{ template "integration.fullname" $ }}-config-env
+          - secretRef:
+              name: {{ template "integration.fullname" $ }}-secrets
+
+        volumeMounts:
+        - mountPath: /configs
+          name: integrations-config-env
+        - mountPath: /secrets
+          name: {{ template "integration.fullname" $ }}-secrets
+        
+        {{- if .Values.livenessProbe }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        {{- end }}
+
+        {{- if .Values.readinessProbe }}
+        livenessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        {{- end }}
+
+      # Image pull secrets
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- range .Values.imagePullSecrets }}
+        - name: {{ . | quote }}
+        {{- end }}
+      {{- end }}
+
+
+      volumes:
+      - name: integrations-config-env
+        configMap:
+          name: integrations-config-env
+      - name: {{ template "integration.fullname" $ }}-secrets
+        secret:
+          secretName: {{ template "integration.fullname" $ }}-secrets
+      

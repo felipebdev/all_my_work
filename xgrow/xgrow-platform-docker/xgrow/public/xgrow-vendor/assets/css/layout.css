@@ -1,0 +1,631 @@
+@import "./components.css";
+@import url("./colors.css");
+
+body {
+    background: var(--background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* =========================== containers =========================== */
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#main-nav {
+    width: calc(100% - 200px);
+    background-color: #1d1e24;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+    -webkit-transition: width 0.25s ease-out;
+    -moz-transition: width 0.25s ease-out;
+    -o-transition: width 0.25s ease-out;
+    transition: width 0.25s ease-out;
+}
+
+#input-header {
+    background-color: var(--header-seach-bg);
+}
+
+#input-header span {
+    color: var(--placeholder-color) !important;
+}
+
+#input-header input::placeholder {
+    color: var(--placeholder-color) !important;
+    opacity: 1;
+}
+
+#sidebar-wrapper {
+    width: 200px;
+    min-height: 100vh;
+    margin-left: 0;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+    background-color: var(--sidenav-color);
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+    margin-top: 64px;
+    margin-left: 0px;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+}
+
+.menu-toggle {
+    cursor: pointer;
+}
+
+#user-info {
+    color: var(--white);
+    /* width: 220px; */
+    height: 32px;
+    margin-right: 16px;
+}
+
+#user-info #image-user-header {
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    margin-right: 16px;
+}
+
+#user-info #image-user-header img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-position: 50% 50%;
+}
+
+#user-info #image-user-header i {
+    font-size: 32px;
+}
+
+#user-info #text-user-header p:first-child {
+    font: var(--text-large-regular);
+    color: var(--header-title);
+}
+
+#user-info #text-user-header p:last-child {
+    font: var(--text-medium-italic);
+}
+
+.nav-eye,
+.nav-eye:hover {
+    color: var(--header-title);
+}
+
+/* =========================== elementos da sidenav wide =========================== */
+.xgrow-sidenav {
+    position: fixed;
+    height: 100%;
+    scrollbar-width: thin;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.xgrow-sidenav::-webkit-scrollbar {
+    width: 6px;
+    /* width of the entire scrollbar */
+}
+
+.xgrow-sidenav::-webkit-scrollbar-track {
+    background: var(--gray1);
+    /* color of the tracking area */
+}
+
+.xgrow-sidenav::-webkit-scrollbar-thumb {
+    background-color: var(--green1);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 6px solid var(--green1);
+    /* creates padding around scroll thumb */
+}
+
+#wide-list-group>.list-group-item {
+    background-color: var(--sidenav-color);
+    color: var(--sidenav-font-color);
+    font: var(--text-medium-regular);
+    border: 0;
+    padding-left: 12px;
+}
+
+#wide-list-group>.list-group-item.active {
+    /* padding-left: 57px; */
+}
+
+@media screen and (max-width: 767px) {
+    #wide-list-group>.list-group-item.active {
+        padding-left: 12px;
+    }
+}
+
+#wide-list-group {
+    margin-top: 24px;
+}
+
+#wide-list-group>a>i {
+    width: 20px;
+    height: 20px;
+}
+
+#wide-list-group>.list-group-mobile-item.list-group-item-action.active span {
+    margin-left: 0 !important;
+}
+
+#wide-list-group>.list-group-mobile-item.list-group-item.xgrow-drop.active:before {
+    content: none;
+}
+
+#wide-list-group>.list-group-item:hover,
+#wide-list-group>.list-group-item:focus {
+    background-color: var(--sidenav-hover-color);
+    color: var(--sidenav-font-active-color-sub);
+    border: 0;
+}
+
+.btn-icon-burguer {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-color-whited);
+    background: var(--sidenav-color);
+    border: none;
+
+    /* Make border great again */
+    -webkit-border-top-right-radius: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+    -moz-border-radius-topright: 15px;
+    -moz-border-radius-bottomright: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.btn-icon-burguer i {
+    margin-left: -4px;
+}
+
+.btn-icon-burguer:hover i::before {
+    content: "\f060";
+}
+
+.open.btn-icon-burguer:hover i::before {
+    content: "\f061";
+}
+
+.btn-icon-burguer:hover {
+    color: var(--contrast-green);
+    transition: 0.25s;
+    padding: 15px;
+}
+
+/* #wide-logo .btn-icon-burguer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#responsive-logo .btn-icon-burguer {
+  margin-bottom: 20px;
+} */
+
+/* .toggled .btn-icon-burguer {
+  animation-name: animIcon;
+  animation-duration: 0.4s;
+} */
+
+/* .btn-icon-burguer.open {
+  animation-name: animIconOpen;
+  animation-duration: 0.4s;
+}
+
+@keyframes animIconOpen {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animIcon {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+.list-principal-item.active {
+    background-color: rgba(0, 0, 0, 0.09) !important;
+    color: var(--sidenav-box-shadow) !important;
+}
+
+.list-group-item.active {
+    /* color: var(--sidenav-font-active-color) !important; */
+    background-color: var(--sidenav-active-color);
+    font: var(--text-medium-bold);
+    box-shadow: inset 4px 0 0 0 var(--sidenav-box-shadow) !important;
+    font-weight: bold !important;
+    border: 0;
+}
+
+/* button.list-group-item.active {
+    color: var(--sidenav-font-active-color) !important;
+} */
+
+/* .list-group-item.active:before {
+    content: "";
+    width: 0;
+} */
+.list-subgroup-item.active {
+    box-shadow: none !important;
+}
+
+.list-group-item+.list-group-item.active {
+    margin-top: 0;
+}
+
+.list-group-item+.list-group-item.active>i {
+    margin-top: 2px;
+}
+
+.list-subgroup-item.active:before {
+    content: none !important;
+}
+
+.list-bottomgroup-item.active {
+    background-color: rgba(0, 0, 0, 0.005) !important;
+    box-shadow: inset 4px 0 0 var(--green4-lighter) !important;
+}
+
+.list-bottomgroup-item.active:before {
+    content: none !important;
+}
+
+.list-group-item+a.list-group-item.active {
+    color: var(--sidenav-box-shadow) !important;
+}
+
+.list-group-item+button.list-group-item.active {
+    color: var(--sidenav-box-shadow) !important;
+}
+
+.collapse-group-item {
+    border: none !important;
+}
+
+.collapse-group-item.active {
+    box-shadow: none !important;
+    color: var(--sidenav-box-shadow) !important;
+}
+
+.collapse-subgroup-item i,
+.collapse-group-collapse-body i {
+    font-size: 12px !important;
+    display: flex;
+    justify-content: center;
+}
+
+.collapse-group-collapse-body a {
+    border: none !important;
+}
+
+#wide-list-group>.list-group-item.xgrow-drop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#wide-list-group>a.list-group-item.xgrow-drop.active {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: var(--sidenav-font-color) !important;
+}
+
+#wide-list-group>button.list-group-item.xgrow-drop.active {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: var(--sidenav-font-active-color) !important;
+}
+
+.xgrow-sidenav-collapse-body>.list-group-item {
+    font: var(--text-medium-regular);
+    color: var(--sidenav-font-color);
+    background-color: var(--sidenav-subcomponent-color);
+    border-bottom: 1px solid var(--sidenav-border-color);
+    padding-left: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-group-item-action.active {
+    width: 100%;
+}
+
+.xgrow-sidenav-collapse-body>.list-group-item:hover {
+    background-color: var(--sidenav-font-hover-color);
+    color: var(--sidenav-font-active-color-sub);
+    font-weight: normal;
+}
+
+.xgrow-sidenav-collapse-body>a.list-group-item.active {
+    color: var(--sidenav-box-shadow) !important;
+    background-color: rgba(0, 0, 0, 0.09);
+    box-shadow: inset 4px 0 0 var(--sidenav-box-shadow) !important;
+}
+
+.xgrow-sidenav-collapse-body>button.list-group-item.active {
+    color: var(--sidenav-font-active-color) !important;
+    background-color: rgba(0, 0, 0, 0.09);
+    box-shadow: inset 4px 0 0 var(--sidenav-box-shadow) !important;
+}
+
+/* .xgrow-sidenav-collapse-body.collapse.show
+    .list-group-item.xgrow-drop.list-group-item-action.active {
+    padding-left: 0;
+}
+@media screen and (max-width: 767px) {
+    .xgrow-sidenav-collapse-body.collapse.show
+        .list-group-item.xgrow-drop.list-group-item-action.active {
+        padding-left: 50px;
+    }
+} */
+.xgrow-sidenav-collapse-body.nested>.list-group-item {
+    padding-left: 75px;
+}
+
+.xgrow-sidenav-collapse-body.nested.collapse .list-bottomgroup-item.list-group-item.list-group-item-action {
+    background-color: var(--sidenav-subcomponent-color2) !important;
+}
+
+.xgrow-sidenav-collapse-body.nested.collapse .list-bottomgroup-item.list-group-item.list-group-item-action.active {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 24px 8px 0px 8px;
+    font-size: 1.2rem;
+}
+
+#wide-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 20px 10px;
+}
+
+#sidebar-wrapper .list-group {
+    width: 200px;
+}
+
+/* =========================== elementos da sidenav colapsada =========================== */
+#responsive-logo {
+    width: 110px;
+    height: 55px;
+    display: none;
+    padding: 10px;
+}
+
+#wrapper #sidebar-wrapper #responsive-list-group {
+    display: none;
+}
+
+/* =========================== Quando a sidenav é colapsada =========================== */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -112px;
+}
+
+#wrapper.toggled #main-nav {
+    width: calc(100% - 72px);
+}
+
+#wrapper.toggled #page-content-wrapper {
+    margin-left: 72px;
+}
+
+#wrapper.toggled #sidebar-wrapper .sidebar-heading #wide-logo {
+    display: none;
+}
+
+#wrapper.toggled #sidebar-wrapper #responsive-list-group {
+    display: block;
+    margin-left: 112px;
+    /* margin-top: 50px; // Inicial */
+    margin-top: 70px;
+    /* Estilo 1 */
+}
+
+#wrapper.toggled #sidebar-wrapper #responsive-list-group.active a,
+#wrapper.toggled #sidebar-wrapper #responsive-list-group.active button {
+    color: var(--sidenav-box-shadow) !important;
+    box-shadow: none !important;
+}
+
+#wrapper.toggled #sidebar-wrapper #responsive-list-group button.collapse-group-item.list-group-item.xgrow-drop.list-group-item-action.active {
+    color: var(--sidenav-box-shadow) !important;
+    box-shadow: none !important;
+}
+
+#wrapper.toggled #sidebar-wrapper #responsive-list-group a,
+#wrapper.toggled #sidebar-wrapper #responsive-list-group button {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
+    margin: 13px 39px;
+    padding: 0;
+    text-align: center;
+    color: var(--font-color-whited);
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+#wrapper.toggled #sidebar-wrapper #responsive-list-group a:hover,
+#wrapper.toggled #sidebar-wrapper #responsive-list-group button:hover {
+    background-color: var(--sidenav-hover-color);
+    color: var(--sidenav-font-active-color-sub);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin: 10px 0px 19px 33px;
+    align-items: center;
+}
+
+#wrapper.toggled #sidebar-wrapper .list-group {
+    width: 80px;
+}
+
+#wrapper.toggled #sidebar-wrapper #wide-list-group {
+    display: none;
+}
+
+#wrapper.toggled #sidebar-wrapper .sidebar-heading #responsive-logo {
+    display: block;
+}
+
+#wrapper.toggled #sidebar-wrapper .sidebar-heading {
+    /* padding: 24px 40px 0px 109px; // Inicial */
+    padding: 10px 0px 0px 109px;
+    /* Estilo 1 */
+}
+
+/* Ajustes */
+.xgrow-card-body div#subscriberChart>div,
+.xgrow-card-body div#subscriberChart>div canvas,
+.xgrow-card-body div#hitsPerHourChart>div,
+.xgrow-card-body div#hitsPerHourChart>div canvas,
+div#ageGenderChart>div,
+div#ageGenderChart>div canvas,
+.xgrow-card-body div#hitsByLocationChart>div,
+.xgrow-card-body div#hitsByLocationChart>div canvas,
+.xgrow-card-body div#mostViewedCoursesChart>div,
+.xgrow-card-body div#mostViewedCoursesChart>div canvas,
+.xgrow-card-body div#chart-installments>div,
+.xgrow-card-body div#chart-installments>div canvas,
+.xgrow-card-body div#mostViewedByCourseChart>div,
+.xgrow-card-body div#mostViewedByCourseChart>div canvas,
+.xgrow-card-body div#chart-period>div,
+.xgrow-card-body div#chart-period>div canvas {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    #user-info {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 85%;
+        margin-left: 200px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -128px;
+    }
+}
+
+@media (max-width: 767px) {
+    #wrapper.toggled #page-content-wrapper {
+        margin-left: 0px;
+    }
+
+    #wrapper.toggled #main-nav {
+        width: 100%;
+    }
+
+    #main-nav {
+        background-color: var(--sidenav-color);
+        position: fixed;
+        /* height: 100%; */
+        width: 100%;
+        scrollbar-width: thin;
+    }
+
+    #main-nav::-webkit-scrollbar {
+        width: 6px;
+        /* width of the entire scrollbar */
+    }
+
+    #main-nav::-webkit-scrollbar-track {
+        background: var(--gray1);
+        /* color of the tracking area */
+    }
+
+    #main-nav::-webkit-scrollbar-thumb {
+        background-color: var(--green1);
+        /* color of the scroll thumb */
+        border-radius: 20px;
+        /* roundness of the scroll thumb */
+        border: 6px solid var(--green1);
+        /* creates padding around scroll thumb */
+    }
+
+    #sidebar-wrapper {
+        display: none;
+    }
+
+    #wide-list-group {
+        margin-top: 0;
+    }
+}
+
+/* --- DOM Loading --- */
+
+.dom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--black-card-color);
+}
+
+.dom-title {
+    color: var(--font-color-whited);
+    font: var(--text-large-regular);
+    font-weight: 600;
+    font-size: 2.5vh;
+    padding: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.dom-xgrow-logo img {
+    width: 250px;
+    margin-top: -12px;
+}
+
+.x-dropdown {
+    position: unset !important;
+}
+
+.w-170 {
+    width: 170px !important;
+}

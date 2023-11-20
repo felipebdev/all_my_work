@@ -1,0 +1,68 @@
+.modal-tipo-btn {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #4B4B4B;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.modal-tipo-btn i {
+    font-size: 50px;
+}
+
+.modal-tipo-btn p {
+    font-size: 12px;
+}
+
+.modal-tipo-btn.disabled {
+    color: #9B9B9B;
+    cursor: default;
+}
+
+.modal-tipo-btn-alert p {
+    color: #34CEFE;
+    font-size: 12px;
+}
+
+.modal-tipo-btn-alert i {
+    color: #34CEFE;
+}
+
+.dark-mode .modal-tipo-btn {
+    background-color: #4B4B4B;
+    border: none;
+}
+
+.dark-mode .modal-tipo-btn.disabled {
+    background-color: #4b4b4b80;
+    border: none;
+}
+
+.change-antecipation {
+    width: 50%;
+    cursor: pointer;
+}
+
+.change-antecipation.selected {
+    border: 1px solid var(--contrast-green);
+    border-radius: 5px;
+}
+
+.antecipation-info {
+    color: #4B4B4B;
+    font-size: 12px;
+    font-size: 12px
+}
+
+.antecipation-info ul li {
+    list-style: disc;
+}
+
+.dark-mode .antecipation-info {
+    color: #fff;
+}

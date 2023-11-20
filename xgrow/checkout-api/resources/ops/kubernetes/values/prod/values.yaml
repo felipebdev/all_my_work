@@ -1,0 +1,60 @@
+## Image settings
+image:
+  name: us-east1-docker.pkg.dev/xstaging-348615/platform/checkout-api
+  tag: latest
+
+sidecar:
+  image: 
+    name: us-east1-docker.pkg.dev/xstaging-348615/platform/checkout-api_nginx
+    tag: latest
+
+imagePullSecrets:
+  - gcr-registry
+  
+## Ingress
+ingress:
+    ## Annotations
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.org/client-max-body-size: "25m"
+
+  # Lista de hosts
+  hosts:
+    - host: checkout-api.xgrow.com
+      path: /
+      port: 80
+
+## Quantidade de Replicas
+replicas: 6
+
+## Resources
+resources:
+  limits:
+    cpu: 800m
+    memory: 1800Mi
+  requests:
+    cpu: 250m
+    memory: 512Mi
+
+workers:
+  resources:
+    limits:
+      cpu: 600m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 256Mi
+
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80

@@ -1,0 +1,45 @@
+@import url("./components.css");
+@import url("./colors.css");
+
+.xgrow-vue-select2 {
+    width: 100% !important;
+    height: 60px !important;
+    padding: 8px !important;
+    padding-top: 18px !important;
+    padding-left: 16px !important;
+    border: var(--none) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    border-radius: 0 !important;
+    background: var(--input-bg) !important;
+    font: var(--text-large-regular) !important;
+    color: var(--contrast-green3) !important;
+}
+
+.xgrow-vue-select2 .text {
+    color: var(--font-color-inverted) !important;
+}
+
+.xgrow-vue-select2 input {
+    height: 60px !important;
+    color: var(--contrast-green3) !important;
+    font: var(--text-large-regular) !important;
+}
+
+.xgrow-vue-select2 i {
+    margin-top: 0 !important;
+}
+
+.xgrow-vue-select2 .menu {
+    border: none !important;
+    background-color: var(--input-bg) !important;
+    border-radius: 0 !important;
+}
+
+.xgrow-vue-select2 .menu .item {
+    color: var(--white) !important;
+    border-radius: 0 !important;
+}
+
+.xgrow-vue-select2 .menu .item:hover {
+    background-color: var(--contrast-green2) !important;
+}

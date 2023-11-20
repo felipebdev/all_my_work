@@ -1,0 +1,182 @@
+@import "section_index.css";
+@import "lives.css";
+
+.input-no-label {
+    padding-top: 0 !important;
+    height: 46px !important;
+    min-width: fit-content !important;
+}
+
+.mui-textfield-no-label {
+    margin-bottom: 0 !important;
+}
+
+#content-table>tbody>tr {
+    vertical-align: middle;
+    height: 5rem;
+}
+
+input[type="color"] {
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    border-radius: 999px !important;
+    background-color: transparent;
+    padding: 0;
+    overflow: hidden;
+}
+
+.xgrow-button-cancel {
+    color: var(--font-color);
+}
+
+.export-button {
+    background-color: var(--ds2-primary-100, #21242D) !important;
+}
+
+.xgrow-button-filter {
+    width: fit-content !important;
+    padding: 0px 14px;
+}
+
+.charts-no-content {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.charts-no-content p {
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.ch-delete-button, .ch-add-button {
+    background-color: var(--black-card-color);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.ch-delete-button.has-margin,
+.ch-add-button.has-margin {
+    margin-left: -45px;
+}
+
+.ch-delete-button {
+    color: var(--red);
+}
+
+.ch-add-button {
+    color: var(--green1);
+}
+
+.gamification__icons {
+    width: 15px;
+    font-size: 12px;
+}
+
+.gamification__edit, .gamification__answer {
+    color: var(--green1);
+}
+
+.gamification__delete {
+    color: var(--red)
+}
+
+.gamification__dropdown {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.settings__items {
+    display: flex;
+    gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .settings__items {
+        flex-direction: column;
+    }
+}
+
+.settings__title {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 450px) {
+    .settings__title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.xgrow-tab-item {
+    border-bottom: 2px solid #dfdfdf!important;
+}
+
+.xgrow-tab-item.active {
+    border-bottom: 4px solid var(--tab-active)!important;
+}
+
+.xgrow-tabs {
+    border-bottom: 1px solid #353a47;
+}
+
+.gamification__search-field {
+    max-width: 300px;
+    width: 100%;
+}
+
+.gamification__search-field input {
+    height: 50px!important;
+}
+
+.gamification__search-field span {
+    top:13px!important;
+    color: rgb(147, 188, 30);
+}
+
+.gamification__filter-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.gamification__tools-bar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gamification__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .gamification__header {
+        flex-direction: column;
+    }
+    .gamification__filter-container, .gamification__tools-bar {
+        flex-direction: column;
+    }
+
+
+    .gamification__advanced-filter {
+        margin-bottom: 1rem;
+    }
+
+}
+@media screen and (max-width: 992px) {
+    .gamification__tools-bar {
+        flex-wrap: wrap;
+    }
+    .gamification__filter-container .form-group {
+        margin: 0px;
+    }
+}

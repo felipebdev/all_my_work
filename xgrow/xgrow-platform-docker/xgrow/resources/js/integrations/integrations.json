@@ -1,0 +1,200 @@
+[
+    {
+        "id": 1,
+        "name": "activecampaign",
+        "title": "ActiveCampaign",
+        "description": "O ActiveCampaign é uma plataforma para automação da experiência do cliente, que combina as categorias de email marketing, automação de marketing, automação de vendas e CRM.",
+        "link": "https://help.activecampaign.com/hc/pt-br/articles/207317590-Introdu%C3%A7%C3%A3o-%C3%A0-API",
+        "image": "/xgrow-vendor/assets/img/integrations/activecampaing.svg",
+        "isExternal": true
+    },
+    {
+        "id": 2,
+        "name": "cademi",
+        "title": "Cademí",
+        "description": "Cademí é uma plataforma de ensino e edutenimento com uma experiência de aprendizagem moderna e intuitiva. Aumente a retenção e aproveitamento dos seus alunos em seus cursos e treinamentos online.",
+        "link": "https://ajuda.cademi.com.br/conecte/api",
+        "image": "/xgrow-vendor/assets/img/integrations/cademi.png",
+        "isExternal": true
+    },
+    {
+        "id": 3,
+        "name": "dmguru",
+        "title": "Digital Manager Guru",
+        "description": "Reúna tudo o que precisa para otimizar seu negócio online e gerenciar toda a estratégia digital num só lugar, com total liberdade de escolha sobre quais serviços e ferramentas utilizar.",
+        "link": "https://integracoes.xgrow.com/docs/intro",
+        "image": "/xgrow-vendor/assets/img/digitalmanagerguru-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 4,
+        "name": "infusion",
+        "title": "InfusionSoft",
+        "description": "InfusionSoft combina CRM, marketing e automação de vendas e pagamentos em uma plataforma. O resultado? Mais vendas. Menos tarde da noite.",
+        "link": "https://keap.com/?h=hv",
+        "image": "/xgrow-vendor/assets/img/infusion-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 5,
+        "name": "kajabi",
+        "title": "Kajabi",
+        "description": "Kajabi é um sistema de marketing de conteúdo que oferece aos indivíduos e pequenas e médias empresas uma plataforma única e centralizada para vender, comercializar e entregar o conteúdo do produto.",
+        "link": "https://www.kajabi.com/",
+        "image": "/xgrow-vendor/assets/img/kajabi-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 6,
+        "name": "octadesk",
+        "title": "OctaDesk",
+        "description": "Sistema de Marketing, Vendas e Atendimento. O sistema perfeito para equipes de marketing, vendas e atendimento alcançarem resultados incríveis com menos esforço.",
+        "link": "https://pt.octadesk.com/funcionalidades/integracoes",
+        "image": "/xgrow-vendor/assets/img/octadesk-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 7,
+        "name": "smartnotas",
+        "title": "SmartNotas",
+        "description": "SmartNotas é sistema de emissão de notas fiscais inteligente. Ele realiza uma análise detalhada de suas movimentações e recomenda ajustes fiscais de forma simples, segura e confiável.",
+        "link": "https://lp.smart-notas.com/",
+        "image": "/xgrow-vendor/assets/img/smartnotas-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 8,
+        "name": "webhook",
+        "title": "Webhook",
+        "description": "Webhook é uma forma de recebimento de informações, que são passadas quando um evento acontece. Dessa forma, o webhook é a forma de enviar informações entre a Xgrow e outro sistema.",
+        "link": "https://integracoes.xgrow.com/docs/intro",
+        "image": "/xgrow-vendor/assets/img/webhook-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 9,
+        "name": "mailchimp",
+        "title": "Mailchimp",
+        "description": "Faça tudo com o Mailchimp. Reúna os dados do seu público, canais de marketing e insights para que você alcance suas metas com mais rapidez – tudo em uma única plataforma.",
+        "link": "https://www.mailchimp.com/",
+        "image": "/xgrow-vendor/assets/img/mailchimp-icon.jpg",
+        "isExternal": true
+    },
+    {
+        "id": 10,
+        "name": "hubspot",
+        "title": "Hubspot",
+        "description": "Plataforma de software de marketing, vendas, atendimento ao cliente e CRM, metodologia, recursos e suporte.",
+        "link": "https://www.hubspot.com/",
+        "image": "/xgrow-vendor/assets/img/hubspot-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 11,
+        "name": "wisenotas",
+        "title": "WiseNotas",
+        "description": "Wisenotas é um sistema voltado apenas para a emissão de notas fiscais eletronicas, um programa simples e todo em modo gráfico.",
+        "link": "https://www.wisesoftware.com.br/",
+        "image": "/xgrow-vendor/assets/img/wisenotas-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 12,
+        "name": "rdstation",
+        "title": "RD Station",
+        "description": "Ferramenta para automação em marketing digital e vendas.",
+        "link": "https://rdstation.com.br/",
+        "image": "/xgrow-vendor/assets/img/rdstation-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 13,
+        "name": "pipedrive",
+        "title": "Pipedrive",
+        "description": "Pipedrive é uma plataforma para te auxiliar a focar nas negociações certas.",
+        "link": "https://www.pipedrive.com/",
+        "image": "/xgrow-vendor/assets/img/pipedrive-icon.jpg",
+        "isExternal": true
+    },
+    {
+        "id": 14,
+        "name": "leadlovers",
+        "title": "LeadLovers",
+        "description": "LeadLovers é uma plataforma de automação de marketing digital.",
+        "link": "https://www.leadlovers.com/",
+        "image": "/xgrow-vendor/assets/img/leadlovers-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 15,
+        "name": "mautic",
+        "title": "Mautic",
+        "description": "Mautic é uma plataforma para automatização de marketing digital.",
+        "link": "https://www.mautic.org/",
+        "image": "/xgrow-vendor/assets/img/mautic-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 16,
+        "name": "voxuy",
+        "title": "Voxuy",
+        "description": "Para você, que precisa gerenciar seu tempo, converter mais vendas e fortalecer relacionamentos.",
+        "link": "https://www.voxuy.com/",
+        "image": "/xgrow-vendor/assets/img/voxuy-icon.png",
+        "isExternal": true
+    },
+    {
+        "id": 17,
+        "name": "enotas",
+        "title": "eNotas",
+        "description": "Cuidamos das notas fiscais para você cuidar do seu negócio.",
+        "link": "https://enotas.com.br/",
+        "image": "/xgrow-vendor/assets/img/integrations/enotas.png",
+        "isExternal": true
+    },
+    {
+        "id": 18,
+        "name": "facebookpixel",
+        "title": "Facebook Pixel",
+        "description": "O Facebook Pixel é uma ferramenta analítica que o Facebook disponibiliza para ajudar a mensurar o sucesso de uma campanha patrocinada a partir de um código inserido em cada página de seu site.",
+        "link": "https://pt-br.facebook.com/business/learn/facebook-ads-pixel",
+        "image": "/xgrow-vendor/assets/img/facebook-pixel-icon.png",
+        "isExternal": false
+    },
+    {
+        "id": 19,
+        "name": "googleads",
+        "title": "Google Ads",
+        "description": "Alcance novos clientes e expanda seus negócios com o Google Ads, a solução de publicidade on-line do Google.",
+        "link": "https://support.google.com/google-ads/answer/6146252?utm_medium=et&utm_campaign=pt-BR&utm_source=ww-ww-et-b2bfooter_adwords&subid=br-pt-ha-awa-bk-c-cor!o3~Cj0KCQjwyN-DBhCDARIsAFOELTkOemW8GNPCcqg4bqafL7IYN1-Gu7aB2T9oyLydjiaY-H7RRRmtVacaAt9yEALw_wcB~84865307024~kwd-94527731~6500862360~437246732843",
+        "image": "/xgrow-vendor/assets/img/google-pixel-icon.png",
+        "isExternal": false
+    },
+    {
+        "id": 20,
+        "name": "pandavideo",
+        "title": "Panda Vídeo",
+        "description": "Segurança em hospedagem de vídeos para marketing digital e cursos online.",
+        "link": "https://prd.pandavideo.com.br/",
+        "image": "/xgrow-vendor/assets/img/panda-video-icon.png",
+        "isExternal": false
+    },
+    {
+        "id": 21,
+        "name": "memberkit",
+        "title": "MemberKit",
+        "description": "MemberKit ajuda você a vender mais todos os meses, aumentando 10x o engajamento dos seus alunos com seu material e estimulando indicações e recompra!",
+        "link": "https://memberkit.com.br/",
+        "image": "/xgrow-vendor/assets/img/integrations/memberkit.png",
+        "isExternal": true
+    },
+    {
+        "id": 22,
+        "name": "tiktok",
+        "title": "TikTok",
+        "description": "TikTok onde as tendências começam aqui. Em um dispositivo ou na web, os espectadores podem assistir e descobrir milhões de vídeos curtos personalizados.",
+        "link": "https://www.tiktok.com/pt-BR/",
+        "image": "/xgrow-vendor/assets/img/integrations/tiktok.png",
+        "isExternal": true
+    }
+]

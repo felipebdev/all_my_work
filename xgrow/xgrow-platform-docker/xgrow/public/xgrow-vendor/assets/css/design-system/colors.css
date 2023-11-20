@@ -1,0 +1,32 @@
+/* Design System 2.0 - Xgrow Platform */
+:root {
+    --ds2-primary-100: #222429;
+    --ds2-primary-90: #252932;
+    --ds2-primary-80: #2A2E39;
+    --ds2-primary-70: #333844;
+    --ds2-primary-60: #3D4353;
+    --ds2-primary-50: #646D85;
+
+    --ds2-secondary-100: #393D49;
+    --ds2-secondary-90: #595B63;
+    --ds2-secondary-80: #7A7F8D;
+    --ds2-secondary-70: #C1C5CF;
+    --ds2-secondary-60: #E7E7E7;
+
+    /*gren4*/
+    --ds2-action-light: #ADFF2F;
+    --ds2-action-middle: #ADDF45;
+    /*green1*/
+    --ds2-action-dark: #93BC1E;
+    /*green2*/
+    --ds2-action-dark2: #79992c;
+
+    --ds2-white: #FFFFFF;
+    --ds2-black: #222429;
+
+    /* Status */
+    --status-info: #5f95d3;
+    --status-danger: #EB5757;
+    --status-warning: #ffb200;
+    --status-success: #93bc1e;
+}

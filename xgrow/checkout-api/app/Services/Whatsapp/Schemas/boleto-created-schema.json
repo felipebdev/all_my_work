@@ -1,0 +1,47 @@
+{
+  "name": "boletoCreated",
+  "type": "record",
+  "namespace": "com.xgrow",
+  "fields": [
+    {
+      "name": "To",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "TemplateId",
+      "type": "string"
+    },
+    {
+      "name": "Fields",
+      "type": {
+        "name": "Fields",
+        "type": "record",
+        "fields": [
+          {
+            "name": "property1",
+            "type": "string"
+          },
+          {
+            "name": "property2",
+            "type": "string",
+            "doc": "Plan(s) name(s)"
+          },
+          {
+            "name": "property3",
+            "type": "string",
+            "doc": "Subscriber name"
+          },
+          {
+            "name": "property4",
+            "type": "string",
+            "doc": "Support contact"
+          }
+        ]
+      }
+    }
+  ]
+}

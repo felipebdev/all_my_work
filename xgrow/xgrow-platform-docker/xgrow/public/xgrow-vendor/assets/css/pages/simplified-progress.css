@@ -1,0 +1,38 @@
+.second-text {
+    color: #a4a5aa;
+}
+
+.back-button {
+    background-color: #232630;
+    color: #a4a5aa;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+.back-button i {
+    margin-right: 0;
+}
+
+.back-button span {
+    visibility: hidden;
+    font-size: 0;
+    transition-duration: 0.2s;
+}
+
+.back-button:hover {
+    background-color: #93bc1e;
+    color: #fff;
+}
+
+.back-button:hover i {
+    margin-right: 0.2rem;
+}
+
+.back-button:hover span {
+    visibility: visible;
+    font-size: 0.8rem;
+}

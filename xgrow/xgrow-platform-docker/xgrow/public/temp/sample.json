@@ -1,0 +1,37 @@
+{
+  "draw": 1,
+  "recordsTotal": 3,
+  "recordsFiltered": 3,
+  "data": [
+    {
+      "id": "1",
+      "title": "Curso Tríade do tempo",
+      "upload_date": "02/11/2020",
+      "status": "Publicado",
+      "duration": "45min",
+      "author": "Christian Barbosa",
+      "imgURL": "https://m.media-amazon.com/images/I/51fjHvHJw7L._SX260_.jpg",
+      "published": false
+    },
+    {
+      "id": "2",
+      "title": "Desenvolvimento Mobile - Flutter",
+      "upload_date": "02/11/2021",
+      "status": "Publicado",
+      "duration": "1:30min",
+      "author": "John Doe",
+      "imgURL":  "https://pbs.twimg.com/profile_images/1187814172307800064/MhnwJbxw_400x400.jpg",
+      "published":  true
+    },
+    {
+      "id": "3",
+      "title": "Curso Stack PHP",
+      "upload_date": "02/05/2021",
+      "status": "Em análise",
+      "duration": "3:30min",
+      "author": "ABC Figueiredo",
+      "imgURL":  "https://www.unicodesystems.in/theme/web/core/unicode/images/php-img.jpg",
+      "published":  false
+    }
+  ]
+}

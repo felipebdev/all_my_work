@@ -1,0 +1,44 @@
+{{#each releases}}
+{{#if tag}}
+  # {{title}}
+
+  ## {{isoDate}}
+  
+{{/if}}
+{{#commit-list
+  commits
+  heading='> Features'
+  message='(feature(\([a-z]+\)): )|(Feature(\([a-z]+\)): )|(feat: )|(Feature: )'}}
+* {{subject}} ([`{{shorthash}}`]({{href}}))
+
+{{/commit-list}}
+
+{{#commit-list
+  commits
+  heading='> Chores'
+  message='(chore(\([a-z]+\)): )|(Chore(\([a-z]+\)): )|(chore: )|(Chore: )'}}
+* {{subject}} ([`{{shorthash}}`]({{href}}))
+
+{{/commit-list}}
+{{#commit-list
+  commits
+  heading='> Tests'
+  message='(test(\([a-z]+\)): )|(Test(\([a-z]+\)): )|(test: )|(test: )'}}
+* {{subject}} ([`{{shorthash}}`]({{href}}))
+
+{{/commit-list}}
+{{#commit-list
+  commits
+  heading='> Refactoring'
+  message='(refactor(\([a-z]+\)): )|(refactor(\([a-z]+\)): )|(refactor: )|(refactor: )'}}
+* {{subject}} ([`{{shorthash}}`]({{href}}))
+
+{{/commit-list}}
+{{#commit-list
+  commits
+  heading='> Fixes'
+  message='(fix(\([a-z]+\)): )|(Fix(\([a-z]+\)): )|(fix: )|(Fix: )'}}
+* {{subject}} ([`{{shorthash}}`]({{href}}))
+
+{{/commit-list}}
+{{/each}}

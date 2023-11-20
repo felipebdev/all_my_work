@@ -1,0 +1,119 @@
+/* Default */
+.mui-textfield.mui-textfield--float-label>label {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+/* ================== Select ================= */
+.xgrow-select {
+    height: 65px !important;
+}
+
+.xgrow-select+label {
+    color: var(--ds2-action-dark) !important;
+    top: 0 !important;
+    left: -4px !important;
+    font-weight: 600 !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+}
+
+.xgrow-select {
+    color: var(--ds2-white) !important;
+    padding-top: 30px !important;
+}
+
+.xgrow-select+label+span.caret::before {
+    content: '' !important;
+    background: url('/xgrow-vendor/assets/img/caret.svg') no-repeat !important;
+    top: 12px !important;
+    right: 30px !important;
+}
+
+/* ================ Input =============== */
+.xgrow-floating-input input{
+    height: 65px !important;
+}
+
+.xgrow-floating-input input:focus{
+    height: 65px !important;
+}
+
+.xgrow-input {
+    height: 65px;
+    padding-top: 25px;
+    min-width: auto !important;
+}
+
+
+.xgrow-input+label {
+    color: var(--ds2-action-dark) !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-weight: 600 !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+.xgrow-input:focus+label {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    top: 0 !important;
+}
+
+.xgrow-input:focus {
+    height: 65px !important;
+    padding-top: 10px !important;
+}
+
+.xgrow-input:not(:focus).mui--is-not-empty {
+    padding-top: 27px !important;
+}
+
+.xgrow-input[type="text"]:not(:focus).mui--is-empty~label {
+    top: -15px !important;
+}
+
+/* ================ Input Search Filter =============== */
+.xgrow-input-search {
+    background-color: var(--ds2-primary-90) !important;
+    height: 40px !important;
+    padding-top: 0 !important;
+}
+
+/* ================ Text Area =============== */
+.xgrow-input-textarea {
+    resize: none;
+    /* For 5 rows */
+    min-height: 165px;
+}
+
+.xgrow-input-textarea:not(:focus).mui--is-not-empty {
+    padding-top: 30px !important;
+}
+
+.xgrow-input-textarea:not(:focus).mui--is-not-empty~label, .xgrow-input-textarea:focus.mui--is-not-empty~label {
+    background: var(--ds2-primary-90) !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    margin-top: 0 !important;
+}
+
+.xgrow-input-textarea:focus.mui--is-not-empty~label {
+    background: var(--ds2-dark) !important;
+    margin-top: 8px !important;
+}
+
+.xgrow-input-textarea:focus.mui--is-not-empty {
+    padding-top: 12px !important;
+    padding-bottom: 0px !important;
+}
+
+.xgrow-input-textarea+label {
+    font-weight: 600 !important;
+    color: var(--ds2-action-dark) !important;
+}

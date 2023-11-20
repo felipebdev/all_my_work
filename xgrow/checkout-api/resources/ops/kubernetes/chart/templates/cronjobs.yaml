@@ -1,0 +1,76 @@
+## Cronjobs
+{{- $fullName := include "xgrow.fullname" . -}}
+{{- $shortName := include "xgrow.name" . -}}
+
+{{- range $cron, $cronValues := .Values.cronjobs }}
+---
+{{- $cronFullName := print $fullName "-cron-" $cron -}}
+{{- $cronName := print $shortName "-cron-" $cron -}}
+{{- $cronImage := $.Values.image }}
+{{- if $cronValues.image }}
+  {{- $cronImage := $cronValues.image }}
+{{- end }}
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ $cronFullName }}
+  labels:
+    app: {{ $cronName }}
+    chart: {{ template "xgrow.chart" $ }}
+    release: {{ $.Release.Name }}
+    heritage: {{ $.Release.Service }}
+    {{- if $.Values.extraLabels }}
+{{ toYaml $.Values.extraLabels | indent 4 }}
+    {{- end }}
+spec:
+  schedule: {{ $cronValues.schedule | quote }}
+  concurrencyPolicy: {{ $cronValues.concurrencyPolicy | default "Forbid" }}
+  successfulJobsHistoryLimit: {{ $cronValues.successfulJobsHistoryLimit | default 1 }}
+  failedJobsHistoryLimit: {{ $cronValues.failedJobsHistoryLimit | default 3 }}
+  startingDeadlineSeconds: {{ $cronValues.startingDeadlineSeconds | default 60 }}
+  jobTemplate:
+    spec:
+      template:
+        spec:        
+          containers:
+          - name: cron
+            image: {{ $cronImage.name }}:{{ $cronImage.tag }}
+            imagePullPolicy: {{ $.Values.image.pullPolicy }}
+            args: ["sh", "-c", {{ $cronValues.command | quote }}]
+            envFrom:
+              - configMapRef:
+                  name: {{ template "xgrow.fullname" $ }}-config-env
+              - secretRef:
+                  name: {{ template "xgrow.fullname" $ }}-secrets-env
+
+            volumeMounts:            
+            #{{- if $.Values.configFiles }}
+            #- mountPath: /configs
+            #  name: {{ template "xgrow.fullname" $ }}-configs
+            #{{ end }}
+
+            - mountPath: /secrets
+              name: {{ template "xgrow.fullname" $ }}-secrets
+          restartPolicy: {{ $cronValues.restartPolicy | default "OnFailure" }}
+
+          # Image pull secrets
+          {{- if $.Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- range $.Values.imagePullSecrets }}
+            - name: {{ . | quote }}
+            {{- end }}
+          {{- end }}
+
+          volumes:
+          #{{- if $.Values.configFiles }}
+          #- name: {{ template "xgrow.fullname" $ }}-configs
+          #  configMap:
+          #    name: {{ template "xgrow.fullname" $ }}-configs
+          #{{ end }}
+
+          - name: {{ template "xgrow.fullname" $ }}-secrets
+            secret:
+              secretName: {{ template "xgrow.fullname" $ }}-secrets
+
+{{- end }}

@@ -1,0 +1,108 @@
+# Template docker-push
+
+# This template allows you to build and push your docker image to a Docker Hub account.
+# The workflow allows running tests, code linting and security scans on feature branches (as well as master).
+# The docker image will be validated and pushed to the docker registry after the code is merged to master.
+
+# Prerequisites: $DOCKERHUB_USERNAME, $DOCKERHUB_PASSWORD setup as deployment variables
+
+image: atlassian/default-image:2
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        image: google/cloud-sdk:alpine
+        services:
+          - docker
+        caches:
+          - docker
+        script:
+          - echo "deploy to registry"
+          - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+          #- export IMAGE_NAME=xgrowops/$BITBUCKET_REPO_SLUG
+          - export IMAGE_NAME=us-east1-docker.pkg.dev/xstaging-348615/platform/accreditation
+          - docker build . -t $IMAGE_NAME:$VERSION -t $IMAGE_NAME:develop-latest -f Dockerfile
+          #- docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+          - echo $GCLOUD_API_KEYFILE_ARTIFACT > ./gcloud-api-key.json
+          - gcloud auth activate-service-account artifact-registry-platform@xstaging-348615.iam.gserviceaccount.com --key-file gcloud-api-key.json
+          - gcloud config set project $GCLOUD_PROJECT
+          - gcloud auth configure-docker us-east1-docker.pkg.dev
+          - docker push $IMAGE_NAME:$VERSION
+          - docker push $IMAGE_NAME:develop-latest
+    - step:
+        name: Test
+        image: node:14.17.0
+        caches:
+          - node
+        size: 2x
+        script:
+          - echo "test and coverage"
+          - npm install
+          - npm run test:cov
+    - step:
+        name: Deploy testing
+        deployment: development
+        image: google/cloud-sdk:alpine
+        trigger: manual
+        script:
+          - apk add --update curl
+          - curl -o helm.tar.gz https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+          - tar zxvf helm.tar.gz
+          - mv ./linux-amd64/helm /usr/local/bin
+          - echo $GCLOUD_API_KEYFILE_GKE_STG > ./gcloud-api-key.json
+          - gcloud components install gke-gcloud-auth-plugin
+          - gcloud auth activate-service-account gke-bitbucket-stg@xstaging-348615.iam.gserviceaccount.com --key-file gcloud-api-key.json
+          - gcloud config set project $GCLOUD_PROJECT
+          - gcloud container clusters get-credentials k8s-staging --region us-east1 --project xstaging-348615
+          - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+          - helm upgrade --install --namespace=accreditation-dev --create-namespace --values resources/ops/kubernetes/values/dev/values.yaml --set image.tag=$VERSION accreditation resources/ops/kubernetes/chart
+  branches:
+    master:
+      - step:
+          name: Build
+          image: google/cloud-sdk:alpine
+          services:
+            - docker
+          script:
+            - echo "deploy to registry"
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - echo "deploy to registry"
+            - export IMAGE_NAME=us-east1-docker.pkg.dev/xstaging-348615/platform/accreditation
+            - echo $GCLOUD_API_KEYFILE_ARTIFACT > ./gcloud-api-key.json
+            - gcloud auth activate-service-account artifact-registry-platform@xstaging-348615.iam.gserviceaccount.com --key-file gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT
+            - gcloud auth configure-docker us-east1-docker.pkg.dev
+
+            - docker build . -t $IMAGE_NAME:$VERSION -t $IMAGE_NAME:latest  -f Dockerfile
+            - docker push $IMAGE_NAME:latest
+            - docker push $IMAGE_NAME:$VERSION
+      - step:
+          name: Test
+          image: node:14.17.0
+          caches:
+            - node
+          size: 2x
+          script:
+            - echo "test and coverage"
+            - npm install
+            - npm run test:cov
+      - step:
+          name: Deploy production
+          deployment: production
+          image: google/cloud-sdk:alpine
+          script:
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - echo $GCLOUD_API_KEYFILE_GKE_PROD > ./gcloud-api-key.json
+            - gcloud components install gke-gcloud-auth-plugin
+            - gcloud auth activate-service-account gke-bitbucket-prd@$GCLOUD_PROJECT_PROD.iam.gserviceaccount.com --key-file gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT_PROD
+            - gcloud container clusters get-credentials k8s-production --region us-east1 --project $GCLOUD_PROJECT_PROD
+            # Install Helm
+            - apk add --update curl
+            - curl -o helm.tar.gz https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+            - tar zxvf helm.tar.gz
+            - mv ./linux-amd64/helm /usr/local/bin
+            # Helm Upgrade
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - helm upgrade -i --namespace=accreditation-prod --create-namespace  --values=resources/ops/kubernetes/values/prod/values.yaml --set image.tag=$VERSION accreditation resources/ops/kubernetes/chart

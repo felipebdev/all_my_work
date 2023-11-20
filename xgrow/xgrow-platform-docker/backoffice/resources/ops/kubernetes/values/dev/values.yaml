@@ -1,0 +1,43 @@
+## Image settings
+image:
+  name: us-east1-docker.pkg.dev/xstaging-348615/platform/backoffice
+  tag: develop-latest
+
+sidecar:
+  enabled: true
+  image:
+    name: us-east1-docker.pkg.dev/xstaging-348615/platform/backoffice_nginx
+    tag: develop-latest
+    pullPolicy: Always
+
+## Ingress
+ingress:
+  
+  # Lista de hosts
+  hosts:
+    - host: backofficeapi.dev.xgrow.com.br
+      path: /
+      port: 80
+
+imagePullSecrets: 
+  - gcr-registry
+
+## Quantidade de Replicas
+replicas: 2
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80  
+
+
+## Resources
+resources:
+  limits:
+    cpu: 800m
+    memory: 1800Mi
+  requests:
+    cpu: 250m
+    memory: 246Mi

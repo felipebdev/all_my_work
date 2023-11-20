@@ -1,0 +1,212 @@
+## App Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "backoffice.fullname" . }}
+  labels:
+    app: {{ include "backoffice.name" . }}
+    chart: {{ include "backoffice.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+    {{- end }}
+
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "backoffice.name" . }}
+      release: {{ .Release.Name }}
+
+   {{- if .Values.deployment.strategy }}
+  strategy:
+{{ toYaml .Values.deployment.strategy | indent 4 }}
+  {{- end }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ include "backoffice.name" . }}
+        chart: {{ include "backoffice.chart" . }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        {{- if .Values.deployment.podLabels }}
+{{ toYaml .Values.deployment.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+      {{- range $key, $value := .Values.deployment.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+    spec:
+      {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      {{- end }}
+
+      affinity:
+      {{- if .Values.affinity }}
+{{ toYaml .Values.affinity | indent 8 }}
+      {{- end }}      
+
+      {{- if .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
+      {{- end }}
+
+      initContainers:
+      - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: init
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["sh", "-c", "mkdir -p /mnt/html && cp -rp /var/www/html/public/* /mnt/html && cp -rp /var/www/html /mnt && php artisan migrate --force"]
+        envFrom:
+          - configMapRef:
+              name: {{ template "backoffice.fullname" $ }}-config-env
+          #- secretRef:
+          #    name: {{ template "backoffice.fullname" $ }}-secrets-env
+
+        volumeMounts:
+        - name: {{ include "backoffice.fullname" . }}-app
+          mountPath: /mnt
+        #{{- if .Values.configFiles }}
+        #- mountPath: /configs
+        #  name: {{ template "backoffice.fullname" $ }}-configs
+        #{{ end }}
+
+        #{{- if .Values.secretFiles }}
+        #- mountPath: /secrets
+        #  name: {{ template "backoffice.fullname" $ }}-secrets
+        #{{- end }}
+
+      containers:
+
+      # App Container
+      - image:  {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: {{ include "backoffice.fullname" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+        # Command
+        {{- if .Values.command }}
+        command: {{ .Values.command | toJson }}
+        {{- end }}
+
+        # Args
+        {{- if .Values.args }}
+        args: {{ toYaml .Values.args | toJson }}
+        {{- end }}
+
+        #Resources
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory | default "64Mi" }}
+            cpu: {{ .Values.resources.requests.cpu | default "25m" }}
+          limits:
+            memory: {{ .Values.resources.limits.memory | default "128Mi" }}
+            cpu: {{ .Values.resources.limits.cpu | default "50m" }}
+
+
+        # Env from configmap and secrets
+        envFrom:
+          - configMapRef:
+              name: {{ template "backoffice.fullname" $ }}-config-env
+          #- secretRef:
+          #    name: {{ template "backoffice.fullname" $ }}-secrets-env
+
+        volumeMounts:
+        - name: {{ include "backoffice.fullname" . }}-app
+          mountPath: /var/www
+        #{{- if .Values.configFiles }}
+        #- mountPath: /configs
+        #  name: {{ template "backoffice.fullname" $ }}-configs
+        #{{ end }}
+
+        #{{- if .Values.secretFiles }}
+        #- mountPath: /secrets
+        #  name: {{ template "backoffice.fullname" $ }}-secrets
+        #{{- end }}
+
+        {{- if .Values.livenessProbe }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        {{- end }}
+
+        {{- if .Values.readinessProbe }}
+        livenessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        {{- end }}
+
+      # Sidecar Container
+      {{- if .Values.sidecar.enabled }}
+      - image:  {{ .Values.sidecar.image.name }}:{{ .Values.sidecar.image.tag }}
+        name: {{ include "backoffice.fullname" . }}-sidecar
+        imagePullPolicy: {{ .Values.sidecar.image.pullPolicy }}
+
+        # Command
+        {{- if .Values.sidecar.command }}
+        command: {{ .Values.sidecar.command | toJson }}
+        {{- end }}
+
+        # Args
+        {{- if .Values.sidecar.args }}
+        args: {{ toYaml .Values.sidecar.args | toJson }}
+        {{- end }}
+
+        # Env from configmap and secrets
+        envFrom:
+          - configMapRef:
+              name: {{ template "backoffice.fullname" $ }}-config-env
+        #  - secretRef:
+        #      name: {{ template "backoffice.fullname" $ }}-secrets-env
+        env:
+        - name: PHP_UPSTREAM
+          value: 127.0.0.1
+        ports:
+        - containerPort: 8080
+          name: http
+        volumeMounts:
+        - name: {{ include "backoffice.fullname" . }}-app
+          mountPath: /var/www
+        #{{- if .Values.configFiles }}
+        #- mountPath: /configs
+        #  name: {{ template "backoffice.fullname" $ }}-configs
+        #{{ end }}
+
+        #{{- if .Values.secretFiles }}
+        #- mountPath: /secrets
+        #  name: {{ template "backoffice.fullname" $ }}-secrets
+        #{{- end }}
+
+        {{- if .Values.sidecar.livenessProbe }}
+        livenessProbe:
+{{ toYaml .Values.sidecar.livenessProbe | indent 10 }}
+        {{- end }}
+
+        {{- if .Values.sidecar.readinessProbe }}
+        livenessProbe:
+{{ toYaml .Values.sidecar.readinessProbe | indent 10 }}
+        {{- end }}
+      {{- end }}
+
+      # Image pull secrets
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- range .Values.imagePullSecrets }}
+        - name: {{ . | quote }}
+        {{- end }}
+      {{- end }}
+
+      volumes:
+      - name: {{ include "backoffice.fullname" . }}-app
+        emptyDir: {}
+      #{{- if .Values.configFiles }}
+      #- name: {{ template "backoffice.fullname" $ }}-configs
+      #  configMap:
+      #    name: {{ template "backoffice.fullname" $ }}-configs
+      #{{ end }}
+
+      #{{- if .Values.secretFiles }}
+      #- name: {{ template "backoffice.fullname" $ }}-secrets
+      #  secret:
+      #    secretName: {{ template "backoffice.fullname" $ }}-secrets
+      #{{- end }}
+

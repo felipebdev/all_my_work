@@ -1,0 +1,243 @@
+.xgrow-exp {
+  color: #717686;
+  min-height: 60vh;
+}
+
+.xgrow-exp.center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#noFlowScreen{
+  display: flex;
+}
+
+#noFlowScreen i {
+  color: #383C48;
+  font-size: 80px;
+  margin-bottom: 15px;
+}
+
+.xgrow-exp h1 {
+  color: #A1A5AF;
+  font-size: 24px;
+}
+
+.xgrow-exp p b {
+  color: #A1A5AF;
+}
+
+.xgrow-button {
+  padding: 0 20px;
+  width: fit-content;
+}
+
+.xgrow-card-body-title {
+  font-size: 16px;
+}
+
+.gojs-diagram {
+  width: 100%;
+  min-height: 600px;
+  border: solid 1px #222429;
+  border-radius: 6px;
+  background-color: #222429;
+  background-image: radial-gradient(#282A2F 10%, transparent 11%);
+  background-size: 40px 40px;
+  background-position: 0 0, 30px 30px;
+  background-repeat: repeat;
+}
+
+.course.modal-header {
+  width: calc(100% - 2rem) !important;
+  padding: 0.75rem !important;
+}
+
+.course.modal-title {
+  width: 100%;
+  text-align: left;
+  font-size: 1rem !important;
+}
+
+.course.modal-title i {
+  color: #A1A5AF;
+}
+
+.course-button {
+  padding: 0 20px;
+  height: 38px;
+  border-radius: 8px;
+  font: normal normal 700 12.8px/17.43px "Open Sans", sans-serif;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-file-upload.delete {
+  border: none;
+  color: #93bc1e;
+  text-decoration: none;
+}
+
+.course-modal-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.course-modal-delete a {
+  text-decoration: none;
+  color: #E06D6D;
+  display: block;
+  padding: 0 0 0.75rem 0;
+}
+
+.modal-body-content {
+  text-align: left;
+}
+
+.caracter-counter {
+  font-style: italic;
+  color: #A1A5AF;
+}
+
+.custom-alert-symbol {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.custom-alert-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.custom-alert-text {
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* Palette */
+.gojs-diagram-palette-panel {
+  background-color: #1F2126;
+  border-radius: 5px;
+}
+
+.gojs-diagram-palette-header {
+  background-color: #93bc1e;
+  border-radius: 5px 5px 0 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.gojs-diagram-palette-header i {
+  color: #BDE942;
+  font-size: 22px;
+}
+
+.gojs-diagram-palette {
+  height: 600px;
+  width: 200px;
+  top: 20px;
+}
+
+/* DRIAGRAM ZOOM BUTTONS */
+.zoom-label {
+  font-size: 1rem;
+  color: var(--font-color-inverted);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.zoom-buttons {
+  color: var(--font-color-inverted);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  height: 42px;
+  width: 42px;
+  background-color: var(--input-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+}
+
+.zoom-buttons:focus, .zoom-buttons:hover {
+  background-color: var(--input-bg-focus);
+}
+
+.zoom-buttons.out {
+  border-radius: 8px 0 0 8px;
+}
+
+.zoom-buttons.in {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+/* LOADER ANIMATION */
+.xgrow-vi-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid #93bc1e33;
+  border-right: 1.1em solid #93bc1e33;
+  border-bottom: 1.1em solid #93bc1e33;
+  border-left: 1.1em solid #93bc1e;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,139 @@
+h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 0;
+}
+h4{
+    color: #646D85;
+    font-size: 14px;
+}
+hr{
+    border-top: 1px solid #393D49;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+a{
+    color: #ADDF45;
+    text-decoration: underline;
+}
+.content{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: 100vh
+}
+.btn-action{
+    background: #93BC1E;
+    border-radius: 8px;
+    padding: 11px 40px;
+    border: none;
+    color: #fff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.8px;
+    cursor: pointer;
+}
+.font-color-2{
+    color: #C1C5CF;
+}
+.price{
+    font-weight: 600;
+    font-size: 18px;
+    color: #E7E7E7;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.price span{
+    color: #ADDF45;
+}
+.border-gray{
+    border-top: 1px solid #393D49;
+}
+.xgrow-background-image{
+    background: url("../../img/astronauta-bg.jpg") no-repeat;
+    background-size: cover;
+}
+.img-product img{
+    width:100%;
+    height: auto;
+}
+.img-product{
+    border-radius: 8px;
+    overflow: hidden;
+}
+.font-default{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+}
+.box-invite{
+    margin-top: 18px;
+    background: rgba(34, 36, 41, 0.3);
+    backdrop-filter: blur(20px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 10px;
+    padding:40px 30px;
+}
+.xgrow-img-logo{
+    text-align:center;
+    margin-bottom: 30px;
+}
+.xgrow-img-logo img{
+    width: 212px;
+    height: 52px;
+}
+.text-1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+}
+.text-2{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+}
+.modal-confirm-back{
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: rgba(14, 14, 14, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content-invite{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 38px;
+    text-align: center;
+    color: #fff;
+}
+.modal-content-invite a:hover{
+    color: #e28a22;
+}
+.modal-content-invite .fa-exclamation-circle{
+    color: #e28a22;
+    font-size: 100px;
+}
+.modal__content{
+    display: flex;
+}
+.font-16{
+    font-size: 16px;
+}
+.font-20{
+    font-size: 20px;
+    font-weight: 700;
+}
+.modal__close{
+    display:none !important;
+}

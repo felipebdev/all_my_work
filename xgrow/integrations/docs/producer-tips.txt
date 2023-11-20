@@ -1,0 +1,175 @@
+### SMARTNOTAS ###
+header: {
+    date: '2021-07-22 16:26:39',
+    app: {
+      id: 2,
+      app_id: 7,
+      platform_id: '1197ebe1-7931-40e6-a64d-e5922236c958',
+      event: 'onApprovePayment',
+      action: 'bindGenerateInvoice',
+      metadata: null,
+      planIds: [
+        101,
+        99
+      ],
+      integration: {
+        id: 7,
+        type: 'smartnotas',
+        api_key: '1197ebe1-7931-40e6-a64d-e5922236c958',
+        api_account: null,
+        api_webhook: 'https://app.smart-notas.com/webhook-xgrow/524',
+        api_secret: null,
+        metadata: {
+          process_after_days: 30
+        }
+      }
+    }
+  },
+  
+### OCTADESK ###
+* api_secret => https://api.octadesk.services/docs/#/Login/accessToken
+header: {
+    date: '2021-07-22 16:26:39',
+    app: {
+      id: 2,
+      app_id: 7,
+      platform_id: '1197ebe1-7931-40e6-a64d-e5922236c958',
+      event: 'onApprovePayment',
+      action: 'bindInsertContact',
+      metadata: null,
+      planIds: [
+        101,
+        99
+      ],
+      integration: {
+        id: 7,
+        type: 'octadesk',
+        api_key: 'octa.MSivDXqvipPZ.GxHndUKoC3o8',
+        api_account: 'nobij81693@aline9.com',
+        api_webhook: null,
+        api_secret: 'OCTADESK.eyJuYmYiOjE2Mjc2NTA2MDMsImV4cCI6MTk0OTA1ODYwMywiaXNzIjoiaHR0cDovL2lkZW50aXR5LXNlcnZlci5vY3RhZGVzay5zZXJ2aWNlcyIsImF1ZCI6WyJodHRwOi8vaWRlbnRpdHktc2VydmVyLm9jdGFkZXNrLnNlcnZpY2VzL3Jlc291cmNlcyIsImdlbmVyYWwiXSwiY2xpZW50X2lkIjoiTVNpdkRYcXZpcFBaIiwic3ViIjoiZjRiYzMwZjEtZWRmZi00MWFhLTg3ZjItMzRhY2I0MTMyNDFjIiwiYXV0aF90aW1lIjoxNjI3NjUwNjAzLCJpZHAiOiJsb2NhbCIsInN1YmRvbWFpbiI6ImFsaW5lY2FtcG9zIiwicm9sZSI6Im93bmVyIiwidHlwZSI6Im5vbmUiLCJzY29wZSI6WyJnZW5lcmFsIl0sImFtciI6WyJCZWFyZXIiXX0.ZqIIzvSK3Y18v6RdgscjGvjV7ALKPpmOTcQVQv0tydASTDWjF_bUyXK6WBCPUgivnxY-Ly4A9mTrC48bLgtSXptlbaK-y1p_pp6A4z_MOzLslRDVs_hWtfeGYC5e3ezq2y5lSST-mtJyWbg1vexBidAqaoITx4WiD4IQm6Ckn2E9HLl94r1GJmLWuQGgvjAULlhmdgWY0epJep89YEE1gLQT4zOzeBvOkGwp8BOjUt26dtz0IBIt5ZbxV5tiB0bKo7CGRWeMv6GEtsR7bJnWw7y-LK17RI7Gx0wibxQTk1Xphqc2-pvVXDheNmLFGN--D-k_qJyganZJakstV_1aaQ',
+        metadata: null
+      }
+    }
+  },
+  
+### CADEMI ###
+header: {
+    date: '2021-07-22 16:26:39',
+    app: {
+      id: 2,
+      app_id: 7,
+      platform_id: '1197ebe1-7931-40e6-a64d-e5922236c958',
+      event: 'onApprovePayment',
+      action: 'bindInsertContact',
+      metadata: null,
+      planIds: [
+        101,
+        99
+      ],
+      integration: {
+        id: 7,
+        type: 'cademi',
+        api_key: '0cd4030bd5af1e9db4a56c61e9899b57',
+        api_account: null,
+        api_webhook: 'https://abasedetudo.cademi.com.br',
+        api_secret: null,
+        metadata: null
+      }
+    }
+  },
+  
+### ACTIVECAMPAIGN ###
+header: {
+    date: '2021-07-22 16:26:39',
+    app: {
+      id: 2,
+      app_id: 7,
+      platform_id: '1197ebe1-7931-40e6-a64d-e5922236c958',
+      event: 'onApprovePayment',
+      action: 'bindInsertContact',
+      planIds: [
+        101,
+        99
+      ],
+      metadata: {
+        list: 2,
+        tags: [1]
+      },
+      integration: {
+        id: 7,
+        type: 'activecampaign',
+        api_key: '7e1cb7d951e2b2170e4bef0ddc3597a07c9755aa3f111cb8deff440c640336d9d431ec5e',
+        api_account: null,
+        api_webhook: 'https://xgrow975.api-us1.com',
+        api_secret: null,
+        metadata: null
+      }
+    }
+  },
+
+### KAJABI ###
+header: {
+  date: '2021-07-22 16:26:39',
+  app: {
+    id: 2,
+    app_id: 7,
+    platform_id: '1197ebe1-7931-40e6-a64d-e5922236c958',
+    event: 'onApprovePayment',
+    action: 'bindGrantAccess',
+    planIds: [
+      101,
+      99
+    ],
+    metadata: {
+      product_id: 101,
+      product_webhook: 'https://checkout.kajabi.com/webhooks/offers/LfYhD8LYufzh4yoN/2147689703/activate'
+    },
+    integration: {
+      id: 7,
+      type: 'kajabi',
+      api_key: null,
+      api_account: null,
+      api_webhook: null,
+      api_secret: null,
+      metadata: null
+    }
+  }
+},
+
+### MAILCHIMP ###
+header: {
+  date: '2021-08-09 16:26:39',
+  app: {
+    id: 2,
+    app_id: 7,
+    
+    /* to create */
+    // event: 'onApprovePayment',
+    // action: 'bindInsertContact',
+
+    /* to remove */
+    event: 'onDisapprovePayment',
+    action: 'bindRemoveContact',
+
+    planIds: [
+      101,
+      99
+    ],
+    metadata: {
+      list: '060af000e2',
+      tags: ['testing', 'test'] // to create
+    },
+    integration: {
+     id: 7,
+      type: 'mailchimp',
+      api_key: '41764821a560b7148bf9cf388c23d489-us5'
+    }
+  }
+},
+payload: {
+    data: {
+      subscriber_name: 'Testerson Silva',
+      subscriber_email: 'testrsahasadhg@gmail.com',
+    }
+  }

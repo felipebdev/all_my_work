@@ -1,0 +1,52 @@
+.plan-item > li > i {
+  color: var(--contrast-green3);
+  padding-right: 5px;
+  font-size: 1.25rem;
+}
+
+.card-price {
+  padding: 0;
+  margin: 0 0.75rem 1.5rem 0.75rem;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.card-price > .xgrow-card-header, .card-price > .xgrow-card-body {
+  padding: 1.25rem;
+}
+
+.card-price > .xgrow-card-header.selected {
+  background: yellowgreen;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.separator {
+  background: aliceblue;
+  margin: 1rem 0 3rem 0;
+}
+
+.plan-title {
+  font: var(--text-large-bold);
+  color: var(--font-color-whited);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.plan-item {
+  color: var(--font-color-whited);
+}
+
+.price {
+  color: var(--font-color-whited);
+}
+
+.price > h3 {
+  color: var(--contrast-green3);
+}
+
+.price-exibition {
+  font: var(--text-large-bold);
+  font-size: 2rem;
+  margin-top: .5rem;
+}

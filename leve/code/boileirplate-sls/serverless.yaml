@@ -1,0 +1,41 @@
+service: boilerplate-sls
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  timeout: 10
+
+custom:
+  stage: ${opt:stage, 'dev'}
+  output:
+    file: .serverless/output.json
+
+package:
+  individually: true
+  excludeDevDependencies: true
+  patterns:
+    - '!./**'
+    - node_modules/**
+    - dist/**
+
+functions:
+  healthcheck:
+    handler: dist/container.healthCheck
+    description: Healthcheck to ensure the service is up
+    events:
+      - httpApi:
+          path: /healthcheck
+          method: get
+
+  helloworld:
+    handler: dist/container.helloWorld
+    description: Displays a Hello World!
+    events:
+      - httpApi:
+          path: /helloworld
+          method: get

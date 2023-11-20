@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Chart para a aplicação Checkout
+name: checkout
+version: 1.0.0

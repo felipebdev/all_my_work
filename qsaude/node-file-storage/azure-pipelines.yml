@@ -1,0 +1,167 @@
+trigger:
+  - develop
+  - quality
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+jobs:
+  - job: RunTestsAndSonarCloud
+    variables:
+      - name: NODE_ENV
+        value: development
+      - name: APP_NAME
+        value: node-file-storage
+      - name: APP_DESCRIPTION
+        value: File Storage Microservice
+      - name: APP_VERSION
+        value: 0.0.1-alpha.0
+      - name: APP_PORT
+        value: '3000'
+      - name: THROTTLER_TTL
+        value: '60'
+      - name: THROTTLER_LIMIT
+        value: '100'
+      - name: AWS_ACCESS_KEY_ID
+        value: AKIA3P74NKOU2UTOHVIG
+      - name: AWS_SECRET_ACCESS_KEY
+        value: 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
+      - name: AWS_DEFAULT_REGION
+        value: us-east-1
+      - name: AWS_DEFAULT_ACCOUNT_ID
+        value: '790266467241'
+      - name: PORTAL_EMPRESAS_AWS_DEFAULT_REGION
+        value: us-east-1
+      - name: PORTAL_EMPRESAS_BUCKET
+        value: q-file-storage
+      - name: PORTAL_EMPRESAS_STORAGE
+        value: portal_empresas
+      - name: PORTAL_EMPRESAS_IMPORT_CSV_TRANSACTION_TOPIC
+        value: arn:aws:sns:us-east-1:790266467241:portal_empresas_import_csv_transactions
+    steps:
+      - script: |
+          npm install
+        displayName: 'Install Deps'
+      - script: |
+          npm run test:cov
+        displayName: 'Test Coverage'
+      - task: SonarCloudPrepare@1
+        displayName: 'Prepare analysis on SonarCloud'
+        inputs:
+          SonarCloud: SonarCloudQsaude
+          organization: qsaudedevops
+          scannerMode: CLI
+          configMode: manual
+          cliProjectKey: '$(Build.Repository.Name)'
+          cliProjectName: '$(Build.Repository.Name)'
+          cliSources: '$(Build.SourcesDirectory)'
+          extraProperties: |
+            sonar.branch.name=$(BUILD.SOURCEBRANCHNAME)
+            sonar.sources=src/,
+            sonar.tests=src/,
+            sonar.inclusions=**,
+            sonar.test.inclusions=**/*.spec.ts,**/*.e2e-spec.ts,**/*.test.ts
+            sonar.exclusions=**/node_modules/**,**/dist/**,**/test/**,**/deploy/**,**/__tests__/**,**/__fixtures__/**,**/__mocks__/**,src/**/*.mocks.ts,src/**/*.spec.ts,src/**/*.e2e-spec.ts,src/**/*.test.ts,**/main.ts,**/*.module.ts,**/*.enum.ts,**/*.interface.ts.
+            sonar.coverage.exclusions=**/node_modules/**,**/dist/**,**/test/**,**/deploy/**,**/__tests__/**.**/__fixtures__/**.**/__mocks__/**.src/**/*.mocks.*,src/**/*.spec.*,src/**/*.e2e-spec.*,src/**/*.test.*,**/main.ts*,**/*.module.ts*,**/*.enum.ts*,**/*.interface.ts*
+            sonar.javascript.lcov.reportPaths=coverage/lcov.info
+            sonar.typescript.lcov.reportPaths=coverage/lcov.info
+            sonar.testExecutionReportPaths=coverage/coverage-final.xml
+      - task: SonarCloudAnalyze@1
+        displayName: 'Run Code Analysis'
+      - task: SonarCloudPublish@1
+        displayName: 'Publish Quality Gate Result'
+        continueOnError: false
+
+  - job: BuildAndPush
+    steps:
+      - task: Docker@2
+        displayName: 'Build docker image'
+        inputs:
+          command: build
+          dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)'
+          repository: $(Build.Repository.Name)
+
+      - task: ECRPushImage@1
+        displayName: 'Push docker image dev'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        inputs:
+          awsCredentials: 'AWS_ECR_Access'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: $(Build.Repository.Name)
+          sourceImageTag: $(Build.BuildId)
+          pushTag: $(Build.BuildId)
+          repositoryName: $(Build.Repository.Name)
+          autoCreateRepository: true
+
+      - task: ECRPushImage@1
+        displayName: 'Push docker image qa'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/quality'))
+        inputs:
+          awsCredentials: 'AWS_ECR_ACCESS_HOM'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: $(Build.Repository.Name)
+          sourceImageTag: $(Build.BuildId)
+          pushTag: $(Build.BuildId)
+          repositoryName: $(Build.Repository.Name)
+          autoCreateRepository: true
+
+      - task: ECRPushImage@1
+        displayName: 'Push docker image prod'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        inputs:
+          awsCredentials: 'AWS_ECR_ACCESS_PROD'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: $(Build.Repository.Name)
+          sourceImageTag: $(Build.BuildId)
+          pushTag: $(Build.BuildId)
+          repositoryName: $(Build.Repository.Name)
+          autoCreateRepository: true
+          
+  - job: GitOps
+    dependsOn: BuildAndPush
+    condition: succeeded()
+    steps:
+      - task: InstallSSHKey@0
+        inputs:
+          knownHostsEntry: 'dev.quesaude.net'
+          sshKeySecureFile: 'gitops-deploy-key'
+        displayName: 'Install SSH Key'
+      - script: |
+          git clone git@ssh.dev.azure.com:v3/QsaudeDevOps/GitOps%20AWS/gitops-aws
+          cd gitops-aws
+          sed -E -i "s/(image:).*/\1\ 790266467241.dkr.ecr.us-east-1.amazonaws.com\/$(Build.Repository.Name):$(Build.BuildId)/" deployments/dev/$(Build.Repository.Name)/deployment.yaml
+          git add deployments/dev/$(Build.Repository.Name)/deployment.yaml
+          git config --global user.email "gitops@qsaude.com.br"
+          git config --global user.name "GitOps"
+          git commit -m "[gitops-auto]"
+          git push
+        displayName: 'GitOps Dev'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        
+      - script: |
+          git clone git@ssh.dev.azure.com:v3/QsaudeDevOps/GitOps%20AWS/gitops-aws
+          cd gitops-aws
+          sed -E -i "s/(image:).*/\1\ 726838277590.dkr.ecr.us-east-1.amazonaws.com\/$(Build.Repository.Name):$(Build.BuildId)/" deployments/qa/$(Build.Repository.Name)/deployment.yaml
+          git add deployments/qa/$(Build.Repository.Name)/deployment.yaml
+          git config --global user.email "gitops@qsaude.com.br"
+          git config --global user.name "GitOps"
+          git commit -m "[gitops-auto]"
+          git push
+        displayName: 'GitOps QA'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/quality'))
+
+      - script: |
+          git clone git@ssh.dev.azure.com:v3/QsaudeDevOps/GitOps%20AWS/gitops-aws
+          cd gitops-aws
+          sed -E -i "s/(image:).*/\1\ 880208582516.dkr.ecr.us-east-1.amazonaws.com\/$(Build.Repository.Name):$(Build.BuildId)/" deployments/prod/$(Build.Repository.Name)/deployment.yaml
+          git add deployments/prod/$(Build.Repository.Name)/deployment.yaml
+          git config --global user.email "gitops@qsaude.com.br"
+          git config --global user.name "GitOps"
+          git commit -m "[gitops-auto]"
+          git push
+        displayName: 'GitOps PROD'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))

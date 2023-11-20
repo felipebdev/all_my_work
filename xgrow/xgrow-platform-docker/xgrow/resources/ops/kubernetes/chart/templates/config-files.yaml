@@ -1,0 +1,24 @@
+{{- if .Values.configFiles }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "xgrow.fullname" . }}-configs
+  labels:
+    app: {{ template "xgrow.name" . }}
+    chart: {{ include "xgrow.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+    {{- end }}    
+data:
+  # Local Config Files
+{{- if .Values.configFiles }}
+{{- range $filename, $fileContents := .Values.configFiles }}
+  {{ $filename }}: |-
+{{ $fileContents | indent 4 }}
+{{- end }}
+{{- end }}
+
+{{- end }}

@@ -1,0 +1,15 @@
+.header-card-responsive{
+    border-radius: 8px;
+}
+.responsive-view{
+    display: none;
+}
+
+@media screen and (max-width: 1024px){
+    .wide-view{
+        display: none;
+    }
+    .responsive-view{
+        display: block;
+    }
+}

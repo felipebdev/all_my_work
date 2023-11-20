@@ -1,0 +1,22 @@
+.xgrow-button-action,.dropdown-menu,.table-menu-item {
+    background: #222429;
+}
+
+.dropdown-item:hover{
+    color: var(--contrast-green3);
+}
+
+hr {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.affiliate-icon {
+    height: 12px;
+    width: 12px;
+    color: var(--contrast-green3);
+    margin-right: 5px;
+    &--red {
+        color: #F96C6C;
+    }
+}

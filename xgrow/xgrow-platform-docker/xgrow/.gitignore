@@ -1,0 +1,64 @@
+/node_modules
+/public/uploads
+/public/hot
+/public/storage
+/public/uploads
+/resources/cert/*
+/resources/image/*
+/storage/fonts/*
+/storage/*.key
+/vendor
+.idea/*
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+up.bat
+limpa.bat
+clear_cache
+limpa
+/storage/debugbar/*
+.jshintrc
+.vscode
+public/mix-manifest.json
+*/mix-manifest.json
+
+
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+composer.phar
+.github
+public/js/bundle/*
+public/css/bundle/*
+mix-manifest.json
+cert.pem

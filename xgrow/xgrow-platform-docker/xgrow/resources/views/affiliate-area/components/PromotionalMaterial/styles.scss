@@ -1,0 +1,31 @@
+.material {
+  i {
+    color: #3D4353;
+    margin-right: 10px;
+  }
+
+  hr {
+    margin-top: 24px;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    font-weight: 400;
+  }
+
+  &__content {
+    background-color: #252932;
+    border-radius: 5px;
+
+    h6 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+  }
+}
+

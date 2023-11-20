@@ -1,0 +1,23 @@
+{{- if .Values.service.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "xgrow.fullname" . }}
+  labels:
+    app: {{ include "xgrow.name" . }}
+    chart: {{ include "xgrow.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+    {{- end }}    
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: {{ .Values.service.protocol }}
+  selector:
+    app: {{ include "xgrow.name" . }}
+    release: {{ .Release.Name }}
+{{- end }}

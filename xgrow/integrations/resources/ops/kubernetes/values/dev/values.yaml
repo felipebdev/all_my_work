@@ -1,0 +1,25 @@
+## Image settings
+image:
+  name: us-east1-docker.pkg.dev/xstaging-348615/platform/integrations
+  tag: develop-latest
+
+
+# replicas: 2
+
+
+
+## Resources
+resources: 
+  limits:
+   cpu: 100m
+   memory: 256Mi
+  requests:
+   cpu: 50m
+   memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80    

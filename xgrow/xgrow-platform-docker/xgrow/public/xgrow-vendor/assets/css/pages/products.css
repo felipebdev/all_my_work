@@ -1,0 +1,502 @@
+/*Create*/
+.xgrow-tab-item {
+    cursor: default;
+}
+
+/*Type product*/
+.product-card-img {
+    background: radial-gradient(150.27% 150.27% at 42.04% 0%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 6px;
+    padding: 2rem;
+}
+
+.product-card-img > img {
+    width: 100%;
+}
+
+.product-card-info h1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.product-card-info hr {
+    width: 80%;
+    margin: 0 auto 10px auto;
+}
+
+.product-card-info {
+    text-align: center;
+}
+
+.product-card {
+    background: #222429;
+    padding: 1rem;
+    margin: 0 1rem;
+    border-radius: 13px;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 5px #ADFF2F;
+    cursor: pointer;
+    background: #2B2E39;
+}
+
+.product-card-link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.product-card-link:hover {
+    color: #ADFF2F;
+    text-decoration: none;
+}
+
+/*Product info*/
+.ef-bg-product {
+    background: #222529;
+}
+
+.ef-bg2-product {
+    background: linear-gradient(155deg, rgba(173, 255, 47, 1) 0%, rgba(75, 75, 75, 0) 110px);
+    padding: 10px;
+    display: grid;
+}
+
+.ef-product {
+    border: 1px solid #4A5365;
+    box-sizing: border-box;
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 'image description price';
+    grid-template-columns: 180px 1fr 220px;
+
+}
+
+.ef-product-image {
+    grid-area: image;
+}
+
+.ef-product-image img {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    padding: 5px;
+}
+
+.ef-product-description {
+    grid-area: description;
+    display: grid;
+    padding: 10px;
+}
+
+.ef-product-description > h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.ef-product-description > span {
+    font-size: 1rem;
+    color: #717171;
+}
+
+.ef-product-price {
+    grid-area: price;
+}
+
+.ef-product-price .ef-price {
+    border: 1px solid #4A5365;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.ef-product-price .ef-price h1 {
+    font-size: 1.5rem;
+    color: #ADFF2F;
+    font-weight: bold;
+}
+
+.ef-product-price .ef-price p {
+    font-size: .75rem;
+}
+
+.ef-product .ef-payments {
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    font-size: .75rem;
+}
+
+.xgrow-outline-btn {
+    border: 1px solid;
+    border-color: #ADFF2F !important;
+    border-radius: 8px;
+    height: 48px;
+    font-size: .9rem;
+    padding: 0 30px;
+    line-height: 44px;
+}
+
+.xgrow-outline-btn:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 960px) {
+    .ef-product {
+        display: grid;
+        gap: 5px;
+        grid-template-areas:
+                    "image image price"
+                    "description description description";
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .ef-product {
+        display: grid;
+        gap: 5px;
+        grid-template-areas:
+                    "image image image"
+                    "description description description"
+                    "price price price";
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .ef-product-image {
+        justify-self: center;
+    }
+
+    .ef-product-description {
+        text-align: center;
+    }
+}
+
+/*External Delivery*/
+.card-integrate {
+    background: #293955;
+    padding: 30px 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: fit-content;
+}
+
+.card-integrate img {
+    height: 32px;
+}
+
+.card-integrate h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#divExternalArea {
+    display: flex;
+    gap: 1rem;
+}
+
+/*Order Bump*/
+.custom-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+}
+
+.custom-link:hover:enabled {
+    color: #93bc1e;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+}
+
+.custom-link:disabled {
+    color: #cccccc;
+    cursor: not-allowed;
+}
+
+.custom-link-danger:hover:enabled {
+    color: #F44336;
+}
+
+/* Product Edit */
+.header-cards div {
+    padding: 10px;
+    margin: 0 20px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+.text-featured {
+    color: var(--green1);
+    font-weight: bold
+}
+
+.nav-item-buttom {
+    border: solid 1px #fff !important;
+    background: none !important;
+    cursor: pointer;
+    /*width: 170px;*/
+    text-align: center;
+}
+
+.nav-pills > .active {
+    border: solid 1px var(--green1) !important;
+    color: var(--green1) !important;
+}
+
+.fa-star {
+    color: var(--green1) !important;
+    font-size: 12px;
+}
+
+.preview-frame {
+    height: 100vh;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    background-color: #252932;
+}
+
+#mode-preview {
+    cursor: pointer;
+}
+
+/*Links*/
+.xgrow-btn-sm {
+    font-size: 14px;
+    padding: 2px 10px;
+}
+
+.url-input {
+    background: transparent;
+    border: 1px solid #acacac;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: var(--green1);
+    padding: 2px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/*Order Bump e Up Sell*/
+.card-thumb {
+    background: #222429;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 177px;
+    text-align: center;
+    position: relative;
+}
+
+.card-thumb-menu {
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    width: 80%;
+    right: 25px;
+    top: 9px;
+    border-radius: 6px;
+    padding-bottom: 4px;
+}
+
+.card-thumb-menu ul {
+    margin: 5px;
+    padding: 2px 5px;
+    text-align: left;
+}
+
+.card-thumb-menu ul li {
+    padding: 3px 0;
+    cursor: pointer;
+}
+
+.button-drop {
+    background: black;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card-thumb-button {
+    min-width: 150px;
+    min-height: 177px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-thumb-img {
+    width: 157px;
+    height: 113px;
+    object-fit: cover;
+    background: radial-gradient(150.27% 150.27% at 42.04% 0%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.card-thumb-title {
+    margin-top: 10px;
+    color: #959595;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.card-thumb-price {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.card-thumb-collection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 0 1rem 0;
+}
+
+.modal-sections .modal-content {
+    max-width: 100%;
+}
+
+.modal {
+    overflow-y: auto !important;
+}
+
+/** One Click Buy Generator */
+.inner-content {
+    background-color: #333844;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 0 1rem 0;
+}
+
+.input-color {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    height: 47px;
+    width: 47px;
+    border: none;
+    cursor: pointer;
+}
+
+.input-color::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.input-color::-moz-color-swatch {
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.preview-container {
+    background-color: #252932;
+    height: 220px;
+    border: 2px dashed #7A7F8D;
+}
+
+.box-clear {
+    padding: 25px;
+    background: #333844;
+    border-radius: 10px;
+}
+
+.box-clear > textarea {
+    background: #252932;
+    cursor: default;
+    border: none;
+    border-bottom: 2px solid #93bc1d;
+    color: #ffffff;
+    resize: none;
+}
+
+.box-clear > textarea::-webkit-scrollbar-track {
+    background-color: #222429;
+}
+
+.w150 {
+    width: 150px;
+}
+
+/* btn la preview */
+.xgrow-la-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.xgrow-la-upsell-button {
+    margin-top: 12px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 20px;
+    font-family: Roboto, sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+.xgrow-la-upsell-button:hover {
+    filter: opacity(80%);
+}
+
+.xgrow-la-downsell-button {
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: sans-serif;
+    color: #7b7b7b;
+}
+
+.xgrow-la-downsell-button:hover {
+    color: #7b7b7b;
+    filter: opacity(80%);
+}
+
+@media only screen and (max-width: 600px) {
+    #xgrow-la-upsell-button {
+        padding: 7px 16px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    #xgrow-la-downsell-button {
+        font-size: 15px;
+    }
+
+    .preview-container {
+        height: 180px;
+    }
+
+    .preview-container i {
+        font-size: 3em;
+    }
+
+    .preview-container p {
+        font-size: 12px;
+    }
+}

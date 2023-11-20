@@ -1,0 +1,43 @@
+<svg width="97" height="75" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="-57.527%" y1="50.124%" x2="232.391%" y2="50.124%" id="a">
+      <stop stop-color="#007940" offset="0%"/>
+      <stop stop-color="#00873F" offset="22.85%"/>
+      <stop stop-color="#40A737" offset="74.33%"/>
+      <stop stop-color="#5CB531" offset="100%"/>
+    </linearGradient>
+    <linearGradient x1=".183%" y1="49.96%" x2="100.273%" y2="49.96%" id="b">
+      <stop stop-color="#007940" offset="0%"/>
+      <stop stop-color="#00873F" offset="22.85%"/>
+      <stop stop-color="#40A737" offset="74.33%"/>
+      <stop stop-color="#5CB531" offset="100%"/>
+    </linearGradient>
+    <linearGradient x1="-62.802%" y1="49.858%" x2="253.671%" y2="49.858%" id="c">
+      <stop stop-color="#007940" offset="0%"/>
+      <stop stop-color="#00873F" offset="22.85%"/>
+      <stop stop-color="#40A737" offset="74.33%"/>
+      <stop stop-color="#5CB531" offset="100%"/>
+    </linearGradient>
+    <linearGradient x1=".176%" y1="50.006%" x2="101.808%" y2="50.006%" id="d">
+      <stop stop-color="#1F286F" offset="0%"/>
+      <stop stop-color="#004E94" offset="47.51%"/>
+      <stop stop-color="#0066B1" offset="82.61%"/>
+      <stop stop-color="#006FBC" offset="100%"/>
+    </linearGradient>
+    <linearGradient x1="-.576%" y1="49.914%" x2="98.133%" y2="49.914%" id="e">
+      <stop stop-color="#6C2C2F" offset="0%"/>
+      <stop stop-color="#882730" offset="17.35%"/>
+      <stop stop-color="#BE1833" offset="57.31%"/>
+      <stop stop-color="#DC0436" offset="85.85%"/>
+      <stop stop-color="#E60039" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <g fill-rule="nonzero" fill="none">
+    <path d="M97 59.881C97 68.214 90.24 75 81.94 75H0V15.119C0 6.786 6.76 0 15.06 0H97v59.881z" fill="#FFF"/>
+    <path d="M5.4 39.295h6.3c.18 0 .6-.059.78-.059 1.2-.236 2.22-1.3 2.22-2.777 0-1.418-1.02-2.482-2.22-2.777-.18-.06-.54-.06-.78-.06H5.4v5.673z" fill="url(#a)" transform="translate(65 6)"/>
+    <path d="M10.98.118C4.98.118.06 4.905.06 10.873V22.04h15.42c.36 0 .78 0 1.08.059 3.48.177 6.06 1.95 6.06 5.023 0 2.422-1.74 4.49-4.98 4.904v.118c3.54.237 6.24 2.187 6.24 5.2 0 3.25-3 5.378-6.96 5.378H0v21.863h16.02c6 0 10.92-4.786 10.92-10.754V.118H10.98z" fill="url(#b)" transform="translate(65 6)"/>
+    <path d="M13.92 27.832c0-1.418-1.02-2.364-2.22-2.541-.12 0-.42-.06-.6-.06H5.4v5.2h5.7c.18 0 .54 0 .6-.058 1.2-.178 2.22-1.123 2.22-2.541z" fill="url(#c)" transform="translate(65 6)"/>
+    <path d="M16.004 5C9.991 5 5.06 9.83 5.06 15.853v26.775c3.067 1.491 6.254 2.445 9.441 2.445 3.789 0 5.833-2.266 5.833-5.367V27.064h9.38v12.583c0 4.89-3.066 8.885-13.469 8.885C9.931 48.532 5 47.161 5 47.161V70h16.056C27.069 70 32 65.17 32 59.147V5H16.004z" fill="url(#d)"/>
+    <path d="M45.944 5C39.931 5 35 9.821 35 15.833V30c2.766-2.321 7.577-3.81 15.334-3.452 4.15.178 8.6 1.31 8.6 1.31v4.582c-2.226-1.13-4.872-2.142-8.3-2.38-5.892-.417-9.44 2.44-9.44 7.44 0 5.06 3.548 7.917 9.44 7.44 3.428-.238 6.074-1.309 8.3-2.38v4.583s-4.39 1.13-8.6 1.31C42.577 48.81 37.766 47.32 35 45v25h16.056C57.069 70 62 65.179 62 59.167V5H45.944z" fill="url(#e)"/>
+  </g>
+</svg>

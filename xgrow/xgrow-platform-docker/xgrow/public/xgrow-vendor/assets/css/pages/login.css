@@ -1,0 +1,213 @@
+@import url("../colors.css");
+
+p {
+    color: #ffffff;
+}
+
+.xgrow-background-image {
+    background: #121419 url("../../img/background-login-x2.jpg") no-repeat;
+    height: 100vh;
+}
+
+.xgrow-background-image::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: #121419cc;
+}
+
+.xgrow-login-container {
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    padding: 10% 0;
+    position: fixed;
+}
+
+.xgrow-main-login {
+    position: relative;
+}
+
+.xgrow-img-logo {
+    width: 250px;
+    padding: 20px;
+}
+
+.xgrow-img-logo img {
+    width: 100%;
+}
+
+.xgrow-login-phrase {
+    font-weight: 700;
+    font-size: 39.06px;
+    text-align: end;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    line-height: 45px;
+    word-break: keep-all;
+    max-width: 14ch;
+}
+
+.xgrow-login-phrase span {
+    color: var(--green2);
+}
+
+.xgrow-right-login, .xgrow-left-login {
+    padding: 35px 15px;
+}
+
+.xgrow-right-login {
+    border-left: 1px solid #9B9B9B;
+    padding: 35px;
+}
+
+.xgrow-login-title {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.xgrow-login-button {
+    font-weight: 700;
+    background-color: var(--green1);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    outline: none;
+}
+
+.xgrow-login-button:hover, .xgrow-login-button:focus {
+    background-color: var(--green4-dark);
+}
+
+form input {
+    width: 315px;
+    background-color: #ffffff00;
+    border: none;
+    color: var(--green2);
+    border-bottom: 1px solid #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    transition-duration: 0.2s;
+}
+
+form input::placeholder {
+    color: var(--green2);
+}
+
+form input:focus, form input:focus::placeholder {
+    color: var(--green1);
+}
+
+form input:focus {
+    border-bottom: 1px solid var(--green1);
+}
+
+form input.error {
+    color: var(--red);
+    border-bottom: 1px solid var(--red);
+}
+
+form input.error::placeholder {
+    color: var(--red);
+}
+
+form input.error:focus, form input.error:focus::placeholder {
+    color: var(--red);
+}
+
+
+.input-password {
+    position: relative;
+    background: #ffffff00;
+    width: 315px;
+    height: 45px;
+    border-bottom: 1px solid #ffffff;
+    transition-duration: 0.2s;
+    margin-bottom: 20px;
+}
+
+.input-password:focus-within {
+    border-color: var(--green2);
+}
+
+.input-password__input {
+    background: transparent;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 10px 40px 10px 15px;
+    color: var(--green2);
+}
+
+.input-password__input:focus {
+    border: none;
+}
+
+.input-password__icon {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.input-password__icon:hover {
+    color: var(--green2);
+}
+
+.xgrow-login-error {
+    background-color: rgba(226, 34, 34, 0.45);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    width: 315px;
+}
+
+.xgrow-login-success {
+  background-color: var(--green1);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  width: 315px;
+}
+
+@media only screen and (max-width: 767px) {
+    .xgrow-login-phrase {
+        font-weight: 700;
+        font-size: 19.06px;
+        text-align: center;
+        margin-right: 0;
+        line-height: 25px;
+        max-width: 100ch;
+    }
+
+    .xgrow-right-login, .xgrow-left-login {
+        border-left: none;
+        padding: 22.5px 35px;
+    }
+
+    .xgrow-login-button {
+        width: 100%;
+    }
+
+    form input {
+        text-align: center;
+    }
+}

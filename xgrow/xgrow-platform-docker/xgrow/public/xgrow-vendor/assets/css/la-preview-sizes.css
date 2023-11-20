@@ -1,0 +1,1126 @@
+/**
+ * PÁGINA PRINCIPAL
+ */
+ .preview.desktop {
+    width: 100%!important;
+    max-width: 588px!important;
+}
+@media only screen
+and (min-width: 1301px),
+(max-width: 990px),
+(max-width: 920px) {
+    .preview.desktop {
+        width: 100%;
+        max-width: 588px;
+    }
+
+    .pd-top-banner {
+        padding: 20px;
+    }
+
+    .pd-search {
+        width: 200px;
+        height: 20px;
+        margin-left: 70px;
+    }
+
+    .pd-circle {
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+    }
+
+    .pd-menu {
+        width: 45px;
+        height: 35px;
+        margin-top: 20px;
+    }
+
+    .pd-ring {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    .pd-content {
+        margin-left: 60px;
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .pd-content-line {
+        width: 200px;
+        height: 25px;
+    }
+
+    .pd-content-line.two {
+        margin-top: 15px;
+        width: 120px;
+    }
+
+    .pd-content-btn {
+        margin-top: 15px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .pd-header {
+        width: 460px;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .pd-text {
+        width: 300px;
+        height: 25px;
+    }
+
+    .pd-carousel {
+        margin-top: 20px;
+    }
+
+    .pd-rectangle {
+        height: 120px;
+        width: 300px;
+        margin-left: 20px;
+    }
+
+    .pd-rectangle.three {
+        width: 150px;
+    }
+
+    .pd-line-content {
+        margin: 40px 0 20px;
+    }
+
+    .pd-square {
+        margin-left: 20px;
+        height: 100px;
+        width: 100px;
+    }
+
+    .pd-square.four {
+        margin-right: 20px;
+    }
+}
+
+@media only screen
+and (max-width: 1300px),
+(max-width: 830px),
+(max-width: 630px) {
+    .preview.desktop {
+        width: 400px;
+    }
+
+    .pd-top-banner {
+        padding: 20px;
+    }
+
+    .pd-search {
+        width: 200px;
+        height: 20px;
+        margin-left: 60px;
+    }
+
+    .pd-circle {
+        width: 15px;
+        height: 15px;
+        margin-left: 15px;
+    }
+
+    .pd-menu {
+        width: 45px;
+        height: 35px;
+    }
+
+    .pd-ring {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    .pd-content {
+        margin-left: 60px;
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .pd-content-line {
+        width: 200px;
+        height: 25px;
+    }
+
+    .pd-content-line.two {
+        margin-top: 15px;
+        width: 120px;
+    }
+
+    .pd-content-btn {
+        margin-top: 15px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .pd-header {
+        width: 360px;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .pd-text {
+        width: 200px;
+        height: 25px;
+    }
+
+    .pd-carousel {
+        margin-top: 20px;
+    }
+
+    .pd-rectangle {
+        height: 100px;
+        width: 300px;
+        margin-left: 20px;
+    }
+
+    .pd-rectangle.three {
+        width: 150px;
+    }
+
+    .pd-line-content {
+        margin: 40px 0 20px;
+    }
+
+    .pd-square {
+        margin-left: 20px;
+        height: 80px;
+        width: 100px;
+    }
+
+    .pd-square.four {
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .preview.desktop {
+        width: 300px;
+    }
+
+    .pd-top-banner {
+        padding: 20px;
+    }
+
+    .pd-search {
+        width: 150px;
+        height: 20px;
+        margin-left: 50px;
+    }
+
+    .pd-circle {
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+    }
+
+    .pd-menu {
+        width: 45px;
+        height: 35px;
+        margin-top: 0;
+    }
+
+    .pd-ring {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    .pd-content {
+        margin-left: 30px;
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .pd-content-line {
+        width: 200px;
+        height: 25px;
+    }
+
+    .pd-content-line.two {
+        margin-top: 15px;
+        width: 120px;
+    }
+
+    .pd-content-btn {
+        margin-top: 15px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .pd-header {
+        width: 280px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .pd-text {
+        width: 160px;
+        height: 25px;
+    }
+
+    .pd-carousel {
+        margin-top: 10px;
+    }
+
+    .pd-rectangle {
+        height: 100px;
+        width: 300px;
+        margin-left: 10px;
+    }
+
+    .pd-rectangle.three {
+        width: 50px;
+    }
+
+    .pd-line-content {
+        margin: 30px 0 20px;
+    }
+
+    .pd-square {
+        margin-left: 10px;
+        height: 60px;
+        width: 100px;
+    }
+
+    .pd-square.four {
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .preview.desktop {
+        width: 200px;
+    }
+
+    .pd-top-banner {
+        padding: 20px;
+    }
+
+    .pd-search {
+        width: 120px;
+        height: 15px;
+        margin-left: 30px;
+    }
+
+    .pd-circle {
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+    }
+
+    .pd-menu {
+        width: 25px;
+        height: 25px;
+        margin-top: 0;
+    }
+
+    .pd-ring {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+
+    .pd-content {
+        margin-left: 30px;
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .pd-content-line {
+        width: 120px;
+        height: 25px;
+    }
+
+    .pd-content-line.two {
+        margin-top: 15px;
+        width: 80px;
+    }
+
+    .pd-content-btn {
+        margin-top: 15px;
+        width: 50px;
+        height: 25px;
+    }
+
+    .pd-header {
+        width: 180px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .pd-text {
+        width: 140px;
+        height: 25px;
+    }
+
+    .pd-carousel {
+        margin-top: 10px;
+    }
+
+    .pd-rectangle {
+        height: 100px;
+        width: 130px;
+        margin-left: 10px;
+    }
+
+    .pd-rectangle.two {
+        width: 50px;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .pd-rectangle.three {
+        display: none;
+    }
+
+    .pd-line-content {
+        margin: 30px 0 20px;
+    }
+
+    .pd-square {
+        margin-left: 10px;
+        height: 50px;
+        width: 60px;
+    }
+
+    .pd-square.three {
+        margin-right: 10px;
+    }
+
+    .pd-square.four {
+        display: none;
+    }
+}
+
+.preview.mobile {
+    width: 200px;
+}
+
+.pm-top-banner {
+    padding: 20px;
+    justify-content: flex-end !important;
+}
+
+.pm-search {
+    width: 120px;
+    height: 15px;
+    margin-left: 30px;
+}
+
+.pm-circle {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+}
+
+.pm-menu {
+    width: 25px;
+    height: 25px;
+    margin-top: 0;
+}
+
+.pm-ring {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.pm-content {
+    margin-left: 30px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.pm-content-line {
+    width: 120px;
+    height: 25px;
+}
+
+.pm-content-line.two {
+    margin-top: 15px;
+    width: 80px;
+}
+
+.pm-content-btn {
+    margin-top: 15px;
+    width: 50px;
+    height: 25px;
+}
+
+.pm-header {
+    width: 180px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.pm-text {
+    width: 140px;
+    height: 25px;
+}
+
+.pm-carousel {
+    margin-top: 10px;
+}
+
+.pm-rectangle {
+    height: 100px;
+    width: 130px;
+    margin-left: 10px;
+}
+
+.pm-rectangle.two {
+    width: 50px;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.pm-rectangle.three {
+    display: none;
+}
+
+.pm-line-content {
+    margin: 20px 0;
+}
+
+.pm-square {
+    margin-left: 10px;
+    height: 70px;
+    width: 70px;
+}
+
+.pm-square.three {
+    width: 20px;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.pm-square.four {
+    display: none;
+}
+
+/**
+ * PÁGINA DE CURSO
+ */
+@media only screen
+and (min-width: 1301px),
+(max-width: 990px),
+(max-width: 920px) {
+    .cd-menu {
+        width: 45px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    .cd-ring {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    .cd-top-right {
+        margin-left: 10px;
+    }
+
+    .cd-content {
+        width: 60%;
+    }
+
+    .cd-pages {
+        margin-top: 60px;
+    }
+
+    .cd-page {
+        width: 40px;
+        height: 5px;
+    }
+
+    .cd-page.two {
+        margin-left: 10px;
+    }
+
+    .cd-title {
+        height: 25px;
+        margin-top: 20px;
+    }
+
+    .cd-emphasis {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .cd-video {
+        width: 50%;
+        height: 85px;
+    }
+
+    .cd-description {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    .cd-text {
+        width: 100%;
+        height: 10px;
+        margin-bottom: 10px;
+    }
+
+    .cd-btn {
+        width: 80px;
+        height: 25px;
+    }
+
+    .cd-reviews {
+        width: 40%;
+        height: 100%;
+    }
+
+    .cd-bar {
+        width: 50%;
+        height: 5px;
+        margin-top: 100px;
+        margin-bottom: 5px;
+    }
+
+    .cd-review {
+        width: 50%;
+        margin: 5px 0;
+    }
+
+    .cd-photo {
+        width: 15px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .cd-review > .cd-text {
+        width: 100%;
+        height: 5px;
+        margin-left: 10px;
+    }
+
+    .cd-grade {
+        font-size: 12px;
+        width: 50%;
+    }
+
+    .cd-classes {
+        width: 100%;
+        padding: 20px 55px;
+    }
+
+    .cd-class {
+        width: 100%;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    .cd-class-title {
+        width: 80px;
+        height: 10px;
+    }
+
+    .cd-progress {
+        width: 180px;
+        height: 10px;
+        margin-left: -50px;
+    }
+
+    .cd-indicator {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media only screen
+and (max-width: 1300px),
+(max-width: 830px),
+(max-width: 630px) {
+    .cd-menu {
+        width: 45px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    .cd-ring {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    .cd-top-right {
+        margin-left: 10px;
+    }
+
+    .cd-content {
+        width: 60%;
+    }
+
+    .cd-pages {
+        margin-top: 60px;
+    }
+
+    .cd-page {
+        width: 40px;
+        height: 5px;
+    }
+
+    .cd-page.two {
+        margin-left: 10px;
+    }
+
+    .cd-title {
+        height: 25px;
+        margin-top: 20px;
+    }
+
+    .cd-emphasis {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .cd-video {
+        width: 50%;
+        height: 85px;
+    }
+
+    .cd-description {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    .cd-text {
+        width: 100%;
+        height: 10px;
+        margin-bottom: 10px;
+    }
+
+    .cd-btn {
+        width: 80px;
+        height: 25px;
+    }
+
+    .cd-reviews {
+        width: 40%;
+        height: 100%;
+    }
+
+    .cd-bar {
+        width: 50%;
+        height: 5px;
+        margin-top: 100px;
+        margin-bottom: 5px;
+    }
+
+    .cd-review {
+        width: 50%;
+        margin: 5px 0;
+    }
+
+    .cd-photo {
+        width: 15px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .cd-review > .cd-text {
+        width: 100%;
+        height: 5px;
+        margin-left: 10px;
+    }
+
+    .cd-grade {
+        font-size: 12px;
+        width: 50%;
+    }
+
+    .cd-classes {
+        width: 100%;
+        padding: 20px 35px 20px 55px;
+    }
+
+    .cd-class {
+        width: 100%;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    .cd-class-title {
+        width: 60px;
+        height: 10px;
+    }
+
+    .cd-progress {
+        width: 160px;
+        height: 10px;
+        margin-left: -30px;
+    }
+
+    .cd-indicator {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .cd-menu {
+        width: 25px;
+        height: 25px;
+        margin-top: 80px;
+    }
+
+    .cd-ring {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+
+    .cd-top-right {
+        margin-left: 10px;
+    }
+
+    .cd-content {
+        width: 60%;
+    }
+
+    .cd-pages {
+        margin-top: 60px;
+    }
+
+    .cd-page {
+        width: 40px;
+        height: 5px;
+    }
+
+    .cd-page.two {
+        margin-left: 10px;
+    }
+
+    .cd-title {
+        height: 25px;
+        margin-top: 20px;
+    }
+
+    .cd-emphasis {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .cd-video {
+        width: 50%;
+        height: 85px;
+    }
+
+    .cd-description {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    .cd-text {
+        width: 100%;
+        height: 10px;
+        margin-bottom: 10px;
+    }
+
+    .cd-btn {
+        width: 80px;
+        height: 25px;
+    }
+
+    .cd-reviews {
+        width: 40%;
+        height: 100%;
+    }
+
+    .cd-bar {
+        width: 50%;
+        height: 5px;
+        margin-top: 100px;
+        margin-bottom: 5px;
+    }
+
+    .cd-review {
+        width: 50%;
+        margin: 5px 0;
+    }
+
+    .cd-photo {
+        width: 15px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .cd-review > .cd-text {
+        width: 100%;
+        height: 5px;
+        margin-left: 10px;
+    }
+
+    .cd-grade {
+        font-size: 10px;
+        width: 50%;
+    }
+
+    .cd-classes {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .cd-class {
+        width: 100%;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    .cd-class-title {
+        width: 40px;
+        height: 10px;
+    }
+
+    .cd-progress {
+        width: 130px;
+        height: 10px;
+        margin-left: -30px;
+    }
+
+    .cd-indicator {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .cd-menu {
+        width: 25px;
+        height: 25px;
+        margin-top: 80px;
+    }
+
+    .cd-ring {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+
+    .cd-top-right {
+        margin-left: 10px;
+    }
+
+    .cd-content {
+        width: 60%;
+    }
+
+    .cd-pages {
+        margin-top: 60px;
+    }
+
+    .cd-page {
+        width: 40px;
+        height: 5px;
+    }
+
+    .cd-page.two {
+        margin-left: 10px;
+    }
+
+    .cd-title {
+        height: 25px;
+        margin-top: 20px;
+    }
+
+    .cd-emphasis {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .cd-video {
+        width: 50%;
+        height: 85px;
+    }
+
+    .cd-description {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    .cd-text {
+        width: 100%;
+        height: 10px;
+        margin-bottom: 10px;
+    }
+
+    .cd-btn {
+        width: 35px;
+        height: 25px;
+    }
+
+    .cd-reviews {
+        width: 40%;
+        height: 100%;
+    }
+
+    .cd-bar {
+        width: 50%;
+        height: 5px;
+        margin-top: 100px;
+        margin-bottom: 5px;
+    }
+
+    .cd-review {
+        width: 50%;
+        margin: 5px 0;
+    }
+
+    .cd-photo {
+        width: 15px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .cd-review > .cd-text {
+        width: 100%;
+        height: 5px;
+        margin-left: 10px;
+    }
+
+    .cd-grade {
+        font-size: 5px;
+        width: 50%;
+    }
+
+    .cd-classes {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .cd-class {
+        width: 100%;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    .cd-class-title {
+        width: 35px;
+        height: 10px;
+    }
+
+    .cd-progress {
+        width: 50px;
+        height: 10px;
+        margin-left: -30px;
+    }
+
+    .cd-indicator {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+.cm-video {
+    height: 180px;
+}
+
+.cm-top-menu {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.cm-circle {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+}
+
+.cm-menu {
+    width: 25px;
+    height: 25px;
+    margin-top: 0;
+}
+
+.cm-ring {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.cm-info {
+    padding: 15px 10px;
+    width: 100%;
+}
+
+.cm-top-info {
+    width: 100%;
+}
+
+.cm-title {
+    width: 50%;
+}
+
+.cm-title-line {
+    width: 100%;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.cm-title-line.two {
+    width: 80%;
+}
+
+.cm-btn {
+    width: 70px;
+    height: 25px;
+}
+
+.cm-review {
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.cm-description {
+    width: 100%;
+}
+
+.cm-description-line {
+    width: 100%;
+    height: 5px;
+    margin-bottom: 5px;
+}
+
+.cm-description-line.three {
+    width: 60%;
+}
+
+.cm-classes {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.cm-class {
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.cm-class-title {
+    width: 35px;
+    height: 10px;
+}
+
+.cm-progress {
+    width: 50px;
+    height: 10px;
+    margin-left: -30px;
+}
+
+.cm-indicator {
+    height: 15px;
+    width: 15px;
+}

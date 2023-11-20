@@ -1,0 +1,145 @@
+.xgrow-card-header a {
+    color: var(--contrast-green);
+}
+
+.xgrow-sidecard {
+    background: var(--none);
+    border: 1px solid var(--contrast-green3);
+}
+
+.xgrow-sidecard p {
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: 800;
+    overflow: hidden;
+    color: var(--font-color-inverted);
+    /* background: linear-gradient(
+        to right,
+        var(--green4),
+        var(--green4-lighter) 50%,
+        var(--white) 50%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease; */
+}
+.xgrow-sidecard p:hover {
+    background-position: 0 100%;
+}
+.biling-link {
+    text-decoration: underline;
+    font-weight: bold;
+    color: var(--font-color-inverted);
+    cursor: pointer;
+    transition: 0.25s;
+}
+.biling-link:hover {
+    color: var(--contrast-green3);
+}
+
+#myTab > li {
+    width: 110px;
+}
+
+.media {
+    border-bottom: 1px solid var(--gray1);
+    padding: 16px 8px;
+}
+.media:last-child {
+    border-bottom: 0;
+}
+.media:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.09);
+}
+.media-list {
+    overflow-y: auto;
+    height: 317px;
+    padding: 0;
+}
+
+.perfomance-select.xgrow-select {
+    width: 200px;
+}
+#main {
+    width: 100%;
+    min-height: 300px;
+}
+#main div {
+    width: 300px;
+}
+#main2 {
+    width: 100%;
+    min-height: 300px;
+}
+#main2 div {
+    width: 300px;
+}
+#piechart {
+    width: 100%;
+    min-height: 300px;
+}
+#piechart div {
+    width: 300px;
+}
+.xgrow-button.btn-graph {
+    float: right;
+}
+
+.card-top10-content {
+    padding: 8px;
+    width: 100%;
+}
+
+.card-top10-content h6 {
+    color: var(--font-color-whited);
+}
+
+.card-top10-content li {
+    color: var(--contrast-gray);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.card-top10-content hr {
+    color: var(--contrast-gray);
+}
+
+.xgrow-search-collapse {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: var(--black-card-color);
+    border-radius: 4px;
+    border: 0;
+}
+.xgrow-search-collapse::before {
+    font-family: "FontAwesome";
+    content: "\f03a";
+    color: var(--contrast-green);
+}
+.xgrow-card-sm.card-dashboard {
+    background-color: var(--card-color);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    padding: 8px 24px 8px 12px;
+}
+.xgrow-card-sm.card-dashboard img {
+    margin-right: 8px;
+}
+.card-dashboard-left {
+    width: 50px;
+    margin-right: 8px;
+}
+@media screen and (max-width: 767px) {
+  .wide-input{
+    display: none;
+  }
+  .xgrow-search-collapse {
+      display: block;
+  }
+}

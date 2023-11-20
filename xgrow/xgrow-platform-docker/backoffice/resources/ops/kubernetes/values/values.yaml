@@ -1,0 +1,17 @@
+fullnameOverride: backoffice-backend
+
+
+imagePullSecrets:
+  - gcr-registry
+ 
+## Ingress
+ingress:
+
+  ## Annotations
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "180"

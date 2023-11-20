@@ -1,0 +1,150 @@
+trigger:
+  - developer
+  - quality
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+  # - job: RunTestsAndSonarCloud
+  #   variables:
+  #     - name: NODE_ENV
+  #       value: test
+  #   steps:
+  #     - script: |
+  #         npm install
+  #         npm run test
+  #       displayName: 'Unit Tests'
+
+  #     #- script: |
+  #     #    npm run test:e2e
+  #     #  displayName: 'E2E Tests'
+
+  #     - script: |
+  #         npm run test:cov
+  #         ls -la
+  #         ls -la coverage/
+  #       displayName: 'Test Coverage'
+
+  # - task: SonarCloudPrepare@1
+  #   displayName: 'Prepare analysis on SonarCloud'
+  #   inputs:
+  #     SonarCloud: SonarCloudQsaude
+  #     organization: qsaudedevops
+  #     scannerMode: CLI
+  #     configMode: manual
+  #     cliProjectKey: '$(Build.Repository.Name)'
+  #     cliProjectName: '$(Build.Repository.Name)'
+  #     cliSources: src
+  #     extraProperties: |
+  #       sonar.branch.name=$(BUILD.SOURCEBRANCHNAME)
+  #       sonar.sources=src/,
+  #       sonar.tests=src/,
+  #       sonar.inclusions=**,
+  #       sonar.test.inclusions=**/*.spec.ts,**/*.e2e-spec.ts,**/*.test.ts
+  #       sonar.exclusions=**/node_modules/**,**/dist/**,**/test/**,**/deploy/**,**/__tests__/**,**/__fixtures__/**,**/__mocks__/**,src/**/*.mocks.ts,src/**/*.spec.ts,src/**/*.e2e-spec.ts,src/**/*.test.ts,**/main.ts,**/*.module.ts,**/*.enum.ts,**/*.interface.ts.
+  #       sonar.coverage.exclusions=**/node_modules/**,**/dist/**,**/test/**,**/deploy/**,**/__tests__/**.**/__fixtures__/**.**/__mocks__/**.src/**/*.mocks.*,src/**/*.spec.*,src/**/*.e2e-spec.*,src/**/*.test.*,**/main.ts*,**/*.module.ts*,**/*.enum.ts*,**/*.interface.ts*
+  #       sonar.javascript.lcov.reportPaths=coverage/lcov.info
+  #       sonar.typescript.lcov.reportPaths=coverage/lcov.info
+  #       sonar.testExecutionReportPaths=coverage/coverage-final.xml
+  # - task: SonarCloudAnalyze@1
+  #   displayName: 'Run Code Analysis'
+  # - task: SonarCloudPublish@1
+  #   displayName: 'Publish Quality Gate Result'
+  #   continueOnError: false
+
+  - job: BuildAndPush
+    steps:
+      - task: Docker@2
+        displayName: 'Build docker image'
+        inputs:
+          command: build
+          dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)'
+          repository: $(Build.Repository.Name)
+
+      - task: ECRPushImage@1
+        displayName: 'Push docker image dev'
+        inputs:
+          awsCredentials: 'AWS_ECR_Access'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: $(Build.Repository.Name)
+          sourceImageTag: $(Build.BuildId)
+          pushTag: $(Build.BuildId)
+          repositoryName: $(Build.Repository.Name)
+          autoCreateRepository: true
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/developer'))
+
+      - task: ECRPushImage@1
+        displayName: 'Push docker image hom'
+        inputs:
+          awsCredentials: 'AWS_ECR_ACCESS_HOM'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: $(Build.Repository.Name)
+          sourceImageTag: $(Build.BuildId)
+          pushTag: $(Build.BuildId)
+          repositoryName: $(Build.Repository.Name)
+          autoCreateRepository: true
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/quality'))
+
+      - task: ECRPushImage@1
+        displayName: 'Push docker image prod'
+        inputs:
+          awsCredentials: 'AWS_ECR_ACCESS_PROD'
+          regionName: 'us-east-1'
+          imageSource: 'imagename'
+          sourceImageName: $(Build.Repository.Name)
+          sourceImageTag: $(Build.BuildId)
+          pushTag: $(Build.BuildId)
+          repositoryName: $(Build.Repository.Name)
+          autoCreateRepository: true
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+  - job: GitOps
+    dependsOn: BuildAndPush
+    condition: succeeded()
+    steps:
+      - task: InstallSSHKey@0
+        inputs:
+          knownHostsEntry: 'dev.quesaude.net'
+          sshKeySecureFile: 'gitops-deploy-key'
+        displayName: 'Install SSH Key'
+
+      - script: |
+          git clone git@ssh.dev.azure.com:v3/QsaudeDevOps/GitOps%20AWS/gitops-aws
+          cd gitops-aws
+          sed -E -i "s/(image:).*/\1\ 790266467241.dkr.ecr.us-east-1.amazonaws.com\/$(Build.Repository.Name):$(Build.BuildId)/" deployments/dev/$(Build.Repository.Name)/deployment.yaml
+          git add deployments/dev/$(Build.Repository.Name)/deployment.yaml
+          git config --global user.email "gitops@qsaude.com.br"
+          git config --global user.name "GitOps"
+          git commit -m "[gitops-auto]"
+          git push
+        displayName: 'GitOps Dev'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/developer'))
+
+      - script: |
+          git clone git@ssh.dev.azure.com:v3/QsaudeDevOps/GitOps%20AWS/gitops-aws
+          cd gitops-aws
+          sed -E -i "s/(image:).*/\1\ 726838277590.dkr.ecr.us-east-1.amazonaws.com\/$(Build.Repository.Name):$(Build.BuildId)/" deployments/qa/$(Build.Repository.Name)/deployment.yaml
+          git add deployments/qa/$(Build.Repository.Name)/deployment.yaml
+          git config --global user.email "gitops@qsaude.com.br"
+          git config --global user.name "GitOps"
+          git commit -m "[gitops-auto]"
+          git push
+        displayName: 'GitOps Hml'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/quality'))
+
+      - script: |
+          git clone git@ssh.dev.azure.com:v3/QsaudeDevOps/GitOps%20AWS/gitops-aws
+          cd gitops-aws
+          sed -E -i "s/(image:).*/\1\ 880208582516.dkr.ecr.us-east-1.amazonaws.com\/$(Build.Repository.Name):$(Build.BuildId)/" deployments/prod/$(Build.Repository.Name)/deployment.yaml
+          git add deployments/prod/$(Build.Repository.Name)/deployment.yaml
+          git config --global user.email "gitops@qsaude.com.br"
+          git config --global user.name "GitOps"
+          git commit -m "[gitops-auto]"
+          git push
+        displayName: 'GitOps Prod'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))

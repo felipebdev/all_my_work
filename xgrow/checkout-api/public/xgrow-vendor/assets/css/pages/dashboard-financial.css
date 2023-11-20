@@ -1,0 +1,168 @@
+:root {
+    --financial-card-color-dark: #252932;
+    --financial-card-color-light: #dfdfdf;
+}
+
+.dark-mode {
+    --financial-card-color: var(--financial-card-color-dark);
+}
+
+.light-mode {
+    --financial-card-color: var(--financial-card-color-light);
+}
+
+.xgrow-card-header.financial-header {
+    justify-content: flex-start !important;
+}
+
+.financial-panel{
+    background-color: var(--card-color) !important;
+}
+
+.financial-header-card {
+    width: 245px;
+    margin-bottom: 50px;
+    margin: 0 10px;
+    color: var(--card-font-color);
+}
+
+.financial-header-card:first-child {
+    margin: 0 10px 0 0;
+}
+
+.financial-header-card:last-child {
+    margin: 0 0 0 10px;
+}
+
+.financial-header-card .card-title {
+    font-weight: bold;
+    color: var(--card-font-color);
+}
+
+.card-info.green-border {
+    border: 2px solid #93BC1E;
+}
+
+.card-info.blue-border {
+    border: 2px solid #4CB1F7;
+}
+
+.card-info.yellow-border {
+    border: 2px solid #FFF623;
+}
+
+.card-info.orange-border {
+    border: 2px solid #FFAC2F;
+}
+
+.card-info {
+    width: 100%;
+    height: 135px;
+    margin: auto;
+    border: double 2px transparent;
+    border-radius: 5px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-info .value {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-info small {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.card-info .info {
+    text-align: center;
+}
+
+.card-info button {
+    padding: 5px 30px;
+    border: 0;
+    font-weight: bold;
+    color: var(--card-font-color);
+    background-color: transparent;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+.card-info.green-border button {
+    background-color: #93BC1E;
+}
+
+.card-info.yellow-border button {
+    background-color: #FFF623;
+}
+
+.card-info.orange-border button {
+    background-color: #FFAC2F;
+}
+
+.financial-body-card {
+    color: var(--card-font-color);
+    width: 100%;
+    height: 100% !important;
+    margin: auto;
+    border: double 2px transparent;
+    border-radius: 5px;
+    background-color: var(--financial-card-color);
+    /* background-image: linear-gradient(#252932, #252932), linear-gradient(to top, #444444, rgba(0, 0, 0, 0)); */
+    padding: 0;
+}
+
+.financial-body-card .xgrow-card-body ul {
+    padding: 5px !important;
+}
+
+.financial-body-card.spaced {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#select2-slc-status-filter-container {
+    padding: 0 !important;
+}
+
+.green-info {
+    color: #93BC1E;
+}
+
+.white-value {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px var(--card-font-color) solid;
+}
+
+.white-value h6 {
+    text-align: center;
+    margin: 0;
+}
+
+@media only screen and (max-width: 1340px) {
+    .xgrow-card-header.financial-header {
+        justify-content: center !important;
+    }
+    
+    .financial-header-card:first-child {
+        margin: 0 10px;
+    }
+    
+    .financial-header-card:last-child {
+        margin: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .financial-header-card {
+        width: 220px;
+    }
+}

@@ -1,0 +1,261 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""return files"""
+type File {
+  id: String!
+  mandatory: Boolean!
+  name: String!
+  fileType: String!
+  fileMimetype: String
+  fileOriginalname: String
+  fileSize: Float
+  origin: String!
+  idProposal: String
+  idPerson: String
+}
+
+"""lead"""
+type Lead {
+  uuidLead: String
+  numberCPF: String
+  completeName: String
+  birthday: String
+  codePlan: String
+  email: String
+  CellPhoneDDD: String
+  cellPhoneNumber: String
+  tagName: String
+}
+
+"""person"""
+type Person {
+  idPerson: String
+  name: String
+  birthday: String
+  gender: String
+  maritalStatus: String
+  cpf: String
+  cns: String
+  rg: String
+  emittingOrgan: String
+  motherName: String
+  email: String
+  cellphone: String
+}
+
+type ProposalRole {
+  idProposalRole: String!
+  role: String!
+  idProposal: String!
+  idPerson: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Proposal {
+  idProposal: String
+  idLead: String
+  proposalNumber: String
+  levelSale: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type CreatedProposal {
+  proposal: Proposal!
+  person: Person!
+  proposalRole: ProposalRole!
+  token: Boolean!
+}
+
+"""token"""
+type Token {
+  value: String!
+  cpf: String!
+  expiredIn: String!
+  id: String!
+  type: String!
+}
+
+type Address {
+  address: String
+  addressNumber: String
+  addressComplement: String
+  city: String
+  neighborhood: String
+  state: String
+  zipCode: String
+}
+
+"""company"""
+type Company {
+  idCompany: String!
+  cnpj: String
+  name: String
+  tradeName: String
+  codeLegalNature: String
+  companySize: String
+  cnae: String
+  openingDate: String
+  idProposal: String!
+  address: Address
+}
+
+"""finance"""
+type Finance {
+  idFinance: String!
+  formPayment: String
+  dueDate: String
+  startingDate: String
+  idProposal: String!
+}
+
+type Query {
+  lead(id: String!): Lead!
+  person(id: String!): Person!
+  personAddress(idProposal: String!, role: ProposalRoleEnum!): Address!
+  parametrizationFile(idPerson: String!, idProposal: String!, beneficiaryType: String!, saleType: String!): [File!]!
+  zipCode(value: String!): Address!
+  company(idProposal: String!): Company!
+  finance(idProposal: String!): Finance!
+}
+
+enum ProposalRoleEnum {
+  LegalRepresentative
+  Owner
+  Beneficiary
+  LegalResponsible
+  FinancialResponsible
+}
+
+type Mutation {
+  createLegalRepresentative(legalRepresentative: LegalRepresentativeInput!): CreatedProposal!
+  createToken(token: CreateTokenInput!): Token!
+  createPersonAddress(address: PersonAddressInput!): Address!
+  createCompanyAddress(address: CompanyAddressInput!): Address!
+  createCompany(company: CompanyInput!): Company!
+  updateCompany(id: String!, company: UpdateCompanyInput!): Company!
+  createFinance(finance: FinanceInput!): Finance!
+  updateFinance(id: String!, finance: UpdateFinanceInput!): Finance!
+}
+
+"""legal-representative"""
+input LegalRepresentativeInput {
+  proposal: ProposalInput!
+  tokenValidation: CheckTokenInput!
+  person: PersonInput!
+}
+
+"""proposal"""
+input ProposalInput {
+  idLead: String
+  levelSale: Float
+}
+
+"""check-token-input"""
+input CheckTokenInput {
+  value: String!
+  token: String!
+  cpf: String!
+  type: TokenEnum!
+}
+
+"""Supported values for token validation type."""
+enum TokenEnum {
+  SMS
+  EMAIL
+}
+
+"""person"""
+input PersonInput {
+  idPerson: String
+  name: String!
+  birthday: String
+  gender: String
+  maritalStatus: String
+  cpf: String!
+  cns: String
+  rg: String
+  emittingOrgan: String
+  motherName: String
+  email: String!
+  cellphone: String!
+}
+
+"""token-input"""
+input CreateTokenInput {
+  cpf: String!
+  type: TokenEnum!
+  value: String!
+  name: String!
+}
+
+"""person address input"""
+input PersonAddressInput {
+  address: String!
+  addressNumber: String!
+  addressComplement: String!
+  city: String!
+  neighborhood: String!
+  state: String!
+  zipCode: String!
+  idProposal: String!
+  role: ProposalRoleEnum!
+}
+
+"""company address input"""
+input CompanyAddressInput {
+  address: String!
+  addressNumber: String!
+  addressComplement: String!
+  city: String!
+  neighborhood: String!
+  state: String!
+  zipCode: String!
+  idCompany: String!
+}
+
+"""company input"""
+input CompanyInput {
+  cnpj: String
+  name: String
+  tradeName: String
+  codeLegalNature: String
+  companySize: String
+  cnae: String
+  openingDate: String
+  idProposal: String!
+}
+
+input UpdateCompanyInput {
+  cnpj: String
+  name: String
+  tradeName: String
+  codeLegalNature: String
+  companySize: String
+  cnae: String
+  openingDate: String
+  idProposal: String
+}
+
+"""finance input"""
+input FinanceInput {
+  formPayment: String
+  dueDate: String
+  startingDate: String
+  idProposal: String!
+}
+
+input UpdateFinanceInput {
+  formPayment: String
+  dueDate: String
+  startingDate: String
+  idProposal: String
+}

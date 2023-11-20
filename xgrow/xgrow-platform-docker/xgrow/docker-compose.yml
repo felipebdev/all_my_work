@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  xgrow-nginx:
+    build:
+      context: .
+      dockerfile: resources/ops/docker/nginx/Dockerfile
+    command: nginx -g "daemon off;"
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - xgrow
+  xgrow:
+    build:
+      context: .
+      dockerfile: resources/ops/docker/php/Dockerfile
+    volumes:
+      - media-files:/var/www/html/storage/app/public
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    command: php-fpm
+volumes:
+  www-dir:
+  media-files:

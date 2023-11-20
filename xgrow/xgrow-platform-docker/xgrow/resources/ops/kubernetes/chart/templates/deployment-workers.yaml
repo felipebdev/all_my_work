@@ -1,0 +1,145 @@
+## Workers Deployment
+{{- $fullName := include "xgrow.fullname" . -}}
+{{- $shortName := include "xgrow.name" . -}}
+
+{{- range $worker, $workerValues := .Values.workers }}
+---
+{{- $workerFullName := print $fullName "-worker-" $worker -}}
+{{- $workerName := print $shortName "-worker-" $worker -}}
+{{- $workerImage := $.Values.image }}
+{{- if $workerValues.image }}
+  {{- $workerImage := $workerValues.image }}
+{{- end }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $workerFullName }}
+  labels:
+    app: {{ $workerName }}
+    chart: {{ include "xgrow.chart" $ }}
+    release: {{ $.Release.Name }}
+    heritage: {{ $.Release.Service }}
+    {{- if $.Values.extraLabels }}
+{{ toYaml $.Values.extraLabels | indent 4 }}
+    {{- end }}
+
+spec:
+  replicas: {{ $workerValues.replicas }}
+  selector:
+    matchLabels:
+      app: {{ $workerName }}
+      release: {{ $.Release.Name }}
+
+   {{- if $.Values.deployment.strategy }}
+  strategy:
+{{ toYaml $.Values.deployment.strategy | indent 4 }}
+  {{- end }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ $workerName }}
+        chart: {{ include "xgrow.chart" $ }}
+        release: {{ $.Release.Name }}
+        heritage: {{ $.Release.Service }}
+        {{- if $.Values.deployment.podLabels }}
+{{ toYaml $.Values.deployment.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+      {{- range $key, $value := $.Values.deployment.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+    spec:
+      {{- if $.Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml $.Values.nodeSelector | indent 8 }}
+      {{- end }}
+
+      affinity:
+      {{- if $.Values.affinity }}
+{{ toYaml $.Values.affinity | indent 8 }}
+      {{- end }}      
+
+      {{- if $.Values.priorityClassName }}
+      priorityClassName: {{ $.Values.priorityClassName | quote }}
+      {{- end }}
+
+      # Initialize: set a command to be executed in the Values.initCommand
+      {{- if $workerValues.initCommand }}
+      initContainers:    
+      - image: {{ $workerImage.name }}:{{ $workerImage.tag }}
+        name: init
+        imagePullPolicy: {{ $.Values.image.pullPolicy }}
+        command: ["sh", "-c", {{ $workerValues.initCommand | quote }}]
+        envFrom:
+          - configMapRef:
+              name: {{ template "xgrow.fullname" $ }}-config-env
+
+        volumeMounts:        
+        {{- if $.Values.configFiles }}
+        - mountPath: /configs
+          name: {{ template "xgrow.fullname" $ }}-configs
+        {{ end }}
+
+        {{- if $.Values.secretFiles }}
+        - mountPath: /secrets
+          name: {{ template "xgrow.fullname" $ }}-secrets
+        {{- end }}
+      {{- end }}
+
+      containers:
+
+      # App Container
+      - image:  {{ $workerImage.name }}:{{ $workerImage.tag }}
+        name: {{ $workerName }}
+        imagePullPolicy: {{ $.Values.image.pullPolicy }}
+
+        # Command
+        {{- if $workerValues.command }}
+        command: ["sh", "-c", {{ $workerValues.command | quote }}]
+        {{- end }}
+
+        # Args
+        {{- if $workerValues.args }}
+        args: {{ toYaml $workerValues.args | toJson }}
+        {{- end }}
+
+        # Env from configmap and secrets
+        envFrom:
+          - configMapRef:
+              name: {{ template "xgrow.fullname" $ }}-config-env
+
+        volumeMounts:
+        {{- if $.Values.configFiles }}
+        - mountPath: /configs
+          name: {{ template "xgrow.fullname" $ }}-configs
+        {{ end }}
+
+        {{- if $.Values.secretFiles }}
+        - mountPath: /secrets
+          name: {{ template "xgrow.fullname" $ }}-secrets
+        {{- end }}
+
+      # Image pull secrets
+      {{- if $.Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- range $.Values.imagePullSecrets }}
+        - name: {{ . | quote }}
+        {{- end }}
+      {{- end }}
+
+      volumes:
+      {{- if $.Values.configFiles }}
+      - name: {{ template "xgrow.fullname" $ }}-configs
+        configMap:
+          name: {{ template "xgrow.fullname" $ }}-configs
+      {{ end }}
+
+      {{- if $.Values.secretFiles }}
+      - name: {{ template "xgrow.fullname" $ }}-secrets
+        secret:
+          secretName: {{ template "xgrow.fullname" $ }}-secrets
+      {{- end }}
+
+{{- end }}

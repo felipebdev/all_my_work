@@ -1,0 +1,10 @@
+.xgrow-button-secondary i {
+  place-self: center;
+}
+.xgrow-card-header a {
+  color: var(--green2);
+}
+
+.add-module {
+  display: none;
+}

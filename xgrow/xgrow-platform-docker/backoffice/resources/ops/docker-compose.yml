@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  nginx:
+    image: registry.digitalocean.com/xgrow-registry/backoffice_nginx:latest
+    build: nginx
+    command: nginx -g "daemon off;"
+    links:
+      - php
+    ports:
+      - "82:80"
+      - "444:443"
+    volumes:
+      - ../../../:/var/www/html
+    depends_on:
+      - php
+    links:
+      - php
+  php:
+    image: registry.digitalocean.com/xgrow-registry/backoffice_php:latest
+    build: ../../resources/ops/php
+    volumes:
+      - media-files:/var/www/html/storage/app/public
+      - ../../../:/var/www/html
+    working_dir: /var/www/html
+    command: php-fpm
+    ports:
+      - "9000:9000"
+volumes:
+  db-data:
+  media-files:

@@ -1,0 +1,85 @@
+.xgrow-card-header a {
+    color: var(--contrast-green);
+}
+
+.activity-card-nav.nav-tabs .nav-link::before {
+    border-bottom: 0.5px solid var(--green2);
+    border: none;
+}
+
+.xgrow-sidecard p {
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: 800;
+    overflow: hidden;
+    color: var(--font-color-inverted);
+}
+
+.activity-card-item.tab-card-big {
+    border-radius: 5px;
+    width: 50%;
+}
+.biling-link{
+    text-decoration: underline;
+    font-weight: bold;
+    color: var(--font-color-inverted);
+    cursor: pointer;
+}
+.biling-link:hover{
+    color: var(--contrast-green3);
+}
+#myTab > li {
+    width: 110px;
+}
+
+.media {
+    border-bottom: 1px solid var(--gray1);
+    padding: 16px 8px;
+}
+.media:last-child {
+    border-bottom: 0;
+}
+.media:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.media-list {
+    overflow-y: auto;
+    height: 243px;
+    padding: 0;
+}
+.media-heading {
+    font: var(--text-large-regular);
+    color: var(--green2);
+    margin-bottom: 4px;
+}
+.media-body {
+    margin-left: 8px;
+}
+.perfomance-select.xgrow-select {
+    width: 200px;
+}
+#main {
+    width: 100%;
+    min-height: 300px;
+}
+#main div {
+    width: 300px;
+}
+#main2 {
+    width: 100%;
+    min-height: 300px;
+}
+#main2 div {
+    width: 300px;
+}
+#piechart {
+    width: 100%;
+    min-height: 300px;
+}
+#piechart div {
+    width: 300px;
+}
+.xgrow-button.btn-graph {
+    float: right;
+}

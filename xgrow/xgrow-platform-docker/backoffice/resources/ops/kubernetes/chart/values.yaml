@@ -1,0 +1,133 @@
+## Image settings
+image:
+  name: us-east1-docker.pkg.dev/xstaging-348615/platform/backoffice
+  tag: latest
+  pullPolicy: Always
+
+# Se especificado, será criado um pod de inicialização
+#initCommand: "php artisan migrate"
+
+## Sidecar Settings
+sidecar:
+  enabled: true
+
+  image:
+    name: us-east1-docker.pkg.dev/xstaging-348615/platform/backoffice_nginx
+    tag: latest
+    pullPolicy: Always
+
+  command: null
+  args: null
+
+## Variáveis de Ambiente
+env: {}
+
+## Variáveis de Ambiente Protegidas
+secretEnv: {}  
+
+## Usar para adicionar arquivos arbitrários
+## Serão montados no diretório /configs/, por exemplo,  myconfig.json será
+## montado em /configs/myconfig.json.
+configFiles: {}
+  # myconfig.json: |
+  #   filecontents...
+
+## Arquivos protegidos
+## Serão montados em /secrets/, por file.name would
+## be mounted to /secrets/mysecret.txt.
+## The contents will be base64 encoded when added
+secretFiles: {}
+  # mysecret.txt: |
+  #   filecontents...
+
+
+
+## Node Selector
+nodeSelector: {}
+  # key: value
+
+## Node Affinity
+affinity: 
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node_group
+          operator: In
+          values:
+          - application
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 1
+      preference:
+        matchExpressions:
+        - key: node_group
+          operator: In
+          values:
+          - application
+
+## Prefer Preemptible nodes (only on GKE)
+gkePreferPreemptibleNode: false
+
+## Don't run on preemptible nodes (only on GKE)
+gkeForbidPreemptibleNode: false
+
+## Don't run on preemptible nodes (only on GKE)
+gkeForcePreemptibleNode: false
+
+## Liveness probe
+livenessProbe: {}
+
+## Readiness probe
+readinessProbe: {}
+
+## Resources
+resources: {}
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+## Labels to be added to all objects
+extraLabels: {}
+  # key: value
+
+## Deployment
+deployment: {}
+  #strategy:
+    #type: RollingUpdate
+    #rollingUpdate:
+    #  maxSurge: 1
+    #  maxUnavailable: 0
+  # labels to add to the pod container metadata
+  # podLabels:
+  #   key: value
+  # podAnnotations:
+  #   key: value
+
+## Service
+service:
+  enabled: true
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+  protocol: TCP
+
+## Ingress
+ingress:
+  ## If ingress is enabled
+  enabled: true
+
+  ## If TLS is enabled
+  tls: true
+
+  ## Annotations
+  annotations: {}
+
+  ## Hosts
+  hosts: []
+    # -
+    # host: app.com
+    # path: /
+    # port: 80

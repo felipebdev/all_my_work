@@ -1,0 +1,122 @@
+# Template docker-push
+
+# This template allows you to build and push your docker image to a Docker Hub account.
+# The workflow allows running tests, code linting and security scans on feature branches (as well as master).
+# The docker image will be validated and pushed to the docker registry after the code is merged to master.
+
+# Prerequisites: $DOCKERHUB_USERNAME, $DOCKERHUB_PASSWORD setup as deployment variables
+
+image: atlassian/default-image:2
+
+options:
+  docker: true
+  size: 2x
+
+definitions:
+  services:
+    docker:
+      memory: 4096
+
+pipelines:
+  default:
+      - step:
+          name: Build
+          image: google/cloud-sdk:alpine
+          services:
+            - docker
+          runs-on:
+            - self.hosted
+            - linux
+          size: 2x # Double resources available for this step
+          caches:
+            - docker
+          script:
+            - echo "deploy to registry"
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            #- export IMAGE_NAME=xgrowops/$BITBUCKET_REPO_SLUG
+            - export IMAGE_NAME=us-east1-docker.pkg.dev/$GCLOUD_PROJECT/platform/backoffice
+            - docker build . -t $IMAGE_NAME:$VERSION -t $IMAGE_NAME:develop-latest -f  resources/ops/docker/php/Dockerfile
+            - docker build . -t ${IMAGE_NAME}_nginx:develop-latest -f resources/ops/docker/nginx/Dockerfile
+            - echo $GCLOUD_API_KEYFILE_ARTIFACT > ./gcloud-api-key.json
+            - gcloud auth activate-service-account artifact-registry-platform@$GCLOUD_PROJECT.iam.gserviceaccount.com --key-file gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT
+            - gcloud auth configure-docker us-east1-docker.pkg.dev
+            - docker push ${IMAGE_NAME}_nginx:develop-latest
+            - docker push $IMAGE_NAME:$VERSION
+            - docker push $IMAGE_NAME:develop-latest
+      - step:
+          name: Test
+          script:
+            - echo "Run tests"
+      - step:
+          name: Deploy testing
+          deployment: Development
+          image: google/cloud-sdk:alpine
+          trigger: manual
+          script:
+            - apk add --update curl
+            - curl -o helm.tar.gz https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+            - tar zxvf helm.tar.gz
+            - mv ./linux-amd64/helm /usr/local/bin
+            - echo $GCLOUD_API_KEYFILE_GKE_STG > ./gcloud-api-key.json
+            - gcloud components install gke-gcloud-auth-plugin
+            - gcloud auth activate-service-account gke-bitbucket-stg@$GCLOUD_PROJECT.iam.gserviceaccount.com --key-file gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT
+            - gcloud container clusters get-credentials k8s-staging --region us-east1 --project $GCLOUD_PROJECT
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - helm upgrade --install --namespace=backoffice-dev --values resources/ops/kubernetes/values/values.yaml --values resources/ops/kubernetes/values/dev/values.yaml --set image.tag=$VERSION backoffice-api resources/ops/kubernetes/chart
+
+
+  branches:
+    master:
+      - step:
+          runs-on:
+            - self.hosted
+            - linux
+          size: 2x # Double resources available for this step
+          name: Build
+          image:
+            name: google/cloud-sdk:alpine
+          services:
+            - docker
+          caches:
+            - docker
+          script:
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - export IMAGE_NAME=us-east1-docker.pkg.dev/$GCLOUD_PROJECT/platform/backoffice
+            - docker build . -t $IMAGE_NAME:$VERSION -t $IMAGE_NAME:latest -f resources/ops/docker/php/Dockerfile
+            - docker build . -t ${IMAGE_NAME}_nginx:latest -f resources/ops/docker/nginx/Dockerfile
+            - echo $GCLOUD_API_KEYFILE_ARTIFACT > ./gcloud-api-key.json
+            - gcloud auth activate-service-account artifact-registry-platform@$GCLOUD_PROJECT.iam.gserviceaccount.com --key-file gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT
+            - gcloud auth configure-docker us-east1-docker.pkg.dev
+            - docker push ${IMAGE_NAME}_nginx:latest
+            - docker push $IMAGE_NAME:$VERSION
+            - docker push $IMAGE_NAME:latest
+            - rm ./gcloud-api-key.json
+      - step:
+          name: Test
+          script:
+            - echo "Run tests"      
+      - step:
+          name: Deploy production
+          image:
+            name: google/cloud-sdk:alpine
+          deployment: production
+          script:
+            # Gcloud Auth
+            - echo $GCLOUD_API_KEYFILE_GKE_PROD > ./gcloud-api-key.json
+            - gcloud components install gke-gcloud-auth-plugin
+            - gcloud auth activate-service-account gke-bitbucket-prd@$GCLOUD_PROJECT_PROD.iam.gserviceaccount.com --key-file gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT_PROD
+            - gcloud container clusters get-credentials k8s-production --region us-east1 --project $GCLOUD_PROJECT_PROD
+            # Install Helm
+            - apk add --update curl
+            - curl -o helm.tar.gz https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+            - tar zxvf helm.tar.gz
+            - mv ./linux-amd64/helm /usr/local/bin
+            # Helm Upgrade
+            - export VERSION=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - helm upgrade -i --namespace=backoffice-prod --values resources/ops/kubernetes/values/values.yaml --values resources/ops/kubernetes/values/prod/values.yaml --set image.tag=$VERSION backoffice-api resources/ops/kubernetes/chart
+    
+

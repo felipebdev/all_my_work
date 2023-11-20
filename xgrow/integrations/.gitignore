@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+.env
+.vscode
+ssl
+src/producer.ts
+src/testing-function.ts
+test-report.xml

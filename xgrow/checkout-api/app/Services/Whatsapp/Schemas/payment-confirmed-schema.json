@@ -1,0 +1,62 @@
+{
+  "name": "paymentConfirmed",
+  "type": "record",
+  "namespace": "com.xgrow",
+  "fields": [
+    {
+      "name": "To",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "TemplateId",
+      "type": "string"
+    },
+    {
+      "name": "Fields",
+      "type": {
+        "name": "Fields",
+        "type": "record",
+        "fields": [
+          {
+            "name": "property1",
+            "type": "string"
+          },
+          {
+            "name": "property2",
+            "type": "string",
+            "doc": "Subscriber name"
+          },
+          {
+            "name": "property3",
+            "type": "string",
+            "doc": "Plan(s) name(s)"
+          },
+          {
+            "name": "property4",
+            "type": "string",
+            "doc": "Support contact"
+          },
+          {
+            "name": "property5",
+            "type": "string",
+            "doc": "Login"
+          },
+          {
+            "name": "property6",
+            "type": "string",
+            "doc": "Password"
+          },
+          {
+            "name": "property7",
+            "type": "string",
+            "doc": "Transaction code"
+          }
+        ]
+      }
+    }
+  ]
+}

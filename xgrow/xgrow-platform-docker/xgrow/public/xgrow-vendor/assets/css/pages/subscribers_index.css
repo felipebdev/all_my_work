@@ -1,0 +1,43 @@
+.header-card-responsive {
+    border-radius: 8px;
+}
+
+.responsive-view {
+    display: none;
+}
+
+#subscriber-table thead th{
+    white-space: nowrap;
+}
+
+#collapseExample .mui-textfield{
+    padding-top: 0px;
+}
+
+#collapseExample .mui-textfield select+label{
+    top: -12px;
+}
+
+.table-line {
+    height: 4rem;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 1024px) {
+    .wide-view {
+        display: none;
+    }
+    .responsive-view {
+        display: block;
+    }
+}
+
+.subs-input-type-person {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .subs-input-type-person {
+        margin-top: 0.5rem;
+    }
+}

@@ -1,0 +1,102 @@
+.dark-mode {
+    --lacard-background: #222429;
+    --lacard-text: #FFFFFF;
+    --lacard-text-emphasis: #ADFF2F;
+    --lacard-emphasis: #ADFF2F;
+    --lacard-divisor: #FFFFFF;
+}
+
+.light-mode {
+    --lacard-background: #DFDFDF;
+    --lacard-text: #2A2E39;
+    --lacard-text-emphasis: #2A2E39;
+    --lacard-emphasis: #222429;
+    --lacard-divisor: #2A2E39;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.lacard {
+    background-color: var(--lacard-background);
+    border-radius: 10px;
+    height: 100%;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    width: 215px;
+}
+
+.lacard-img {
+    border-radius: 5px;
+    background: radial-gradient(150.27% 150.27% at 42.04% 0%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0.8;
+    width: 100%;
+    max-height: 185px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.5s;
+}
+
+.lacard-img img {
+    max-height: 130px;
+    max-width: 143px;
+    opacity: 0.6;
+    transition-duration: 0.5s;
+}
+
+.lacard-text p {
+    text-align: center;
+    transition-duration: 0.2s;
+    color: var(--lacard-text);
+}
+
+.lacard-text p:first-child {
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.lacard-text p:last-child {
+    font-size: 0.75rem;
+}
+
+.lacard-text .lacard-divisor {
+    border-bottom: 2px solid var(--lacard-divisor);
+    opacity: 0.05;
+    margin: .75rem 0;
+}
+
+.lacard:hover,
+.lacard:focus {
+    border: 1px solid var(--lacard-emphasis);
+    -webkit-box-shadow: 0 0 30px -20px var(--lacard-emphasis);
+    -moz-box-shadow: 0 0 30px -20px var(--lacard-emphasis);
+    box-shadow: 0 0 30px -20px var(--lacard-emphasis);
+}
+
+.lacard:hover .lacard-img,
+.lacard:focus .lacard-img,
+.lacard:hover .lacard-img img,
+.lacard:focus .lacard-img img {
+    opacity: 1;
+}
+
+.lacard:hover .lacard-text p {
+    color: var(--lacard-text-emphasis);
+}
+
+.panel__footer {
+    border-top: 1px solid #393D49;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel__footer button {
+    width: 200px;
+}

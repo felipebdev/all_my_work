@@ -1,0 +1,115 @@
+/*
+    ================== Vue DateTimePicker =================
+    Used for Vue 3.x
+    Repo: https://github.com/mengxiong10/vue-datepicker-next
+*/
+.mx-input {
+    border: none !important;
+    border-bottom: 1px solid var(--ds2-action-light) !important;
+    background-color: var(--ds2-primary-90) !important;
+    border-radius: 0 !important;
+    min-height: 65px;
+    color: var(--ds2-white) !important;
+}
+
+.mx-input::placeholder{
+    color: var(--ds2-secondary-60) !important;
+    font-size: 1rem;
+}
+
+.mx-icon-calendar, .mx-icon-clear {
+    color: var(--ds2-action-light) !important;
+}
+
+.mx-datepicker-main {
+    color: var(--ds2-secondary-60) !important;
+    background-color: var(--ds2-primary-80) !important;
+    border: solid 1px var(--ds2-primary-70) !important;
+}
+
+.mx-calendar-content .cell.active {
+    background: var(--ds2-action-middle) !important;
+    color: var(--ds2-white) !important;
+    border-radius: 6px !important;
+}
+
+.mx-table-date td, .mx-table-date th {
+    color: var(--ds2-white) !important;
+}
+
+.mx-calendar-content .cell.in-range, .mx-calendar-content .cell.hover-in-range {
+    background-color: rgba(147, 188, 30, .2) !important;
+}
+
+.mx-table-date .cell.not-current-month {
+    color: var(--ds2-secondary-80) !important;
+}
+
+.mx-calendar-content .cell {
+    color: var(--ds2-action-light) !important;
+}
+
+.mx-btn-text {
+    color: var(--ds2-white) !important;
+}
+
+.mx-table-date .today {
+    color: var(--ds2-action-light) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.mx-datepicker-range {
+    width: 100% !important;
+}
+
+
+/*
+    ==================== Vue 3 Multiselect =====================
+    Used for Vue 3.x with simple select ou multiselect/tags
+    Repo: https://github.com/vueform/multiselect#using-with-vue-3
+*/
+.multiselect,
+.multiselect-search {
+    border: none !important;
+    border-bottom: 1px solid var(--ds2-action-light) !important;
+    background-color: var(--ds2-primary-90) !important;
+    border-radius: 0 !important;
+    min-height: 65px !important;
+    color: var(--ds2-white) !important;
+}
+
+.multiselect.is-active,
+.multiselect-search.is-active {
+    box-shadow: none !important;
+}
+
+.multiselect-tag {
+    white-space: pre-wrap !important;
+    background-color: var(--ds2-action-dark) !important;
+}
+
+.multiselect-caret {
+    -webkit-mask-image: url('/xgrow-vendor/assets/img/caret.svg') !important;
+    mask-image: url('/xgrow-vendor/assets/img/caret.svg') !important;
+    background-color: var(--ds2-action-dark) !important;
+}
+
+.multiselect-placeholder {
+    color: var(--ds2-secondary-60) !important;
+}
+
+.multiselect-dropdown {
+    border: none !important;
+    background: var(--ds2-primary-90) !important;
+    overflow-y: auto !important;
+}
+
+.multiselect-option.is-pointed {
+    background: var(--ds2-action-dark) !important;
+    color: var(--ds2-white) !important;
+}
+
+.multiselect-option.is-selected.is-pointed, .multiselect-option.is-selected {
+    background: var(--ds2-action-dark) !important;
+}

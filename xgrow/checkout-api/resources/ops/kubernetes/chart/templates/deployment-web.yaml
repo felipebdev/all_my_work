@@ -1,0 +1,215 @@
+## App Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "xgrow.fullname" . }}
+  labels:
+    app: {{ include "xgrow.name" . }}
+    chart: {{ include "xgrow.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+    {{- end }}
+
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "xgrow.name" . }}
+      release: {{ .Release.Name }}
+
+   {{- if .Values.deployment.strategy }}
+  strategy:
+{{ toYaml .Values.deployment.strategy | indent 4 }}
+  {{- end }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ include "xgrow.name" . }}
+        chart: {{ include "xgrow.chart" . }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        {{- if .Values.deployment.podLabels }}
+{{ toYaml .Values.deployment.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+      {{- range $key, $value := .Values.deployment.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+    spec:
+      {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      {{- end }}
+
+      affinity:
+      {{- if .Values.affinity }}
+{{ toYaml .Values.affinity | indent 8 }}
+      {{- end }}      
+
+      {{- if .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
+      {{- end }}
+
+      initContainers:
+      {{- if .Values.migrationImageCommand }}
+      - image: {{ .Values.migrationImage.name }}:{{ .Values.migrationImage.tag }}
+        name: initmigration
+        imagePullPolicy: {{ .Values.migrationImage.pullPolicy }}
+        command: ["sh", "-c", {{ .Values.migrationImageCommand | quote }}]
+        envFrom:
+          - configMapRef:
+              name: {{ template "xgrow.fullname" $ }}-config-env
+          - secretRef:
+              name: {{ template "xgrow.fullname" $ }}-secrets-env
+        volumeMounts:
+        - mountPath: /secrets
+          name: {{ template "xgrow.fullname" $ }}-secrets
+      {{- end }}
+      - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: init
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["sh", "-c", "mkdir /mnt/html && cp -rp /var/www/html/public/* /mnt/html && cp -rp /var/www/html /mnt"]
+        envFrom:
+          - configMapRef:
+              name: {{ template "xgrow.fullname" $ }}-config-env
+          - secretRef:
+              name: {{ template "xgrow.fullname" $ }}-secrets-env
+
+        volumeMounts:
+        - name: {{ include "xgrow.fullname" . }}-app
+          mountPath: /mnt
+        #{{- if .Values.configFiles }}
+        #- mountPath: /configs
+        #  name: {{ template "xgrow.fullname" $ }}-configs
+        #{{ end }}
+
+        - mountPath: /secrets
+          name: {{ template "xgrow.fullname" $ }}-secrets
+
+      containers:
+
+      # App Container
+      - image:  {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: {{ include "xgrow.fullname" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.cpu }}
+
+        # Command
+        {{- if .Values.command }}
+        command: {{ .Values.command | toJson }}
+        {{- end }}
+
+        # Args
+        {{- if .Values.args }}
+        args: {{ toYaml .Values.args | toJson }}
+        {{- end }}
+
+        # Env from configmap and secrets
+        envFrom:
+          - configMapRef:
+              name: {{ template "xgrow.fullname" $ }}-config-env
+          - secretRef:
+              name: {{ template "xgrow.fullname" $ }}-secrets-env
+
+        volumeMounts:
+        - name: {{ include "xgrow.fullname" . }}-app
+          mountPath: /var/www
+        #{{- if .Values.configFiles }}
+        #- mountPath: /configs
+        #  name: {{ template "xgrow.fullname" $ }}-configs
+        #{{ end }}
+
+        - mountPath: /secrets
+          name: {{ template "xgrow.fullname" $ }}-secrets
+
+        {{- if .Values.livenessProbe }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        {{- end }}
+
+        {{- if .Values.readinessProbe }}
+        livenessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        {{- end }}
+
+      # Sidecar Container
+      {{- if .Values.sidecar.enabled }}
+      - image:  {{ .Values.sidecar.image.name }}:{{ .Values.sidecar.image.tag }}
+        name: {{ include "xgrow.fullname" . }}-sidecar
+        imagePullPolicy: {{ .Values.sidecar.image.pullPolicy }}
+
+        # Command
+        {{- if .Values.sidecar.command }}
+        command: {{ .Values.sidecar.command | toJson }}
+        {{- end }}
+
+        # Args
+        {{- if .Values.sidecar.args }}
+        args: {{ toYaml .Values.sidecar.args | toJson }}
+        {{- end }}
+
+        # Env from configmap and secrets
+        #envFrom:
+        #  - configMapRef:
+        #      name: {{ template "xgrow.fullname" $ }}-config-env
+        #  - secretRef:
+        #      name: {{ template "xgrow.fullname" $ }}-secrets-env
+        env:
+        - name: PHP_UPSTREAM
+          value: 127.0.0.1
+        ports:
+        - containerPort: 8080
+          name: http
+        volumeMounts:
+        - name: {{ include "xgrow.fullname" . }}-app
+          mountPath: /var/www
+        #{{- if .Values.configFiles }}
+        #- mountPath: /configs
+        #  name: {{ template "xgrow.fullname" $ }}-configs
+        #{{ end }}
+
+        - mountPath: /secrets
+          name: {{ template "xgrow.fullname" $ }}-secrets
+
+        {{- if .Values.sidecar.livenessProbe }}
+        livenessProbe:
+{{ toYaml .Values.sidecar.livenessProbe | indent 10 }}
+        {{- end }}
+
+        {{- if .Values.sidecar.readinessProbe }}
+        livenessProbe:
+{{ toYaml .Values.sidecar.readinessProbe | indent 10 }}
+        {{- end }}
+      {{- end }}
+
+      # Image pull secrets
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- range .Values.imagePullSecrets }}
+        - name: {{ . | quote }}
+        {{- end }}
+      {{- end }}
+
+      volumes:
+      - name: {{ include "xgrow.fullname" . }}-app
+        emptyDir: {}
+      #{{- if .Values.configFiles }}
+      #- name: {{ template "xgrow.fullname" $ }}-configs
+      #  configMap:
+      #    name: {{ template "xgrow.fullname" $ }}-configs
+      #{{ end }}
+
+      - name: {{ template "xgrow.fullname" $ }}-secrets
+        secret:
+          secretName: {{ template "xgrow.fullname" $ }}-secrets

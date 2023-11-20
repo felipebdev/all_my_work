@@ -1,0 +1,32 @@
+{
+    "[typescript]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": false,
+    "editor.wordWrapColumn": 120,
+    "javascript.format.enable": false,
+    "javascript.format.semicolons": "remove",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.suggest.autoImports": false,
+    "javascript.suggest.includeCompletionsForImportStatements": false,
+    "javascript.suggest.paths": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "js/ts.implicitProjectConfig.target": "ESNext",
+    "typescript.format.enable": false,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    "typescript.format.semicolons": "remove",
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.quoteStyle": "single",
+    // "typescript.referencesCodeLens.enabled": true,
+    "typescript.suggest.paths": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescriptHero.imports.insertSemicolons": false,
+    "typescriptHero.imports.multiLineTrailingComma": false,
+    "typescriptHero.imports.organizeOnSave": false,
+    "typescriptHero.imports.organizeSortsByFirstSpecifier": true
+  }
+  

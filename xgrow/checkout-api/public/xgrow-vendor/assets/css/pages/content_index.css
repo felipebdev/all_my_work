@@ -1,0 +1,104 @@
+.section-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9b9b9b;
+    background-color: var(--black-card-color);
+    border-radius: 8px;
+    height: 136px;
+    padding: 4px;
+    /* border: 1px solid #000; */
+    width: 256px;
+}
+
+.section-photo > img {
+    height: 132px;
+    width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-course {
+    border-radius: 8px;
+}
+.card-section {
+    box-shadow: 0;
+    background: #2a2e39;
+    border: none;
+}
+.section-label {
+    padding: 0;
+    font-weight: 700;
+    color: var(--contrast-green);
+    font-size: 16px;
+    margin-top: 12px;
+}
+.section-label-sub {
+    background-color: var(--black-card-color);
+    padding: 5px;
+    border-radius: 4px;
+    font: var(--text-medium-bold);
+    color: var(--red);
+}
+.section-label-sub.active {
+    color: var(--contrast-green);
+}
+
+.section-btn-group {
+    margin-left: 8px;
+}
+.xgrow-button.btn-sm-section {
+    background-color: var(--black-card-color);
+    border-radius: 5px;
+    color: var(--contrast-green);
+    width: 40px;
+    height: 40px;
+    margin: 3px 0;
+}
+.xgrow-button.btn-sm-section:hover {
+    background-color: #21242d;
+}
+
+.xgrow-button-secondary i {
+    place-self: center;
+}
+.xgrow-search-collapse {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: #2a2e39;
+    border-radius: 4px;
+    border: 0;
+}
+.xgrow-search-collapse::before {
+    font-family: "FontAwesome";
+    content: "\f002";
+    color: var(--contrast-green);
+}
+.header-card-responsive {
+    border-radius: 8px;
+}
+.responsive-view {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .wide-view {
+        display: none;
+    }
+    .responsive-view {
+        display: block;
+    }
+    .xgrow-search-collapse {
+        display: block;
+    }
+    .card-content {
+        background-color: transparent;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .xgrow-card-header .content-header {
+        flex-direction: column;
+    }
+}

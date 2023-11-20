@@ -1,0 +1,32 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Email extends Model
+{
+    protected $fillable = ['area', 'subject', 'message', 'from'];
+
+    const CONSTANT_EMAIL_PAYMENT_CONFIRMED = -2;
+    const CONSTANT_EMAIL_NEVER_ACCESSED = -1;
+    const CONSTANT_EMAIL_FORGOT_PASSWORD = 1;
+    const CONSTANT_EMAIL_NEW_REGISTER = 2;
+    const CONSTANT_EMAIL_ACCESS_DATA = 3;
+    const CONSTANT_EMAIL_BOLETO = 4;
+    const CONSTANT_EMAIL_ACTION_CODE = 5;
+    const CONSTANT_EMAIL_COUPON = 6;
+    const CONSTANT_EMAIL_REFUND = 7;
+    const CONSTANT_EMAIL_PURCHASE_PROOF = 8;
+    const CONSTANT_EMAIL_CHANGE_CARD = 9;
+    const CONSTANT_EMAIL_LINK_CALLCENTER = 10;
+    const CONSTANT_EMAIL_LINK_PENDING = 11;
+    const CONSTANT_EMAIL_LINK_OFFER = 12;
+    const CONSTANT_EMAIL_BANK_SLIP_EXPIRATION = 13;
+    const CONSTANT_EMAIL_RECURRENCE_PAYMENT_FAILED = 14; // payment of recurrence on due date fails
+    const CONSTANT_EMAIL_RECURRENCE_PAYMENT_FAILED_SUBSCRIPTION_CANCEL = 15;
+    const CONSTANT_EMAIL_RECURRENCE_PAYMENT_RETRY_FAILED = 16; // failed retry
+    const CONSTANT_EMAIL_RECURRENCE_PAYMENT_SUCCESS = 17;
+    const CONSTANT_EMAIL_PIX = 18;
+
+}

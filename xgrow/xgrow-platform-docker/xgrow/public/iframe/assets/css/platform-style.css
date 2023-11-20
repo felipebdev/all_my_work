@@ -1,0 +1,109 @@
+
+
+            /*corpo*/
+
+            @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+            body{
+
+                font-family: "Rubik", sans-serif;
+                background-color: #f3f6f4;/*aba plataforma->cor de fundo*/
+                color:#990000;/*aba plataforma->cor da fonte*/
+                overflow-x: hidden;
+            }
+
+            .pagination-controls{
+                color:#990000;/*aba plataforma->cor da fonte*/
+                font-size: 40px;
+
+            }
+
+            .card-color{
+                color:#f44336;
+                background-color: #f1c232;/*aba plataforma->cor de fundo secundaria*/
+
+            }
+
+
+
+
+
+            .cabecalho-primary-color{
+                color: #eeeeee;
+            }
+
+            .sidenav a:hover{
+                color:#fffba5;
+            }
+
+            .article-content .link {
+                color: #990000;
+            }
+
+            .cabecalho-background-color{
+                background-color: #990000;/*aba cabecalho->cor de fundo*/
+            }
+
+            #divBusca{
+                background-color:#cc0000 ;/*aba cabevalho->cor de fundo input*/
+
+            }
+
+            .color-txtBusca{
+                color: white;/*aba cabecalho->cor de da fonte input*/
+            }
+
+
+            .button-color{
+                background-color: #fffba5;
+                color:#990000;
+            }
+
+            footer{
+                background-color:#990000;
+                color:#cc0000;
+            }
+
+            .bg-login{
+                background-color:#f1c232;
+            }
+
+            .color-login{
+                color:black;
+            }
+
+
+
+            .course-primary-color{
+                color:#444444;
+            }
+
+            .course-second-color{
+                color:black;
+            }
+
+            .course-card-color{
+                color:#444444;
+                background-color:#f3f6f4;
+            }
+
+            .course-second-card-color{
+                color:#16537e;
+                background-color:#eeeeee;
+
+            }
+
+            .course-button{
+                color:black;
+                background-color:#f1c232;
+            }
+
+            .project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+                color:black;
+            }
+
+            .project-tab .nav-link {
+                color:#444444;
+            }
+
+        

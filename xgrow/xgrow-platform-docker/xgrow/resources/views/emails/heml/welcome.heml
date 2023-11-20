@@ -1,0 +1,208 @@
+<heml>
+  <head>
+    <subject>##SUBJECT##</subject>
+    <preview>##PREVIEW##</preview>
+
+    <style>
+      :root {
+        --dark-gray: #121212;
+        --medium-gray: #1D1D1D;
+        --light-gray: #262626;
+        --green1: #93BC1E;
+        --green2: #C4CF00;
+      }
+
+      body {
+        background-color: #1D1D1D;
+        color: #E8E8E8;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 200%;
+      }
+
+      a {
+        color: #C4CF00;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div id="main" style="background: #121212 url('https://login.xgrow.com/images/mail/header.png') center top no-repeat;">
+
+    <center style="padding-top: 30px">
+      <img src="https://login.xgrow.com/images/mail/xgrow-logo-x-upper.png" alt="XGrow" width="50"/>
+    </center>
+
+    <container style="
+      background: #1D1D1D;
+      box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    ">
+      <center>
+        <img src="https://login.xgrow.com/images/mail/xgrow-logo-x-lower.png" alt="" width="50"/>
+      </center>
+
+      <div id="header">
+        <h1 style="
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          text-align: center;
+          line-height: 100%;
+        ">
+          <!-- BEGIN HEADER -->
+          Bem vindo, ##NOME_ASSINANTE##
+          <!-- END HEADER -->
+        </h1>
+
+        <h2 style="
+          font-size: 14px;
+          line-height: 100%;
+          text-align: center;
+        ">
+          <!-- BEGIN SUB-HEADER -->
+          Estamos felizes de ter você como nosso parceiro!
+          <!-- END SUB-HEADER -->
+        </h2>
+      </div>
+
+      <div id="content" style="background: #262626; padding: 30px;font-size: 12px; line-height: 20px;">
+        <!-- BEGIN CONTENT -->
+        <div>Agora que você já se cadastrou em nosso site, será necessário realizar uma confirmação para que você possa continuar utilizando nosso sistema.
+          É simples, basta clicar no link abaixo:
+        </div>
+
+        <div style="padding: 20px 0;">
+          <button href="https://xgrow.com.br/#confirmar" style="
+            font-weight: bold;
+            background: #93BC1E;
+            width: 186px!important;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            margin: auto;
+            box-shadow: 0px 4px 15px rgba(147, 188, 30, 0.25);
+          ">
+            Confirmar cadastro
+          </button>
+        </div>
+
+        <div style="margin: 32px 0 12px;">
+          Caso este não funcione, copie e cole o link abaixo em seu navegador:
+        </div>
+
+        <div style="margin: 0 0 40px;">
+          <a href="https://xgrow.com.br/#confirmar">xgrow.com.br/#confirmar</a>
+        </div>
+
+        <div>
+          Att,<br/>
+          <div>
+            Equipe <img style="display: inline; margin: 0 0 -2px" src="https://login.xgrow.com/images/mail/signature-logo.png" alt="XGrow"/>
+          </div>
+        </div>
+
+        <!-- END CONTENT -->
+      </div>
+
+      <a href="https://xgrow.com.br/#suporte">
+        <div id="support" style="padding: 30px; background: #1D1D1D">
+          <div style="
+            background: #121212 url('https://login.xgrow.com/images/mail/pattern.png') right center no-repeat;
+            border-radius: 6px;
+          ">
+            <table cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="padding: 18px">
+                  <img src="https://login.xgrow.com/images/mail/support.png" alt=""/>
+                </td>
+                <td style="font-size: 12px; line-height: 20px; color: #E8E8E8;">
+                  Tem alguma dúvida?<br/>
+                  <span style="font-weight: 400;">Clique aqui para entrar em contato conosco</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </a>
+    </container>
+  </div>
+
+  <div id="xgrow-separator" style="
+    background-color: #93BC1E;
+    background: linear-gradient(295.14deg, #C4CF00 13.65%, #93BC1E 87.37%);
+  ">
+    <center style="padding: 10px 0">
+      <a href="https://www.xgrow.com.br" style="font-weight: 400; color: #FFFFFF;">www.xgrow.com.br</a>
+    </center>
+  </div>
+
+  <div id="footer" style="background: #1D1D1D;">
+
+    <container id="social">
+      <div style="padding: 10px 30px">
+        <div id="social-text" style="
+          font-style: normal;
+          font-weight: bold;
+          font-size: 11px;
+          line-height: 160%;
+          color: #FFFFFF;
+          padding-bottom: 10px;
+        ">
+          Siga a XGrow
+        </div>
+
+        <div id="social-icons">
+          <a href="https://www.instagram.com/xgrow">
+            <img style="margin-right: 10px;" src="https://login.xgrow.com/images/mail/instagram.png" alt="Instagram"
+                 width="28" heml-ignore/>
+          </a>
+          <a href="https://facebook.com/xgrowdotcom">
+            <img style="margin-right: 10px;" src="https://login.xgrow.com/images/mail/facebook.png" alt="Facebook"
+                 width="28" heml-ignore/>
+          </a>
+          <a href="https://www.linkedin.com/company/xgrow-experience">
+            <img style="margin-right: 10px;" src="https://login.xgrow.com/images/mail/linkedin.png" alt="LinkedIn"
+                 width="28" heml-ignore/>
+          </a>
+          <a href="https://www.youtube.com/c/XGrowAmelhorexperi%C3%AAnciadeensino">
+            <img style="margin-right: 10px;" src="https://login.xgrow.com/images/mail/youtube.png" alt="Youtube"
+                 width="28" heml-ignore/>
+          </a>
+        </div>
+      </div>
+    </container>
+
+    <div style="background: #242424; height: 1px"></div>
+
+    <container id="privacy">
+      <div style="padding: 10px 30px;font-size: 9px;line-height: 14px;">
+        A XGrow respeita a sua privacidade. Por isso, se você não deseja mais receber nossos e-mails,
+        <a href="https://xgrow.com.br/#desinscrever">clique aqui</a> para cancelar a sua inscrição.
+      </div>
+    </container>
+
+    <container id="copyright">
+      <div style="padding: 0px 30px 10px 30px">
+        <row>
+          <column><img src="https://login.xgrow.com/images/mail/xgrow-logo-gray-mono.png" alt="XGrow"/></column>
+          <column style="text-align: right; color: #2F2F2F;font-size: 9px; line-height: 14px;">© 2021 XGrow - Todos direitos reservados</column>
+        </row>
+      </div>
+    </container>
+
+  </div>
+  </body>
+</heml>
+
+
+
+
+
+
+

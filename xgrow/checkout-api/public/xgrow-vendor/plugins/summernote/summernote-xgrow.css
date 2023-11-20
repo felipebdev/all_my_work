@@ -1,0 +1,55 @@
+/* Customização do summernote para XGROW */
+.note-btn, .note-btn:hover, .note-btn:active, .note-btn:focus, .note-btn.dropdown-toggle.active{
+    color: #fff;
+    background: var(--black2);
+    border: none;
+    border-radius: 0 !important;
+    box-shadow: none;
+}
+
+.note-dropdown-item {
+    color: #fff !important;
+}
+
+.note-editable {
+    color: var(--font-color-whited) !important;
+}
+
+.note-dropdown-item:hover {
+    color: #fff !important;
+    background: var(--black2);
+}
+
+.note-dropdown-menu{
+    color: #fff;
+    background: var(--black);
+    border: none;
+    border-radius: 0 !important;
+}
+
+.note-editor.note-frame .note-statusbar {
+    background-color: var(--black1);
+    border-radius: 0;
+}
+
+.note-editor {
+    border: 1px solid var(--gray3) !important;
+    border-radius: 0;
+}
+
+.note-toolbar {
+    border-bottom: 1px solid var(--gray3);
+    background-color: #121419;
+    border-radius: 0;
+}
+
+.note-editor.note-airframe .note-statusbar .note-resizebar .note-icon-bar,
+.note-editor.note-frame .note-statusbar .note-resizebar .note-icon-bar {
+    border-color: #fff;
+    border-radius: 0;
+}
+
+.note-editor,
+.panel-heading.note-toolbar {
+    border-radius: 0;
+}

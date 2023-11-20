@@ -1,0 +1,497 @@
+.mx-icon-left:before,
+.mx-icon-right:before,
+.mx-icon-double-left:before,
+.mx-icon-double-right:before,
+.mx-icon-double-left:after,
+.mx-icon-double-right:after {
+    content: ''!important;
+    position: relative!important;
+    top: -1px!important;
+    display: inline-block!important;
+    width: 10px!important;
+    height: 10px!important;
+    vertical-align: middle!important;
+    border-style: solid!important;
+    border-color: currentColor!important;
+    border-width: 2px 0 0 2px!important;
+    border-radius: 1px!important;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    -webkit-transform-origin: center!important;
+    transform-origin: center!important;
+    -webkit-transform: rotate(-45deg) scale(0.7)!important;
+    transform: rotate(-45deg) scale(0.7)!important;
+}
+.mx-icon-double-left:after {
+    left: -4px!important;
+}
+.mx-icon-double-right:before {
+    left: 4px!important;
+}
+.mx-icon-right:before,
+.mx-icon-double-right:before,
+.mx-icon-double-right:after {
+    -webkit-transform: rotate(135deg) scale(0.7)!important;
+    transform: rotate(135deg) scale(0.7)!important;
+}
+.mx-btn {
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    line-height: 1!important;
+    font-size: 14px!important;
+    font-weight: 500!important;
+    padding: 7px 15px!important;
+    margin: 0!important;
+    cursor: pointer!important;
+    outline: none!important;
+    border-radius: 4px!important;
+    white-space: nowrap!important;
+    background: #93BC1E!important;
+    color: #FFFFFF!important;
+    border: 1px solid #93BC1E!important;
+}
+
+.mx-btn-current-month,
+.mx-btn-current-year,
+.mx-btn-icon-double-right,
+.mx-btn-icon-double-left,
+.mx-btn-icon-left,
+.mx-btn-icon-right {
+    background: transparent!important;
+}
+.mx-btn.mx-btn-current-month:hover,
+.mx-btn.mx-btn-current-year:hover,
+.mx-btn.mx-btn-icon-double-right:hover,
+.mx-btn.mx-btn-icon-double-left:hover,
+.mx-btn.mx-btn-icon-left:hover,
+.mx-btn.mx-btn-icon-right:hover {
+    background: transparent!important;
+    border: none!important;
+    border-radius: 8px!important;
+    color: #93BC1E!important;
+}
+
+.mx-btn:hover {
+    background: #ADDF45!important;
+    color: #FFFFFF!important;
+    border: 1px solid #FFFFFF!important;
+}
+.mx-btn-text {
+    border: 0!important;
+    padding: 0 4px!important;
+    text-align: left!important;
+    line-height: inherit!important;
+}
+.mx-scrollbar {
+    height: 100%!important;
+}
+.mx-scrollbar:hover .mx-scrollbar-track {
+    opacity: 1!important;
+}
+.mx-scrollbar-wrap {
+    height: 100%!important;
+    overflow-x: hidden!important;
+    overflow-y: auto!important;
+}
+.mx-scrollbar-track {
+    position: absolute!important;
+    top: 2px!important;
+    right: 2px!important;
+    bottom: 2px!important;
+    width: 6px!important;
+    z-index: 1!important;
+    border-radius: 4px!important;
+    opacity: 0!important;
+    -webkit-transition: opacity 0.24s ease-out!important;
+    transition: opacity 0.24s ease-out!important;
+}
+.mx-scrollbar-track .mx-scrollbar-thumb {
+    position: absolute!important;
+    width: 100%!important;
+    height: 0!important;
+    cursor: pointer!important;
+    border-radius: inherit!important;
+    background-color: rgba(144, 147, 153, 0.3)!important;
+    -webkit-transition: background-color 0.3s!important;
+    transition: background-color 0.3s!important;
+}
+.mx-zoom-in-down-enter-active,
+.mx-zoom-in-down-leave-active {
+    opacity: 1!important;
+    -webkit-transform: scaleY(1)!important;
+    transform: scaleY(1)!important;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+        -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)!important;
+    transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)!important;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1)!important;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+        -webkit-transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)!important;
+    -webkit-transform-origin: center top!important;
+    transform-origin: center top!important;
+}
+.mx-zoom-in-down-enter,
+.mx-zoom-in-down-enter-from,
+.mx-zoom-in-down-leave-to {
+    opacity: 0!important;
+    -webkit-transform: scaleY(0)!important;
+    transform: scaleY(0)!important;
+}
+.mx-datepicker {
+    position: relative!important;
+    display: inline-block!important;
+    min-width: 210px !important;;
+    max-width: 290px !important;;
+}
+.mx-datepicker svg {
+    width: 1em!important;
+    height: 1em!important;
+    vertical-align: -0.15em!important;
+    fill: currentColor!important;
+    overflow: hidden!important;
+}
+
+.mx-datepicker-inline {
+    width: auto!important;
+}
+.mx-input-wrapper {
+    position: relative!important;
+}
+.mx-input-wrapper .mx-icon-clear {
+    display: none!important;
+}
+.mx-input-wrapper:hover .mx-icon-clear {
+    display: block!important;
+}
+.mx-input-wrapper:hover .mx-icon-clear + .mx-icon-calendar {
+    display: none!important;
+}
+.mx-input {
+    display: inline-block!important;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    width: 100%!important;
+    height: 38px!important;
+    padding: 6px 30px!important;
+    padding-left: 10px!important;
+    font-size: 14px!important;
+    line-height: 1.6!important;
+    color: #FFFFFF!important;
+    background-color: #252932!important;
+    border: 1px solid #E7E7E7!important;
+    border-radius: 8px!important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)!important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)!important;
+    max-height: 38px!important;
+    min-height: 38px!important;
+}
+.mx-input::placeholder{
+    color: inherit!important;
+}
+.mx-input:disabled,
+.mx-input.disabled {
+    background: #252932!important;
+    color: #595B63!important;
+    border: 1px solid #595B63!important;
+}
+.mx-input:focus {
+    outline: none!important;
+}
+.mx-input::-ms-clear {
+    display: none!important;
+}
+.mx-icon-calendar,
+.mx-icon-clear {
+    position: absolute!important;
+    top: 50%!important;
+    right: 8px!important;
+    -webkit-transform: translateY(-50%)!important;
+    transform: translateY(-50%)!important;
+    font-size: 16px!important;
+    line-height: 1!important;
+    color: #93BC1E!important;
+    vertical-align: middle!important;
+}
+.mx-icon-clear {
+    cursor: pointer!important;
+}
+.mx-datepicker.disabled .mx-icon-clear,
+.mx-datepicker.disabled .mx-icon-calendar{
+    color: #595B63!important;
+}
+.mx-icon-clear:hover, .mx-icon-calendar:hover {
+    color: #ADDF45!important;
+}
+.mx-datepicker-main {
+    font: 14px/1.6 'Open Sans'!important;
+    color: #73879c!important;
+    background-color: #252932!important;
+    border: 1px solid #e8e8e8!important;
+}
+.mx-datepicker-popup {
+    position: absolute!important;
+    margin-top: 1px!important;
+    margin-bottom: 1px!important;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)!important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)!important;
+    z-index: 2001!important;
+}
+.mx-datepicker-sidebar {
+    float: left!important;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    width: 100px!important;
+    padding: 6px!important;
+    overflow: auto!important;
+}
+.mx-datepicker-sidebar + .mx-datepicker-content {
+    margin-left: 100px!important;
+    border-left: 1px solid #222429!important;
+}
+.mx-datepicker-body {
+    position: relative!important;
+    -webkit-user-select: none!important;
+    -moz-user-select: none!important;
+    -ms-user-select: none!important;
+    user-select: none!important;
+    background: #252932!important;
+
+}
+.mx-btn-shortcut {
+    display: block!important;
+    padding: 0 6px!important;
+    line-height: 24px!important;
+}
+.mx-range-wrapper {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+@media (max-width: 750px) {
+    .mx-range-wrapper {
+        -webkit-box-orient: vertical!important;
+        -webkit-box-direction: normal!important;
+        -ms-flex-direction: column!important;
+        flex-direction: column!important;
+    }
+}
+.mx-datepicker-header {
+    padding: 6px 8px!important;
+    border-bottom: 1px solid #e8e8e8!important;
+}
+.mx-datepicker-footer {
+    padding: 6px 8px!important;
+    text-align: right!important;
+    border-top: 1px solid #e8e8e8!important;
+    background: #252932!important;
+}
+.mx-calendar {
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    width: 248px!important;
+    padding: 6px 12px!important;
+}
+.mx-calendar + .mx-calendar {
+    border-left: 1px solid #e8e8e8!important;
+}
+.mx-calendar-header,
+.mx-time-header {
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    height: 34px!important;
+    line-height: 32px!important;
+    text-align: center!important;
+    overflow: hidden!important;
+}
+.mx-btn-icon-left,
+.mx-btn-icon-double-left {
+    float: left!important;
+}
+.mx-btn-icon-right,
+.mx-btn-icon-double-right {
+    float: right!important;
+}
+.mx-calendar-header-label {
+    font-size: 14px!important;
+}
+.mx-calendar-decade-separator {
+    margin: 0 2px!important;
+}
+.mx-calendar-decade-separator:after {
+    content: '~'!important;
+}
+.mx-calendar-content {
+    position: relative!important;
+    height: 224px!important;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+}
+.mx-calendar-content .cell {
+    cursor: pointer!important;
+    color: #E7E7E7!important;
+}
+.mx-calendar-content .cell:hover,
+.mx-calendar-content .cell.in-range:hover {
+    color: #FFFFFF!important;
+    background-color: #ADDF45!important;
+}
+.mx-calendar-content .cell.active {
+    color: #FFFFFF!important;
+    background-color: #93BC1E!important;
+}
+.mx-calendar-content .cell.in-range,
+.mx-calendar-content .cell.hover-in-range {
+    color: #FFFFFF!important;
+    background-color: rgba(#ADDF45, .5)!important;
+}
+.mx-calendar-content .cell.disabled {
+    cursor: not-allowed!important;
+    color: #ccc!important;
+    background-color: #f3f3f3!important;
+}
+.mx-calendar-week-mode .mx-date-row {
+    cursor: pointer!important;
+}
+.mx-calendar-week-mode .mx-date-row:hover {
+    background-color: #f3f9fe!important;
+}
+.mx-calendar-week-mode .mx-date-row.mx-active-week {
+    background-color: #dbedfb!important;
+}
+.mx-calendar-week-mode .mx-date-row .cell:hover {
+    color: inherit!important;
+    background-color: transparent!important;
+}
+.mx-calendar-week-mode .mx-date-row .cell.active {
+    color: inherit!important;
+    background-color: transparent!important;
+}
+.mx-week-number {
+    opacity: 0.5!important;
+}
+.mx-table {
+    table-layout: fixed!important;
+    border-collapse: separate!important;
+    border-spacing: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    text-align: center!important;
+}
+.mx-table th {
+    padding: 0!important;
+    font-weight: 500!important;
+    vertical-align: middle!important;
+    color: rgba(#ADFF2F, .5)!important;
+}
+.mx-table td {
+    padding: 0!important;
+    vertical-align: middle!important;
+}
+.mx-table-date td,
+.mx-table-date th {
+    height: 32px!important;
+    font-size: 12px!important;
+}
+.mx-table-date .today {
+    color: #ADDF45!important;
+}
+.mx-table-date .cell.not-current-month {
+    color: rgba(#93BC1E, .5)!important;
+    background: none!important;
+}
+.mx-time {
+    -webkit-box-flex: 1!important;
+    -ms-flex: 1!important;
+    flex: 1!important;
+    width: 224px!important;
+    background: #FFFFFF!important;
+}
+.mx-time + .mx-time {
+    border-left: 1px solid #e8e8e8!important;
+}
+.mx-calendar-time {
+    position: absolute!important;
+    top: 0!important;
+    left: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+}
+.mx-time-header {
+    border-bottom: 1px solid #e8e8e8!important;
+}
+.mx-time-content {
+    height: 224px!important;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    overflow: hidden!important;
+}
+.mx-time-columns {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    width: 100%!important;
+    height: 100%!important;
+    overflow: hidden!important;
+}
+.mx-time-column {
+    -webkit-box-flex: 1!important;
+    -ms-flex: 1!important;
+    flex: 1!important;
+    position: relative!important;
+    border-left: 1px solid #e8e8e8!important;
+    text-align: center!important;
+}
+.mx-time-column:first-child {
+    border-left: 0!important;
+}
+.mx-time-column .mx-time-list {
+    margin: 0!important;
+    padding: 0!important;
+    list-style: none!important;
+}
+.mx-time-column .mx-time-list::after {
+    content: ''!important;
+    display: block!important;
+    height: 192px!important;
+}
+.mx-time-column .mx-time-item {
+    cursor: pointer!important;
+    font-size: 12px!important;
+    height: 32px!important;
+    line-height: 32px!important;
+}
+.mx-time-column .mx-time-item:hover {
+    color: #73879c!important;
+    background-color: #f3f9fe!important;
+}
+.mx-time-column .mx-time-item.active {
+    color: #1284e7!important;
+    background-color: transparent!important;
+    font-weight: 700!important;
+}
+.mx-time-column .mx-time-item.disabled {
+    cursor: not-allowed!important;
+    color: #ccc!important;
+    background-color: #f3f3f3!important;
+}
+.mx-time-option {
+    cursor: pointer!important;
+    padding: 8px 10px!important;
+    font-size: 14px!important;
+    line-height: 20px!important;
+}
+.mx-time-option:hover {
+    color: #73879c!important;
+    background-color: #f3f9fe!important;
+}
+.mx-time-option.active {
+    color: #1284e7!important;
+    background-color: transparent!important;
+    font-weight: 700!important;
+}
+.mx-time-option.disabled {
+    cursor: not-allowed!important;
+    color: #ccc!important;
+    background-color: #f3f3f3!important;
+}

@@ -1,0 +1,116 @@
+.xgrow-button-secondary i {
+	place-self: center;
+  }
+  .xgrow-card-header a {
+	color: var(--green2);
+  }
+  .activity-card-nav.nav-tabs .nav-link {
+	color: var(--green2);
+	font-variant: 700;
+	border: none;
+  }
+
+  .activity-card-nav.nav-tabs .nav-link::before {
+	border-bottom: 0.5px solid var(--green2);
+	border: none;
+  }
+
+  .activity-card-link.nav-tabs .nav-link.active {
+	border-bottom: 2px solid var(--green2);
+	font: var(--text-medium-bold);
+	background: var(--green1);
+	color: var(--white);
+	border: none;
+  }
+  .activity-card-nav.tabs-card-big {
+	border: 1px solid var(--white);
+	justify-content: space-around;
+	border-radius: 4px;
+	display: flex;
+	padding: 0;
+  }
+
+  .activity-card-item.tab-card-big {
+	border-radius: 5px;
+	width: 50%;
+  }
+
+  .activity-card-item.tab-card-big .nav-link {
+	border-radius: 5px;
+	text-align: center;
+  }
+  .activity-card-item.tab-card-big .nav-link.active {
+	background-color: var(--green1);
+	color: var(--white);
+	border-radius: 2px;
+	border: 0;
+  }
+
+
+  .add-module {
+	display: none;
+  }
+
+  .xgrow-card-footer {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-end;
+  }
+
+  .xgrow-input-search-class {
+	display: block;
+  }
+
+  .xgrow-flex-tabs-search {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+
+  .xgrow-search-collapse {
+	background-color: var(--black1);
+	align-self: center;
+	border-radius: 4px;
+	display: none;
+	height: 40px;
+	width: 40px;
+	border: 0;
+  }
+  .xgrow-search-collapse::before {
+	font-family: "FontAwesome";
+	content: "\f002";
+	color: #addf45;
+  }
+
+  @media screen and (max-width: 991px) {
+	.xgrow-card-footer {
+	  flex-direction: column;
+	  justify-content: center;
+	  align-content: center;
+	}
+
+	.xgrow-card-footer button {
+	  width: 100%;
+	}
+  }
+
+  @media screen and (max-width: 1000px) {
+	.xgrow-search-collapse {
+	  display: block;
+	}
+	.xgrow-input-search-class {
+	  display: none;
+	}
+  }
+
+  @media screen and (max-width: 530px) {
+	.xgrow-search-collapse {
+	  width: 100%;
+	  margin-top: 10px;
+	  flex-wrap: wrap;
+	}
+	.xgrow-flex-tabs-search {
+	  justify-content: center;
+	}
+  }

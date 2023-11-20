@@ -1,0 +1,136 @@
+.xgrow-card-header a {
+  color: var(--green2);
+}
+.xgrow-card-header a:hover {
+  color: var(--green2);
+  transition: 0.3s;
+}
+.xgrow-card-sm-group {
+  padding: 8px 8px 8px 0;
+}
+
+.xgrow-search-date {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--white);
+  background-color: var(--none);
+  border-radius: 4px;
+}
+.xgrow-search-date::before {
+  font-family: "FontAwesome";
+  content: "\f002";
+  color: #addf45;
+}
+
+.activity-card-nav.nav-tabs .nav-link {
+  color: var(--green2);
+  font-variant: 700;
+  border: none;
+}
+
+.activity-card-nav.nav-tabs .nav-link::before {
+  border-bottom: 0.5px solid var(--green2);
+  border: none;
+}
+
+.activity-card-link.nav-tabs .nav-link.active {
+  border-bottom: 2px solid var(--green2);
+  font: var(--text-medium-bold);
+  background: var(--green1);
+  color: var(--white);
+  border: none;
+}
+.activity-card-nav.tabs-card-big {
+  border: 1px solid var(--white);
+  justify-content: space-around;
+  border-radius: 4px;
+  display: flex;
+  padding: 0;
+}
+
+.activity-card-item.tab-card-big {
+  border-radius: 5px;
+  width: 50%;
+}
+
+.activity-card-item.tab-card-big .nav-link {
+  border-radius: 5px;
+  text-align: center;
+}
+.activity-card-item.tab-card-big .nav-link.active {
+  background-color: var(--green1);
+  color: var(--white);
+  border-radius: 2px;
+  border: 0;
+}
+#myTab > li {
+  width: 110px;
+}
+
+.media {
+  border-bottom: 1px solid var(--gray1);
+  padding: 16px 8px;
+}
+.media:last-child {
+  border-bottom: 0;
+}
+.media:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.media-list {
+  overflow-y: auto;
+  height: 243px;
+  padding: 0;
+}
+.media-heading {
+  font: var(--text-large-regular);
+  color: var(--green2);
+  margin-bottom: 4px;
+}
+.media-body {
+  margin-left: 8px;
+}
+.perfomance-select.xgrow-select {
+  width: 200px;
+}
+#main {
+  width: 100%;
+  min-height: 300px;
+}
+#main div {
+  width: 300px;
+}
+#main2 {
+  width: 100%;
+  min-height: 300px;
+}
+#main2 div {
+  width: 300px;
+}
+#piechart {
+  width: 100%;
+  min-height: 300px;
+}
+#piechart div {
+  width: 300px;
+}
+.xgrow-button.btn-graph {
+  float: right;
+}
+
+.card-top10-content {
+  padding: 48px 24px;
+  width: 100%;
+}
+
+.card-top10-content h6 {
+  color: var(--green2);
+}
+
+.card-top10-content li {
+  color: var(--gray3);
+}
+
+.card-top10-content hr {
+  color: var(--gray3);
+}

@@ -1,0 +1,140 @@
+# Default values for integration.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## Number of replicas
+# replicas: 1
+
+image:
+  name: us-east1-docker.pkg.dev/xstaging-348615/platform/integrations
+  tag: develop-latest
+  pullPolicy: Always
+
+
+fullnameOverride: integrations
+
+## Command to execute in the app pod
+command: null
+args: null
+
+# Init command, if set will set up a initContainer with the command
+initCommand: null
+
+## Environment Variables
+env: {}
+  # var: value
+
+## Environment Variables stored in secrets
+secretEnv: {}
+  # var: value
+
+## Add arbitrary ConfigMaps to deployment
+## Will be mounted to /configs/, i.e. myconfig.json would
+## be mounted to /configs/myconfig.json.
+configFiles: {}
+  # myconfig.json: |
+  #   filecontents...
+
+## Add arbitrary Secrets to deployment
+## Will be mounted to /secrets/, i.e. file.name would
+## be mounted to /secrets/mysecret.txt.
+## The contents will be base64 encoded when added
+secretFiles: {}
+  # mysecret.txt: |
+  #   filecontents...
+
+imagePullSecrets:
+  - gcr-registry
+
+## Node Selector
+nodeSelector: {}
+  # key: value
+
+## Node Affinity
+affinity: 
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node_group
+          operator: In
+          values:
+          - application
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 1
+      preference:
+        matchExpressions:
+        - key: node_group
+          operator: In
+          values:
+          - application
+
+## Prefer Preemptible nodes (only on GKE)
+gkePreferPreemptibleNode: false
+
+## Don't run on preemptible nodes (only on GKE)
+gkeForbidPreemptibleNode: false
+
+## Only run on preemptible nodes (only on GKE)
+gkeForcePreemptibleNode: false
+
+## Liveness probe
+livenessProbe: {}
+
+## Readiness probe
+readinessProbe: {}
+
+## Resources
+# resources: 
+#   limits:
+#    cpu: 100m
+#    memory: 256Mi
+#   requests:
+#    cpu: 50m
+#    memory: 128Mi
+
+## Labels to be added to all objects
+extraLabels: {}
+  # key: value
+
+## Deployment
+deployment: {}
+  #strategy:
+    #type: RollingUpdate
+    #rollingUpdate:
+    #  maxSurge: 1
+    #  maxUnavailable: 0
+  # labels to add to the pod container metadata
+  # podLabels:
+  #   key: value
+  # podAnnotations:
+  #   key: value
+
+## Service
+service:
+  enabled: false
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+  protocol: TCP
+
+## Ingress
+ingress:
+  ## If ingress is enabled
+  enabled: false
+
+  ## If TLS is enabled:
+  tls: true
+
+  ## Annotations
+  annotations: {}
+
+  ## Hosts
+  hosts: []
+    # -
+    # host: app.com
+    # path: /
+    # port: 80
+
+
+workers: {}
