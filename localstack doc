@@ -1,0 +1,59 @@
+Localstack
+
+localstack.cloud
+
+O Localstack é uma ferramenta para emular os serviços da AWS localmente em sua máquina, de modo que o desenvolvimento e teste independa de instâncias e configurações reais na núvem. O Localstack roda em um container único em sua máquina.
+
+INSTALAÇÃO
+
+Existem algumas maneiras de instalá-lo, como: CLI, Localstack Cockpit (aplicação desktop), Docker/Docker-Compose, Helm.
+
+Focaremos na instação do Localstack CLI. O CLI permite que você inicie o Localstack e seus serviços a partir do terminal. Para que esse método funcione, você deve ter um ambiente docker instalado e rodando em sua máquina
+
+MacOS
+
+	Você pode utilizar o brew:
+
+	brew install localstack/tap/localstack-cli
+
+	Ou ainda instalá-lo com o python em seu terminal (deve-se ter instalado o python 3.7 até 3.11 e pip em sua máquina):
+	python3 -m pip install --upgrade localstack
+
+Windows
+
+	Você pode baixar o instalador executável:
+	https://github.com/localstack/localstack-cli/releases/download/v2.1.0/localstack-cli-2.1.0-windows-amd64-onefile.zip
+
+	Ou ainda instalá-lo com pyhton pelo terminal (vide opção Python Mac)
+
+Linux
+
+	Você pode baixar o binário de acordo com a sua arquitetura e extraí-lo pelo terminal:
+
+	x86-64: https://github.com/localstack/localstack-cli/releases/download/v2.1.0/localstack-cli-2.1.0-linux-amd64-onefile.tar.gz
+	ARM64: https://github.com/localstack/localstack-cli/releases/download/v2.1.0/localstack-cli-2.1.0-linux-arm64-onefile.tar.gz
+	sudo tar xvzf ~/Downloads/localstack-cli-2.1.0-linux-*-onefile.tar.gz -C /usr/local/bin
+
+	Ou ainda instalá-lo com pyhton pelo terminal (vide opção Python Mac). IMPORTANTE: NÃO USE SUDO OU O ROOT USER PARA INSTALÁ-LO
+	
+Para verificar se a instalação ocorreu corretamente, você pode checkar a versão em seu terminal:
+	localstack --version
+
+
+CONFIGURAÇÃO DA API KEY (APENAS PARA VERSÕES PRO):
+
+Após ativada sua licença PRO, você pode pegar a sua API KEY em: https://app.localstack.cloud/account/apikeys?__hstc=108988063.b71f3219ea117e7861d9b0493f54470f.1689103578797.1689188923611.1689193340109.4&__hssc=108988063.4.1689193340109&__hsfp=3797697322
+
+Com a KEY, na hora de iniciar o localstack pelo CLI, você deve definí-la como variável de ambiente com o nome de LOCALSTACK_API_KEY.
+
+macOs/Linux:
+export LOCALSTACK_API_KEY=1ciYznXxjJ
+localstack start -d
+
+Windows:
+$env:LOCALSTACK_API_KEY=<YOUR_API_KEY> localstack start -d
+
+Doc. de alguns dos serviços da AWS disponíveis no Localstack
+
+
+

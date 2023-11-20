@@ -1,0 +1,43 @@
+service: my-service
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  # environment:
+  #   DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  # iamRoleStatements:
+  #   - Effect: Allow
+  #     Action:
+  #       - dynamodb:Query
+  #       - ...
+  #     Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+functions:
+  create:
+    handler: index.handler
+    events:
+      - http:
+          path: /
+          method: get
+          # cors: true
+
+#   ...
+
+# resources:
+#   Resources:
+#     TodosDynamoDbTable:
+#       Type: 'AWS::DynamoDB::Table'
+#       DeletionPolicy: Retain
+#       Properties:
+#         ...
+#         TableName: ${self:provider.environment.DYNAMODB_TABLE}
+
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - local
